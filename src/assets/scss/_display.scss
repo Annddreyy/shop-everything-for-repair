@@ -1,0 +1,97 @@
+@use './variables' as *;
+
+.row {
+    display: flex;
+    gap: $base-gap;
+}
+
+.column {
+    @extend .row;
+    flex-direction: column;
+}
+
+.row-a-s {
+    @extend .row;
+    align-items: start;
+}
+
+.row-a-c {
+    @extend .row;
+    align-items: center;
+}
+
+.row-a-e {
+    @extend .row;
+    align-items: end;
+}
+
+.row-j-s {
+    @extend .row;
+    justify-content: start;
+}
+
+.row-j-c {
+    @extend .row;
+    justify-content: center;
+}
+
+.row-j-e {
+    @extend .row;
+    justify-content: end;
+}
+
+.row-c {
+    @extend .row-a-c;
+    @extend .row-j-c;
+}
+
+.column-a-s {
+    @extend .column;
+    align-items: start;
+}
+
+.column-a-c {
+    @extend .column;
+    align-items: center;
+}
+
+.column-a-e {
+    @extend .column;
+    align-items: end;
+}
+
+.column-j-s {
+    @extend .column;
+    justify-content: start;
+}
+
+.column-j-c {
+    @extend .column;
+    justify-content: center;
+}
+
+.column-j-e {
+    @extend .column;
+    justify-content: end;
+}
+
+.column-c {
+    @extend .column-a-c;
+    @extend .column-j-c;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}

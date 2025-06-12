@@ -9,6 +9,7 @@ $colors: (
     'green': #1b9665,
     'gray': #a8adb2,
     'orange': #ff9900,
+    'white': #ffffff,
 );
 
 $font-sizes: (
@@ -41,3 +42,23 @@ $base-padding-6: $base-padding * 6;
 $base-padding-7: $base-padding * 7;
 $base-padding-8: $base-padding * 8;
 $base-padding-9: $base-padding * 9;
+
+$base-gap: 8px;
+$base-gap-2: $base-gap * 2;
+$base-gap-3: $base-gap * 3;
+$base-gap-4: $base-gap * 4;
+$base-gap-5: $base-gap * 5;
+$base-gap-6: $base-gap * 6;
+$base-gap-7: $base-gap * 7;
+$base-gap-8: $base-gap * 8;
+$base-gap-9: $base-gap * 9;
+
+$base-border-radius: 4px !default;
+$base-border-radius-2: $base-border-radius * 2 !default;
+$base-border-radius-3: $base-border-radius * 3 !default;
+$base-border-radius-4: $base-border-radius * 4 !default;
+$base-border-radius-5: $base-border-radius * 5 !default;
+$base-border-radius-6: $base-border-radius * 6 !default;
+$base-border-radius-7: $base-border-radius * 7 !default;
+$base-border-radius-8: $base-border-radius * 8 !default;
+$base-border-radius-9: $base-border-radius * 9 !default;

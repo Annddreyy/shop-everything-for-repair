@@ -11,6 +11,7 @@ $dark-blue: map.get($colors, 'dark-blue');
 $green: map.get($colors, 'green');
 $gray: map.get($colors, 'gray');
 $orange: map.get($colors, 'orange');
+$white: map.get($colors, 'white');
 
 $fz-mini: map.get($font-sizes, 'mini');
 $fz-small: map.get($font-sizes, 'small');
@@ -32,6 +33,7 @@ $fz-xxxl: map.get($font-sizes, 'xxxl');
     --green: #{$green};
     --gray: #{$gray};
     --orange: #{$orange};
+    --white: #{$white};
 
     --fz-mini: #{$fz-mini};
     --fz-small: #{$fz-small};
@@ -44,23 +46,31 @@ $fz-xxxl: map.get($font-sizes, 'xxxl');
 }
 
 @font-face {
-    font-family: Helvetica-normal;
-    src: url('./../assets/fonts/helveticaneuecyr_roman.otf');
+  font-family: 'Helvetica';
+  src: url('./../assets/fonts/helveticaneuecyr_roman.otf');
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: Helvetica-weight;
-    src: url('./../assets/fonts/helveticaneuecyr_black.otf');
+  font-family: 'Helvetica';
+  src: url('./../assets/fonts/helveticaneuecyr_black.otf');
+  font-weight: 700;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: Helvetica-thin;
-    src: url('./../assets/fonts/helveticaneuecyr_thin.otf');
+  font-family: 'Helvetica';
+  src: url('./../assets/fonts/helveticaneuecyr_thin.otf');
+  font-weight: 100;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: Helvetica-italic;
-    src: url('./../assets/fonts/helveticaneuecyr_ultralightitalic.otf');
+  font-family: 'Helvetica';
+  src: url('./../assets/fonts/helveticaneuecyr_ultralightitalic.otf');
+  font-weight: 200;
+  font-style: italic;
 }
 
 *,
@@ -69,7 +79,7 @@ $fz-xxxl: map.get($font-sizes, 'xxxl');
     margin: 0;
     padding: 0;
 
-    font-family: Helvetica-thin;
+    font-family: 'Helvetica';
     font-size: var(--fz-base);
     color: var(--black);
 
