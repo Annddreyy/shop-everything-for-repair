@@ -1,29 +1,24 @@
 <template>
-    <ProductCard :card="card"/>
+    <div v-for="product in products" :key="product.id">
+        <ProductCard :card="product" />
+    </div>
     <RouterView />
 </template>
 
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
+import { useProductStore } from '@/entities/product/model/productStore';
 import ProductCard from '@/entities/product/ui/ProductCard.vue';
-import type { Product } from '@/entities/product/types/product';
-import img from './../assets/images/product/product_test.png';
+import { computed, onBeforeMount } from 'vue';
+import { RouterView } from 'vue-router';
 
-const card: Product = {
-    id: 10,
-    title: 'Перфоратор универсальный Wander X645-46 GF 1450W',
-    price: 12000,
-    promotionPercent: 12,
-    img: img,
-    article: 'XJ390254',
-    statuses: ['хит', 'новинка'],
-    isFavorite: true,
-    isComparable: false,
-    isInCart: false,
-};
+const productsStore = useProductStore();
+const products = computed(() => productsStore.products);
 
+onBeforeMount(async () => {
+    if (products.value.length === 0) {
+        await productsStore.setProducts();
+    }
+});
 </script>
 
-<style module>
-
-</style>
+<style module></style>
