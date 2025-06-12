@@ -1,0 +1,88 @@
+{
+    "products": [
+        {
+            "id": 2,
+            "title": "234324",
+            "price": 12000,
+            "promotionPercent": 12,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "article": "XJ390254",
+            "statuses": ["хит", "новинка"],
+            "isFavorite": true,
+            "isComparable": false,
+            "isInCart": false
+        },
+        {
+            "id": 4,
+            "title": "111",
+            "price": 12000,
+            "promotionPercent": 12,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "article": "XJ390254",
+            "statuses": ["хит", "новинка"],
+            "isFavorite": true,
+            "isComparable": false,
+            "isInCart": false
+        },
+        {
+            "id": 7,
+            "title": "234234",
+            "price": 12000,
+            "promotionPercent": 12,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "article": "XJ390254",
+            "statuses": ["хит", "новинка"],
+            "isFavorite": true,
+            "isComparable": false,
+            "isInCart": false
+        },
+        {
+            "id": 8,
+            "title": "Пrwerwer",
+            "price": 12000,
+            "promotionPercent": 12,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "article": "XJ390254",
+            "statuses": ["хит", "новинка"],
+            "isFavorite": true,
+            "isComparable": false,
+            "isInCart": false
+        },
+        {
+            "id": 10,
+            "title": "Перфоратор универсальный Wander X645-46 GF 1450W",
+            "price": 12000,
+            "promotionPercent": 12,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "article": "XJ390254",
+            "statuses": ["хит", "новинка"],
+            "isFavorite": true,
+            "isComparable": false,
+            "isInCart": false
+        },
+        {
+            "id": 10,
+            "title": "Перфоратор универсальный Wander X645-46 GF 1450W",
+            "price": 12000,
+            "promotionPercent": 12,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "article": "XJ390254",
+            "statuses": ["хит", "новинка"],
+            "isFavorite": true,
+            "isComparable": false,
+            "isInCart": false
+        },
+        {
+            "id": 10,
+            "title": "Перфоратор универсальный Wander X645-46 GF 1450W",
+            "price": 12000,
+            "promotionPercent": 12,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "article": "XJ390254",
+            "statuses": ["хит", "новинка"],
+            "isFavorite": true,
+            "isComparable": false,
+            "isInCart": false
+        }
+    ]
+}

@@ -9,6 +9,6 @@ export interface Product {
     statuses: Status[];
     promotionPercent?: number;
     isFavorite: boolean;
-    isComparable: boolean,
-    isInCart: boolean,
-};
+    isComparable: boolean;
+    isInCart: boolean;
+}

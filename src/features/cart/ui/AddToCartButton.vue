@@ -1,6 +1,6 @@
 <template>
     <div :class="$style.button">
-        <img :src="img" alt="Добавить в корзину">
+        <img :src="img" alt="Добавить в корзину" />
         <span>Купить</span>
     </div>
 </template>
@@ -14,7 +14,7 @@ import img from './../../../assets/images/product/bin-icon.svg';
 .button {
     width: max-content;
     height: 40px;
-    
+
     display: flex;
     align-items: center;
     gap: $base-gap-3;
@@ -22,7 +22,7 @@ import img from './../../../assets/images/product/bin-icon.svg';
     padding: 7px 17px;
     border-radius: $base-border-radius-2;
 
-    background-color: #186FD4;
+    background-color: #186fd4;
 
     span {
         font-family: Helvetica-bold;
