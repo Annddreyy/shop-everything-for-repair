@@ -12,18 +12,10 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate } from '@/shared/lib/formatDate';
 import type { NewsCard } from '../types/news';
 import { RouterLink } from 'vue-router';
 
-const card: NewsCard = {
-    id: 1,
-    img: 'https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg',
-    title: 'Масштабное обновление каталога инструментов',
-    description:
-        'С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.',
-    date: new Date(2024, 3, 12),
-};
+const { card, formatDate } = defineProps<{ card: NewsCard, formatDate: (date: Date) => string }>();
 </script>
 
 <style lang="scss" module>
