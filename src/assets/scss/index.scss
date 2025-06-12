@@ -85,3 +85,26 @@ $fz-xxxl: map.get($font-sizes, 'xxxl');
 
     box-sizing: border-box;
 }
+
+.container {
+    max-width: min(96%, 100em);
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    outline: none;
+}
