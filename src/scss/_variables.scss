@@ -1,0 +1,43 @@
+$colors: (
+    'error': #ee0906,
+    'primary': #012f91,
+    'black': #2b2a28,
+    'light-blue': #bfe4fe,
+    'medium-blue': #86bedf,
+    'blue': #459ad0,
+    'dark-blue': #003b73,
+    'green': #1b9665,
+    'gray': #a8adb2,
+    'orange': #ff9900,
+);
+
+$font-sizes: (
+    'mini': 12px,
+    'small': 13px,
+    'medium': 15px,
+    'base': 16px,
+    'large': 18px,
+    'xl': 21px,
+    'xxl': 33px,
+    'xxxl': 48px,
+);
+
+$base-margin: 4px;
+$base-margin-2: $base-margin * 2;
+$base-margin-3: $base-margin * 3;
+$base-margin-4: $base-margin * 4;
+$base-margin-5: $base-margin * 5;
+$base-margin-6: $base-margin * 6;
+$base-margin-7: $base-margin * 7;
+$base-margin-8: $base-margin * 8;
+$base-margin-9: $base-margin * 9;
+
+$base-padding: 4px;
+$base-padding-2: $base-padding * 2;
+$base-padding-3: $base-padding * 3;
+$base-padding-4: $base-padding * 4;
+$base-padding-5: $base-padding * 5;
+$base-padding-6: $base-padding * 6;
+$base-padding-7: $base-padding * 7;
+$base-padding-8: $base-padding * 8;
+$base-padding-9: $base-padding * 9;
