@@ -1,0 +1,26 @@
+@use './variables' as *;
+
+@each $k, $v in $colors {
+    .bg-#{$k} {
+        background-color: $v;
+    }
+
+    .text-#{$k} {
+        color: $v;
+    }
+
+    .border-#{$k} {
+        border-color: $v;
+    }
+}
+
+$base-border-radius: 4px !default;
+$base-border-radius-2: $base-border-radius * 2 !default;
+$base-border-radius-3: $base-border-radius * 3 !default;
+$base-border-radius-4: $base-border-radius * 4 !default;
+$base-border-radius-5: $base-border-radius * 5 !default;
+$base-border-radius-6: $base-border-radius * 6 !default;
+$base-border-radius-7: $base-border-radius * 7 !default;
+$base-border-radius-8: $base-border-radius * 8 !default;
+$base-border-radius-9: $base-border-radius * 9 !default;
+
