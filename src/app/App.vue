@@ -3,9 +3,11 @@
     <div v-for="product in products" :key="product.id">
         <ProductCard :card="product" />
     </div>
+    <NewsCard />
 </template>
 
 <script setup lang="ts">
+import NewsCard from '@/entities/news/ui/NewsCard.vue';
 import { useProductStore } from '@/entities/product/model/productStore';
 import ProductCard from '@/entities/product/ui/ProductCard.vue';
 import { computed, onBeforeMount } from 'vue';

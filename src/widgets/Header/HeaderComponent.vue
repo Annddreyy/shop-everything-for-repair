@@ -71,7 +71,6 @@ import likeIcon from './../../assets/images/header/like-icon.svg';
 import cartIcon from './../../assets/images/header/cart-icon.svg';
 import accountIcon from './../../assets/images/header/account-icon.svg';
 import compareIcon from './../../assets/images/header/compare-icon.svg';
-
 </script>
 
 <style module lang="scss">
@@ -143,7 +142,7 @@ header {
                 @extend .row;
                 height: 52px;
                 gap: 0;
-                background-color: #186FD4;
+                background-color: #186fd4;
                 padding: 3px;
                 border-radius: $base-border-radius-2;
                 input {
@@ -155,7 +154,6 @@ header {
 
                 img {
                     padding: 0 21px;
-
                 }
             }
 
@@ -164,7 +162,7 @@ header {
                 .button {
                     @extend .column-a-c;
                     span {
-                        color: #6B7076;
+                        color: #6b7076;
                         font-size: var(--fz-medium);
                     }
                 }
