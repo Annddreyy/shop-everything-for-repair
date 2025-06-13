@@ -1,0 +1,100 @@
+@use './variables' as *;
+
+.row {
+    display: flex;
+    gap: $base-gap;
+}
+
+.column {
+    @extend .row;
+    flex-direction: column;
+}
+
+.row-a-s {
+    @extend .row;
+    align-items: flex-start;
+}
+
+.row-a-c {
+    @extend .row;
+    align-items: center;
+}
+
+.row-a-e {
+    @extend .row;
+    align-items: flex-end;
+}
+
+.row-j-s {
+    @extend .row;
+    justify-content: flex-start;
+}
+
+.row-j-c {
+    @extend .row;
+    justify-content: center;
+}
+
+.row-j-e {
+    @extend .row;
+    justify-content: flex-end;
+}
+
+.row-c {
+    @extend .row-a-c;
+    @extend .row-j-c;
+}
+
+.column-a-s {
+    @extend .column;
+    align-items: flex-start;
+}
+
+.column-a-c {
+    @extend .column;
+    align-items: center;
+}
+
+.column-a-e {
+    @extend .column;
+    align-items: flex-end;
+}
+
+.column-j-s {
+    @extend .column;
+    justify-content: flex-start;
+}
+
+.column-j-c {
+    @extend .column;
+    justify-content: center;
+}
+
+.column-j-e {
+    @extend .column;
+    justify-content: flex-end;
+}
+
+.column-c {
+    @extend .column-a-c;
+    @extend .column-j-c;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-2 {
+    @extend .grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    @extend .grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    @extend .grid;
+    grid-template-columns: repeat(4, 1fr);
+}
