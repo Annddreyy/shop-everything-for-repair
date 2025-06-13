@@ -1,5 +1,6 @@
 <template>
     <HeaderComponent />
+    <AdvantagesComponent />
     <ComponentsList
         :component="ProductCategoryCard"
         :items="categories"
@@ -19,6 +20,7 @@
 import { usePromotionCardsStore } from '@/entities/promotion/model/promotionCardsStore';
 import PromotionCard from '@/entities/promotion/ui/PromotionCard.vue';
 import { categories } from '@/shared/config/productCategoryCards/categories';
+import AdvantagesComponent from '@/shared/ui/Advantages/AdvantagesComponent.vue';
 import ProductCategoryCard from '@/shared/ui/ProductCategoryCard/ProductCategoryCard.vue';
 import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
 import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
