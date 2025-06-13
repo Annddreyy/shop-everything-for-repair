@@ -1,8 +1,12 @@
 <template>
     <div class="container">
         <section :class="$style.advantages">
-            <div v-for="advantage in advantages" :key="advantage.description" :class="$style.advantage">
-                <img :src="advantage.img" :alt="advantage.description">
+            <div
+                v-for="advantage in advantages"
+                :key="advantage.description"
+                :class="$style.advantage"
+            >
+                <img :src="advantage.img" :alt="advantage.description" />
                 <span>{{ advantage.description }}</span>
             </div>
         </section>

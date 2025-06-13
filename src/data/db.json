@@ -85,7 +85,92 @@
             "isInCart": false
         }
     ],
-    "news": [],
+    "news": [
+        {
+            "id": 1,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 2,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 3,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 4,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 5,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 6,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 7,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 8,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 9,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 10,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 11,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        },
+        {
+            "id": 12,
+            "img": "https://cdn.vseinstrumenti.ru/images/goods/stroitelnyj-instrument/perforatory/1873931/560x504/163711801.jpg",
+            "title": "Масштабное обновление каталога инструментов",
+            "description": "С радостью сообщаем вам о крупном пополнении нашего каталога инструментов.",
+            "date": "2024-07-12"
+        }
+    ],
     "promotions": [
         {
             "id": 1,

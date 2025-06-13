@@ -12,12 +12,12 @@
 </template>
 
 <script setup lang="ts">
+import { formatDate } from '@/shared/lib/formatDate';
 import type { NewsCard } from '../types/news';
 import { RouterLink } from 'vue-router';
 
-const { card, formatDate } = defineProps<{
+const { card } = defineProps<{
     card: NewsCard;
-    formatDate: (date: Date) => string;
 }>();
 </script>
 

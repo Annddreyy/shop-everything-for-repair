@@ -12,7 +12,7 @@
 
 .row-a-s {
     @extend .row;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .row-a-c {
@@ -22,12 +22,12 @@
 
 .row-a-e {
     @extend .row;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .row-j-s {
     @extend .row;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .row-j-c {
@@ -37,7 +37,7 @@
 
 .row-j-e {
     @extend .row;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .row-c {
@@ -47,7 +47,7 @@
 
 .column-a-s {
     @extend .column;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .column-a-c {
@@ -57,12 +57,12 @@
 
 .column-a-e {
     @extend .column;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .column-j-s {
     @extend .column;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .column-j-c {
@@ -72,7 +72,7 @@
 
 .column-j-e {
     @extend .column;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .column-c {

@@ -1,6 +1,6 @@
 <template>
     <article :class="$style.brand">
-        <img :src="card.img" alt="">
+        <img :src="card.img" alt="" />
     </article>
 </template>
 
@@ -16,10 +16,10 @@ const { card } = defineProps<{ card: Brand }>();
 .brand {
     @extend .row-a-c;
     @extend .row-j-c;
-    
+
     width: 215px;
     height: 80px;
     padding: 10px;
-    background-color: #F2F4F5;
+    background-color: #f2f4f5;
 }
 </style>

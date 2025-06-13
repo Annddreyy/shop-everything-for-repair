@@ -1,11 +1,13 @@
 <template>
-    <section>
+    <section :class="$style.brands">
+        <div class="container">
+            <h2 :class="$style.title">Популярные бренды</h2>
+        </div>
         <ComponentsList
             :component="BrandCard"
             :items="brands"
             prop-name="card"
             item-key="id"
-            :class="$style.brands"
         />
     </section>
 </template>
@@ -17,8 +19,23 @@ import { brands } from '@/shared/config/brands/brands';
 </script>
 
 <style lang="scss" module>
+@use './../../../assets/scss/variables' as *;
+@use './../../../assets/scss/display' as *;
+
 .brands {
-    overflow-x: hidden;
-    flex-wrap: nowrap !important;
+    @extend .column;
+    gap: $base-gap-2;
+
+    background-color: #F9FAFB;
+    padding: $base-padding-9 0;
+
+    .title {
+        width: 100%;
+        display: flex;
+        text-align: start;
+        align-self: flex-start;
+        justify-self: self-start;
+        font-size: var(--fz-xxl);
+    }
 }
 </style>
