@@ -15,7 +15,10 @@
 import type { NewsCard } from '../types/news';
 import { RouterLink } from 'vue-router';
 
-const { card, formatDate } = defineProps<{ card: NewsCard, formatDate: (date: Date) => string }>();
+const { card, formatDate } = defineProps<{
+    card: NewsCard;
+    formatDate: (date: Date) => string;
+}>();
 </script>
 
 <style lang="scss" module>

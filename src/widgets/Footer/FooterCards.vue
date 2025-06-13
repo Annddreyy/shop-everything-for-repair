@@ -13,8 +13,13 @@
         <div :class="$style.emailBlock">
             <span>Подпишитесь на рассылку и будьте в курсе!</span>
             <form :class="$style.form">
-                <input type="email" name="email" id="email" placeholder="Ваш email">
-                <button><img :src="sendEmail" alt="Отправить почту"></button>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Ваш email"
+                />
+                <button><img :src="sendEmail" alt="Отправить почту" /></button>
             </form>
         </div>
     </section>
@@ -39,7 +44,7 @@ import sendEmail from './../../assets/images/footer/send-email.svg';
     padding: $base-padding-9 0;
 
     border-bottom: 1px solid #dce1e7;
-    
+
     .paymentCards {
         @extend .row-a-c;
         gap: $base-gap-6;
@@ -47,7 +52,7 @@ import sendEmail from './../../assets/images/footer/send-email.svg';
             @extend .row-a-c;
             gap: $base-gap-3;
             img {
-                filter:opacity(50%);
+                filter: opacity(50%);
             }
         }
     }

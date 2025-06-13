@@ -85,5 +85,49 @@
             "isInCart": false
         }
     ],
-    "news": []
+    "news": [],
+    "promotions": [
+        {
+            "id": 1,
+            "title": "Метизные изделия",
+            "promotionPercent": 15,
+            "backgroundImg": "https://avatars.mds.yandex.net/i?id=1dc7bcbe528d1ec1ecf8c9748ab9d3a883398d8e-8800190-images-thumbs&n=13"
+        },
+        {
+            "id": 2,
+            "title": "Метизные изделия",
+            "promotionPercent": 15,
+            "backgroundImg": "https://avatars.mds.yandex.net/i?id=1dc7bcbe528d1ec1ecf8c9748ab9d3a883398d8e-8800190-images-thumbs&n=13"
+        },
+        {
+            "id": 3,
+            "title": "Метизные изделия",
+            "promotionPercent": 15,
+            "backgroundImg": "https://avatars.mds.yandex.net/i?id=1dc7bcbe528d1ec1ecf8c9748ab9d3a883398d8e-8800190-images-thumbs&n=13"
+        },
+        {
+            "id": 4,
+            "title": "Метизные изделия",
+            "promotionPercent": 15,
+            "backgroundImg": "https://avatars.mds.yandex.net/i?id=1dc7bcbe528d1ec1ecf8c9748ab9d3a883398d8e-8800190-images-thumbs&n=13"
+        },
+        {
+            "id": 5,
+            "title": "Метизные изделия",
+            "promotionPercent": 15,
+            "backgroundImg": "https://avatars.mds.yandex.net/i?id=1dc7bcbe528d1ec1ecf8c9748ab9d3a883398d8e-8800190-images-thumbs&n=13"
+        },
+        {
+            "id": 6,
+            "title": "Метизные изделия",
+            "promotionPercent": 15,
+            "backgroundImg": "https://avatars.mds.yandex.net/i?id=1dc7bcbe528d1ec1ecf8c9748ab9d3a883398d8e-8800190-images-thumbs&n=13"
+        },
+        {
+            "id": 7,
+            "title": "Метизные изделия",
+            "promotionPercent": 15,
+            "backgroundImg": "https://avatars.mds.yandex.net/i?id=1dc7bcbe528d1ec1ecf8c9748ab9d3a883398d8e-8800190-images-thumbs&n=13"
+        }
+    ]
 }

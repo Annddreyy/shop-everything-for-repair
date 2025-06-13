@@ -6,7 +6,7 @@
     <NewsCardComponent :card="card" :format-date="formatDate" />
 </template>
 
-<script setup lang="ts">;
+<script setup lang="ts">
 import type { NewsCard } from '@/entities/news/types/news';
 import NewsCardComponent from '@/entities/news/ui/NewsCardComponent.vue';
 import { useProductStore } from '@/entities/product/model/productStore';

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import type { Product } from '../types/product';
-import { productsAPI } from '@/shared/api/products';
+import { productsAPI } from '@/shared/api/productsAPI';
 
 export const useProductStore = defineStore('products', {
     state: () => ({

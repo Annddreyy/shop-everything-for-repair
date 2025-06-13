@@ -1,5 +1,5 @@
 import type { Product } from '@/entities/product/types/product';
-import { instance } from './api';
+import { instance } from '../config/api/api';
 
 export const productsAPI = {
     async getProducts(page = 1, size = 1) {

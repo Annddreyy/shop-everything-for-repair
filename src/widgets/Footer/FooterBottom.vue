@@ -5,7 +5,7 @@
             40702810360000102415 в Ставропольское отделение №5230 ПАО Сбербанк,
             БИК 040702615</span
         >
-        <img :src="readyCodeLogo" alt="">
+        <img :src="readyCodeLogo" alt="" />
         <span>Политика конфиденциальности</span>
     </section>
 </template>
