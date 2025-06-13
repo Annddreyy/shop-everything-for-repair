@@ -13,6 +13,7 @@
         prop-name="card"
         item-key="id"
     />
+    <BrandsList />
     <FooterComponent />
 </template>
 
@@ -21,6 +22,7 @@ import { usePromotionCardsStore } from '@/entities/promotion/model/promotionCard
 import PromotionCard from '@/entities/promotion/ui/PromotionCard.vue';
 import { categories } from '@/shared/config/productCategoryCards/categories';
 import AdvantagesComponent from '@/shared/ui/Advantages/AdvantagesComponent.vue';
+import BrandsList from '@/shared/ui/Brands/BrandsList.vue';
 import ProductCategoryCard from '@/shared/ui/ProductCategoryCard/ProductCategoryCard.vue';
 import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
 import FooterComponent from '@/widgets/Footer/FooterComponent.vue';

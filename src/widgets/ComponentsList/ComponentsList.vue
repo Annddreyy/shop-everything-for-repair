@@ -7,10 +7,6 @@
                 :is="component"
                 v-bind="{ [propName]: item }"
             />
-            <RouterLink to="/catalog" :class="$style.card">
-                <span :class="$style.img">&gt;</span>
-                <h3 :class="$style.title">Перейти в каталог</h3>
-            </RouterLink>
         </div>
     </div>
 </template>
@@ -33,6 +29,7 @@ defineProps<{
 .list {
     @extend .row;
     flex-wrap: wrap;
+    margin: $base-margin-4 0;
 }
 
 .card {
