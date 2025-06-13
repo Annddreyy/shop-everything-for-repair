@@ -79,6 +79,5 @@ onBeforeMount(() => {
             border-radius: $base-border-radius;
         }
     }
-
 }
 </style>

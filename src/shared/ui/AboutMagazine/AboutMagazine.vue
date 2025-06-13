@@ -44,9 +44,12 @@
                     любые строительные и дизайнерские фантазии и с минимальными
                     затратами времени и денежных средств.
                 </p>
-                <button :class="$style.button">
-                    Подробнее о компании &nbsp;&gt;
-                </button>
+                <ButtonComponent
+                    text="Подробнее о компании &nbsp;&gt;"
+                    :bg-color="Colors['BLACK']"
+                    :text-color="Colors['WHITE']"
+                    :class="$style.button"
+                />
             </div>
             <img :src="aboutCompany" alt="" />
         </div>
@@ -54,6 +57,8 @@
 </template>
 
 <script setup lang="ts">
+import ButtonComponent from '../ButtonComponent/ButtonComponent.vue';
+import { Colors } from '../ButtonComponent/types';
 import aboutCompany from './../../../assets/images/main_page/about_company.svg';
 </script>
 
@@ -107,10 +112,8 @@ import aboutCompany from './../../../assets/images/main_page/about_company.svg';
 
             .button {
                 align-self: flex-start;
-                padding: 24px 27px;
 
-                background-color: #011120;
-                color: white;
+                padding: 24px 27px;
                 border-radius: $base-border-radius-2;
 
                 text-transform: uppercase;

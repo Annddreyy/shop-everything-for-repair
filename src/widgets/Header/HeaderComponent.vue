@@ -14,17 +14,25 @@
                 <div :class="$style.information">
                     <span :class="$style.time">Ежедневно с 8:00 до 18:00</span>
                     <span :class="$style.phone">8 800 444 00 65</span>
-                    <button :class="$style.phoneButton">Заказать звонок</button>
+                    <ButtonComponent
+                        text="Заказать звонок"
+                        :bg-color="Colors['GRAY']"
+                        :text-color="Colors['BLUE']"
+                        :class="$style.phoneButton"
+                    />
                 </div>
             </div>
         </div>
         <div :class="$style.bottom">
             <div class="container">
                 <img :src="logo" alt="" />
-                <button :class="$style.catalogButton">
-                    <img :src="burgerButton" alt="" />
-                    <span>Каталог</span>
-                </button>
+                <ButtonComponent
+                    text="Каталог"
+                    :icon="burgerButton"
+                    :bg-color="Colors['BLUE']"
+                    :text-color="Colors['WHITE']"
+                    :class="$style.catalogButton"
+                />
                 <div :class="$style.search">
                     <input
                         type="search"
@@ -71,6 +79,8 @@ import likeIcon from './../../assets/images/header/like-icon.svg';
 import cartIcon from './../../assets/images/header/cart-icon.svg';
 import accountIcon from './../../assets/images/header/account-icon.svg';
 import compareIcon from './../../assets/images/header/compare-icon.svg';
+import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
+import { Colors } from '@/shared/ui/ButtonComponent/types';
 </script>
 
 <style module lang="scss">
@@ -108,12 +118,13 @@ header {
                 }
 
                 .phoneButton {
-                    font-size: var(--fz-mini);
                     padding: $base-padding-2;
-                    color: #2a5e8d;
-                    font-weight: bold;
-                    background-color: #f2f6fc;
                     border-radius: $base-border-radius-2;
+
+                    * {
+                        font-size: var(--fz-mini);
+                        font-weight: bold;
+                    }
                 }
             }
         }
@@ -126,14 +137,11 @@ header {
             justify-content: space-between;
 
             .catalogButton {
-                @extend .row-a-c;
                 height: 52px;
-                background-color: #186fd4;
                 padding: $base-padding-4 $base-padding-8;
                 border-radius: $base-border-radius-2;
 
                 span {
-                    color: var(--white);
                     font-size: var(--fz-small);
                 }
             }
