@@ -18,8 +18,8 @@ app.use(
 	})
 );
 
-app.use("/products", getProductsRouter(db));
-app.use("/news", getNewsRouter(db));
-app.use("/promotions", getPromotionsRouter(db));
+app.use("/products", getProductsRouter());
+app.use("/news", getNewsRouter());
+app.use("/promotions", getPromotionsRouter());
 
 setupSwagger(app);
