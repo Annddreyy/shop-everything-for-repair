@@ -1,8 +1,9 @@
 import express from "express";
 import { setupSwagger } from "../swagger";
 import { db } from "./db/db";
-import { getProductsRoute } from "./routes/products";
+import { getProductsRouter } from "./routes/products";
 import cors from "cors";
+import { getNewsRouter } from "./routes/news";
 
 export const app = express();
 
@@ -16,7 +17,7 @@ app.use(
 	})
 );
 
-app.use("/products", getProductsRoute(db));
-
+app.use("/products", getProductsRouter(db));
+app.use("/news", getNewsRouter(db));
 
 setupSwagger(app);

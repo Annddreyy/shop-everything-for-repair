@@ -10,20 +10,22 @@
                 {{ status }}
             </span>
         </div>
-        <img :src="card.img" />
-        <span :class="$style.article">{{ card.article }}</span>
-        <h3 :class="$style.title">{{ card.title }}</h3>
-        <div :class="$style.prices">
-            <span v-if="card.promotionPercent" :class="$style.oldPrice"
-                >{{
-                    Math.round(card.price * (1 + card.promotionPercent / 100))
-                }}
-                ₽</span
-            >
-            <span :class="$style.price">{{ card.price }} ₽</span>
-            <span v-if="card.promotionPercent" :class="$style.promotion"
-                >-{{ card.promotionPercent }}%</span
-            >
+        <div :class="$style.top">
+            <img :src="card.img" :class="$style.img" />
+            <span :class="$style.article">{{ card.article }}</span>
+            <h3 :class="$style.title">{{ card.title }}</h3>
+            <div :class="$style.prices">
+                <span v-if="card.promotionPercent" :class="$style.oldPrice"
+                    >{{
+                        Math.round(card.price * (1 + card.promotionPercent / 100))
+                    }}
+                    ₽</span
+                >
+                <span :class="$style.price">{{ card.price }} ₽</span>
+                <span v-if="card.promotionPercent" :class="$style.promotion"
+                    >-{{ card.promotionPercent }}%</span
+                >
+            </div>
         </div>
         <div :class="$style.bottomButtons">
             <AddToCartButton />
@@ -51,6 +53,7 @@ const { card } = defineProps<{ card: Product }>();
 
 .card {
     @extend .column;
+    justify-content: space-between;
     gap: $base-gap-2;
 
     position: relative;
@@ -89,42 +92,50 @@ const { card } = defineProps<{ card: Product }>();
         }
     }
 
-    .article {
-        font-size: var(--fz-small);
-        color: var(--gray);
-    }
-
-    .title {
-        font-size: var(--fz-large);
-        font-weight: 550;
-    }
-
-    .prices {
-        @extend .row-a-c;
-        gap: $base-gap-2;
-
-        .oldPrice {
-            color: var(--gray);
-            text-decoration: line-through;
-            font-weight: 400;
+    .top {
+        .img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .article {
             font-size: var(--fz-small);
+            color: var(--gray);
         }
 
-        .price {
-            font-size: 20px;
-            color: var(--dark-blue);
+        .title {
+            font-size: var(--fz-large);
             font-weight: 550;
         }
 
-        .promotion {
-            padding: $base-padding;
-            border-radius: $base-border-radius;
-            background-color: var(--green);
-            color: var(--white);
-            font-size: 11px;
-            font-weight: bold;
+        .prices {
+            @extend .row-a-c;
+            gap: $base-gap-2;
+
+            .oldPrice {
+                color: var(--gray);
+                text-decoration: line-through;
+                font-weight: 400;
+                font-size: var(--fz-small);
+            }
+
+            .price {
+                font-size: 20px;
+                color: var(--dark-blue);
+                font-weight: 550;
+            }
+
+            .promotion {
+                padding: $base-padding;
+                border-radius: $base-border-radius;
+                background-color: var(--green);
+                color: var(--white);
+                font-size: 11px;
+                font-weight: bold;
+            }
         }
     }
+
 
     .bottomButtons {
         display: flex;

@@ -28,6 +28,7 @@ defineProps<{
 
 .list {
     @extend .row;
+    gap: $base-gap-2;
     flex-wrap: wrap;
     margin: $base-margin-4 0;
 }

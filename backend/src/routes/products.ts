@@ -1,10 +1,10 @@
-import { DB, Product } from "../db/db";
+import { DB, ProductCard } from "../db/db";
 import express, { Request, Response } from "express";
 
-export const getProductsRoute = (db: DB) => {
-	const route = express.Router();
+export const getProductsRouter = (db: DB) => {
+	const router = express.Router();
 
-	route.get(
+	router.get(
 		"/",
 		(
 			req: Request<
@@ -20,7 +20,7 @@ export const getProductsRoute = (db: DB) => {
 				}
 			>,
 			res: Response<{
-				products: Product[];
+				products: ProductCard[];
 				pagesCount: number;
 			}>
 		) => {
@@ -59,5 +59,5 @@ export const getProductsRoute = (db: DB) => {
 		}
 	);
 
-	return route;
+	return router;
 };
