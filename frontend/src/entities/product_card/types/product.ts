@@ -1,6 +1,6 @@
 type Status = 'хит' | 'новинка' | 'распродажа';
 
-export interface Product {
+export interface ProductCard {
     id: number;
     title: string;
     img: string;

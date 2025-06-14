@@ -1,4 +1,4 @@
-export interface ProductGetModel {
+export interface ProductCardsGetRequestModel {
 	page: number;
 	size: number;
 	title: string;

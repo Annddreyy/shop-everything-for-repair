@@ -4,6 +4,7 @@ import { db } from "./db/db";
 import { getProductsRouter } from "./routes/products";
 import cors from "cors";
 import { getNewsRouter } from "./routes/news";
+import { getPromotionsRouter } from "./routes/promotions";
 
 export const app = express();
 
@@ -19,5 +20,6 @@ app.use(
 
 app.use("/products", getProductsRouter(db));
 app.use("/news", getNewsRouter(db));
+app.use("/promotions", getPromotionsRouter(db));
 
 setupSwagger(app);
