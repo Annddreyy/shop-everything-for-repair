@@ -18,9 +18,17 @@ export interface NewsCard {
 	date: Date;
 }
 
+export interface PromotionCard {
+	id: number;
+	title: string;
+	promotionPercent: number;
+	backgroundImg: string;
+}
+
 export interface DB {
 	products: ProductCard[];
 	news: NewsCard[];
+	promotions: PromotionCard[];
 }
 
 export const db: DB = {
@@ -296,6 +304,7 @@ export const db: DB = {
 			statuses: [],
 		},
 	],
+
 	news: [
 		{
 			id: 1,
@@ -1322,6 +1331,289 @@ export const db: DB = {
 			description:
 				"Доступные финансовые инструменты для развития бизнеса.",
 			date: new Date("2024-08-08"),
+		},
+	],
+	
+	promotions: [
+		{
+			id: 1,
+			title: "Summer Sale Bonanza",
+			promotionPercent: 25,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1441986300917-64674bd600d8",
+		},
+		{
+			id: 2,
+			title: "Black Friday Mega Deal",
+			promotionPercent: 50,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da",
+		},
+		{
+			id: 3,
+			title: "Spring Collection Launch",
+			promotionPercent: 15,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1490481651871-ab68de25d43d",
+		},
+		{
+			id: 4,
+			title: "Weekend Flash Sale",
+			promotionPercent: 30,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d",
+		},
+		{
+			id: 5,
+			title: "New Year Clearance",
+			promotionPercent: 40,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1483985988355-763728e1935b",
+		},
+		{
+			id: 6,
+			title: "Student Discount Special",
+			promotionPercent: 20,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1434030216411-0b793f4b4173",
+		},
+		{
+			id: 7,
+			title: "Valentine's Day Offers",
+			promotionPercent: 35,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1518049362265-d5b2a6467637",
+		},
+		{
+			id: 8,
+			title: "Back to School Sale",
+			promotionPercent: 22,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1503602642458-232111445657",
+		},
+		{
+			id: 9,
+			title: "Cyber Monday Blitz",
+			promotionPercent: 45,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1",
+		},
+		{
+			id: 10,
+			title: "Holiday Gift Guide",
+			promotionPercent: 28,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0",
+		},
+		{
+			id: 11,
+			title: "Mid-Season Markdown",
+			promotionPercent: 18,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1472851294608-062f824d29cc",
+		},
+		{
+			id: 12,
+			title: "Anniversary Celebration",
+			promotionPercent: 55,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1505022610485-0249ba5b3675",
+		},
+		{
+			id: 13,
+			title: "Mother's Day Special",
+			promotionPercent: 32,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1487222477894-8943e31ef7b2",
+		},
+		{
+			id: 14,
+			title: "Fall Fashion Preview",
+			promotionPercent: 24,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1445205170230-053b83016050",
+		},
+		{
+			id: 15,
+			title: "Early Bird Discount",
+			promotionPercent: 12,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1441984904996-e0b6ba687e04",
+		},
+		{
+			id: 16,
+			title: "End of Season Clear-out",
+			promotionPercent: 60,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1516762689617-e1cffcef479d",
+		},
+		{
+			id: 17,
+			title: "VIP Member Exclusive",
+			promotionPercent: 38,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1523381294911-8d3cedd3afd0",
+		},
+		{
+			id: 18,
+			title: "Flash Wednesday Deal",
+			promotionPercent: 26,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5",
+		},
+		{
+			id: 19,
+			title: "First Purchase Bonus",
+			promotionPercent: 15,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1472289065668-ce650ac443d2",
+		},
+		{
+			id: 20,
+			title: "Luxury Brand Showcase",
+			promotionPercent: 42,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1496747611176-843222e1e57c",
+		},
+		{
+			id: 21,
+			title: "Sports Equipment Sale",
+			promotionPercent: 33,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
+		},
+		{
+			id: 22,
+			title: "Tech Gadget Bonanza",
+			promotionPercent: 29,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1498049794561-7780e7231661",
+		},
+		{
+			id: 23,
+			title: "Home Decor Extravaganza",
+			promotionPercent: 36,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+		},
+		{
+			id: 24,
+			title: "Beauty Products Blast",
+			promotionPercent: 21,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
+		},
+		{
+			id: 25,
+			title: "Fitness Gear Friday",
+			promotionPercent: 27,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
+		},
+		{
+			id: 26,
+			title: "Book Lover's Paradise",
+			promotionPercent: 19,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1481627834876-b7833e8f5570",
+		},
+		{
+			id: 27,
+			title: "Kitchen Essentials Sale",
+			promotionPercent: 31,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1556909114-f6e7ad7d3136",
+		},
+		{
+			id: 28,
+			title: "Fashion Forward Friday",
+			promotionPercent: 44,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1445205170230-053b83016050",
+		},
+		{
+			id: 29,
+			title: "Gaming Zone Special",
+			promotionPercent: 37,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1511512578047-dfb367046420",
+		},
+		{
+			id: 30,
+			title: "Pet Supplies Savings",
+			promotionPercent: 23,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1601758228041-f3b2795255f1",
+		},
+		{
+			id: 31,
+			title: "Outdoor Adventure Gear",
+			promotionPercent: 34,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1551698618-1dfe5d97d256",
+		},
+		{
+			id: 32,
+			title: "Baby & Kids Collection",
+			promotionPercent: 17,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1522556189639-b150ed9c4330",
+		},
+		{
+			id: 33,
+			title: "Jewelry Showcase Event",
+			promotionPercent: 48,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1515562141207-7a88fb7ce338",
+		},
+		{
+			id: 34,
+			title: "Electronics Clearance",
+			promotionPercent: 41,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1468495244123-6c6c332eeece",
+		},
+		{
+			id: 35,
+			title: "Seasonal Wardrobe Update",
+			promotionPercent: 16,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1489987707025-afc232f7ea0f",
+		},
+		{
+			id: 36,
+			title: "Vintage Collection Revival",
+			promotionPercent: 52,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1506629905607-d8b5dc7d9d7d",
+		},
+		{
+			id: 37,
+			title: "Health & Wellness Week",
+			promotionPercent: 14,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
+		},
+		{
+			id: 38,
+			title: "Art & Craft Supplies",
+			promotionPercent: 39,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0",
+		},
+		{
+			id: 39,
+			title: "Travel Essentials Bundle",
+			promotionPercent: 43,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1488646953014-85cb44e25828",
+		},
+		{
+			id: 40,
+			title: "Premium Quality Selection",
+			promotionPercent: 58,
+			backgroundImg:
+				"https://images.unsplash.com/photo-1505022610485-0249ba5b3675",
 		},
 	],
 };

@@ -30,7 +30,7 @@ defineProps<{
     @extend .row;
     gap: $base-gap-2;
     flex-wrap: wrap;
-    margin: $base-margin-4 0;
+    margin: $base-margin-8 * 2 0;
 }
 
 .card {
