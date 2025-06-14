@@ -9,11 +9,13 @@ export const useProductStore = defineStore('products', {
         compareProducts: [] as Product[],
     }),
 
-    getters: {},
+    getters: {
+        getProducts: (state) => state.products,
+    },
 
     actions: {
-        async setProducts() {
-            this.products = await productsAPI.getProducts();
+        async setProducts(page: number, size: number) {
+            this.products = (await productsAPI.getProducts(page, size)).products;
         },
     },
 });

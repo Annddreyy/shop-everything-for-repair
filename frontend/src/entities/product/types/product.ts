@@ -8,7 +8,4 @@ export interface Product {
     article: string;
     statuses: Status[];
     promotionPercent?: number;
-    isFavorite: boolean;
-    isComparable: boolean;
-    isInCart: boolean;
 }

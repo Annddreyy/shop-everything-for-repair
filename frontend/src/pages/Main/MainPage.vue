@@ -13,6 +13,12 @@
         prop-name="card"
         item-key="id"
     />
+    <ComponentsList
+        :component="ProductCard"
+        :items="products.getProducts"
+        prop-name="card"
+        item-key="id"
+    />
     <BrandsList />
     <AboutMagazine />
     <div class="container">
@@ -35,6 +41,8 @@
 <script setup lang="ts">
 import { useNewsStore } from '@/entities/news/model/newsStore';
 import NewsCardComponent from '@/entities/news/ui/NewsCardComponent.vue';
+import { useProductStore } from '@/entities/product/model/productStore';
+import ProductCard from '@/entities/product/ui/ProductCard.vue';
 import { usePromotionCardsStore } from '@/entities/promotion/model/promotionCardsStore';
 import PromotionCard from '@/entities/promotion/ui/PromotionCard.vue';
 import { categories } from '@/shared/config/productCategoryCards/categories';
@@ -49,10 +57,12 @@ import { onBeforeMount } from 'vue';
 
 const promotions = usePromotionCardsStore();
 const news = useNewsStore();
+const products = useProductStore();
 
 onBeforeMount(() => {
     promotions.setPromotions();
     news.setNews();
+    products.setProducts(1, 4);
 });
 </script>
 
