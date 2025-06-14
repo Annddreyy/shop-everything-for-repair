@@ -1,7 +1,7 @@
 <template>
     <RouterLink :to="`/news/${card.id}`">
         <article :class="$style.news">
-            <img :src="card.img" alt="" :class="$style.img" />
+            <img :src="card.img" alt="" :class="$style.img" @error="onImageNotLoad" />
             <h3 :class="$style.title">{{ card.title }}</h3>
             <p :class="$style.description">{{ card.description }}</p>
             <time :datetime="card.date.toDateString()" :class="$style.date">{{
@@ -15,10 +15,16 @@
 import { formatDate } from '@/shared/lib/formatDate';
 import type { NewsCard } from '../types/news';
 import { RouterLink } from 'vue-router';
+import defaultImg from './../../../assets/images/img_not_found.png';
 
 const { card } = defineProps<{
     card: NewsCard;
 }>();
+
+const onImageNotLoad = (event: Event) => {
+  const target = event.target as HTMLImageElement;
+  target.src = defaultImg;
+};
 </script>
 
 <style lang="scss" module>
@@ -30,7 +36,8 @@ const { card } = defineProps<{
     @extend .column;
     .img {
         width: 100%;
-        height: auto;
+        height: 210px;
+        object-fit: cover;
         border-radius: $base-border-radius-2;
     }
 

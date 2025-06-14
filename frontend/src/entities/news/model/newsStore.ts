@@ -13,7 +13,7 @@ export const useNewsStore = defineStore('news', {
 
     actions: {
         async setNews(page = 1, pageSize = 4) {
-            const response = await newsAPI.getNews(page, pageSize);
+            const response = (await newsAPI.getNews(page, pageSize)).news;
             this.news = response.map((n) => ({
                 ...n,
                 date: new Date(n.date),

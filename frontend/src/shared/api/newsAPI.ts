@@ -3,7 +3,7 @@ import { instance } from '../config/api/api';
 
 export const newsAPI = {
     async getNews(page: number, pageSize: number) {
-        const response = await instance.get<NewsCard[]>(
+        const response = await instance.get<{ news: NewsCard[]; pagesCount: number }>(
             `/news?page=${page}&size=${pageSize}`,
         );
         return response.data;
