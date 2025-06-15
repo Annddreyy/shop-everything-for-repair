@@ -27,6 +27,8 @@ export const useNewsStore = defineStore('news', {
                 date: new Date(n.date),
             }));
 
+            console.log(this.news);
+
             this.pagesCount = pagesCount;
         },
 

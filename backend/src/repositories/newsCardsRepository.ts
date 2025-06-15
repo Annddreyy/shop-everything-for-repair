@@ -1,16 +1,23 @@
-import { db } from "../db/db";
-import { NewsCardsGetRequestModel } from "../model/news_card/NewsCardsGetRequestModel";
+import { NewsCard } from '../db/db';
+import { NewsCardsGetRequestModel } from '../model/news_card/NewsCardsGetRequestModel';
+import { client } from './db';
 
 export const newsCardsRepository = {
-	findNewsCards({ page = 1, size = 1 }: NewsCardsGetRequestModel) {
-		let news = db.news;
-		const newsCount = news.length;
+    async findNewsCards({ page = 1, size = 1 }: NewsCardsGetRequestModel) {
+        const collection = client
+            .db('shop-everything-for-repair')
+            .collection<NewsCard>('news_cards');
 
-		news = news.slice(size * (page - 1), size * page);
+        const newsCount = await collection.countDocuments();
+        const news = await collection
+            .find()
+            .skip(size * (page - 1))
+            .limit(size)
+            .toArray();
 
-		return {
-			news,
-			pagesCount: Math.ceil(newsCount / size),
-		};
-	},
+        return {
+            news,
+            pagesCount: Math.ceil(newsCount / size),
+        };
+    },
 };

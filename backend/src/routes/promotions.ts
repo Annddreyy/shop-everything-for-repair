@@ -1,23 +1,28 @@
-import express, { Response } from "express";
-import { PromotionCardsGetRequestModel } from "../model/promotion_card/PromotionCardsGetRequestModel";
-import { PromotionCardsGetResponseModel } from "../model/promotion_card/PromotionCardsGetResponseModel";
-import { RequestWithQuery } from "../types";
-import { promotionCardsRepository } from "../repositories/promotionCardsRepository";
+import express, { Response } from 'express';
+import { PromotionCardsGetRequestModel } from '../model/promotion_card/PromotionCardsGetRequestModel';
+import { PromotionCardsGetResponseModel } from '../model/promotion_card/PromotionCardsGetResponseModel';
+import { RequestWithQuery } from '../types';
+import { promotionCardsRepository } from '../repositories/promotionCardsRepository';
 
-export const getPromotionsRouter = () => {
-	const router = express.Router();
+export const promotionsRouter = express.Router();
 
-	router.get(
-		"/",
-		(
-			req: RequestWithQuery<PromotionCardsGetRequestModel>,
-			res: Response<PromotionCardsGetResponseModel>
-		) => {
-			const { promotions, pagesCount } =
-				promotionCardsRepository.findPromotions(req.query);
-			res.json({ promotions, pagesCount });
-		}
-	);
+promotionsRouter.get(
+    '/',
+    async (
+        req: RequestWithQuery<PromotionCardsGetRequestModel>,
+        res: Response<PromotionCardsGetResponseModel>,
+    ) => {
+        let { promotions: promotionsResponse, pagesCount } =
+            await promotionCardsRepository.findPromotions({
+                page: +req.query.page,
+                size: +req.query.size,
+            });
 
-	return router;
-};
+        const promotions = promotionsResponse.map(({ _id, ...promotion }) => ({
+            ...promotion,
+            id: _id.toString(),
+        }));
+
+        res.json({ promotions, pagesCount });
+    },
+);

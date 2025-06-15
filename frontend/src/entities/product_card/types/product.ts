@@ -1,7 +1,7 @@
 type Status = 'хит' | 'новинка' | 'распродажа';
 
 export interface ProductCard {
-    id: number;
+    id: string;
     title: string;
     img: string;
     price: number;

@@ -1,40 +1,47 @@
-import { db } from "../db/db";
-import { ProductCardsGetRequestModel } from "../model/product_card/ProductCardsGetRequestModel";
+import { ProductCard } from '../db/db';
+import { ProductCardsGetRequestModel } from '../model/product_card/ProductCardsGetRequestModel';
+import { client } from './db';
 
 export const productCardsRepository = {
-	findProducts({
-		page = 1,
-		size = 1,
-		title,
-		price_min,
-		price_max,
-	}: ProductCardsGetRequestModel) {
-		let allProducts = db.products;
+    async findProducts({
+        page = 1,
+        size = 1,
+        title = '',
+        price_min,
+        price_max,
+    }: ProductCardsGetRequestModel) {
+        const priceFilter: Record<string, number> = {};
 
-		if (title) {
-			allProducts = allProducts.filter((product) =>
-				product.title.includes(title)
-			);
-		}
+        if (price_min) {
+            priceFilter.$gt = +price_min - 1;
+        }
 
-		if (price_min) {
-			allProducts = allProducts.filter((product) => {
-				product.price >= price_min;
-			});
-		}
+        if (price_max && isFinite(+price_max)) {
+            priceFilter.$lt = +price_max + 1;
+        }
 
-		if (price_max) {
-			allProducts = allProducts.filter((product) => {
-				product.price <= price_max;
-			});
-		}
+        const filter: { title: object; price?: object } = {
+            title: { $regex: title, $options: 'i' },
+        };
 
-		const length = allProducts.length;
-		const products = allProducts.slice(size * (page - 1), size * page);
+        if (Object.keys(priceFilter).length > 0) {
+            filter.price = priceFilter;
+        }
 
-		return {
-			products,
-			pagesCount: Math.ceil(length / size),
-		};
-	},
+        const collection = client
+            .db('shop-everything-for-repair')
+            .collection<ProductCard>('product_cards');
+
+        const productsCount = await collection.countDocuments(filter);
+        const products = await collection
+            .find(filter)
+            .skip(size * (page - 1))
+            .limit(size)
+            .toArray();
+
+        return {
+            products,
+            pagesCount: Math.ceil(productsCount / size),
+        };
+    },
 };

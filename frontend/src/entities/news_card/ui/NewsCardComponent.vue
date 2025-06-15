@@ -15,7 +15,7 @@
 import { formatDate } from '@/shared/lib/formatDate';
 import type { NewsCard } from '../types/news';
 import { RouterLink } from 'vue-router';
-import defaultImg from './../../../assets/images/img_not_found.png';
+import defaultImg from '@/assets/images/img_not_found.png';
 
 const { card } = defineProps<{
     card: NewsCard;

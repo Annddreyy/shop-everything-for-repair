@@ -1,6 +1,6 @@
-import { NewsCard } from "../../db/db";
+import { NewsCard } from '../../db/db';
 
 export interface NewsCardsGetResponseModel {
-	news: NewsCard[];
-	pagesCount: number;
+    news: NewsCard[];
+    pagesCount: number;
 }

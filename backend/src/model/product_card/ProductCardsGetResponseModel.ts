@@ -1,6 +1,6 @@
-import { ProductCard } from "../../db/db";
+import { ProductCard } from '../../db/db';
 
 export interface ProductCardsGetResponseModel {
-	products: ProductCard[];
-	pagesCount: number;
+    products: ProductCard[];
+    pagesCount: number;
 }

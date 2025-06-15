@@ -1,6 +1,6 @@
-import { PromotionCard } from "../../db/db";
+import { PromotionCard } from '../../db/db';
 
 export interface PromotionCardsGetResponseModel {
     promotions: PromotionCard[];
-    pagesCount: number
+    pagesCount: number;
 }

@@ -1,16 +1,26 @@
-import { db } from "../db/db";
-import { PromotionCardsGetRequestModel } from "../model/promotion_card/PromotionCardsGetRequestModel";
+import { PromotionCard } from '../db/db';
+import { PromotionCardsGetRequestModel } from '../model/promotion_card/PromotionCardsGetRequestModel';
+import { client } from './db';
 
 export const promotionCardsRepository = {
-	findPromotions({ page = 1, size = 1 }: PromotionCardsGetRequestModel) {
-		let promotions = db.promotions;
-		const promotionsCount = promotions.length;
+    async findPromotions({
+        page = 1,
+        size = 1,
+    }: PromotionCardsGetRequestModel) {
+        const collection = client
+            .db('shop-everything-for-repair')
+            .collection<PromotionCard>('promotion_cards');
 
-		promotions = promotions.slice(size * (page - 1), size * page);
+        const promotionsCount = await collection.countDocuments();
+        const promotions = await collection
+            .find()
+            .skip(size * (page - 1))
+            .limit(size)
+            .toArray();
 
-		return {
-			promotions,
-			pagesCount: Math.ceil(promotionsCount / size),
-		};
-	},
+        return {
+            promotions,
+            pagesCount: Math.ceil(promotionsCount / size),
+        };
+    },
 };

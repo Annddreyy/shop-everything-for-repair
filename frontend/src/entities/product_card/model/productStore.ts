@@ -25,6 +25,7 @@ export const useProductStore = defineStore('products', {
         async setProducts(page: number, size: number) {
             const response = await productsAPI.getProducts(page, size);
             const { products, pagesCount } = response;
+            console.log(products);
 
             this.products = products;
             this.pagesCount = pagesCount;
