@@ -1,5 +1,5 @@
 import { app } from './app';
-import { runDb } from './repositories/db';
+import { runDb } from './app/repositories/db';
 
 const port = 8080;
 
