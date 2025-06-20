@@ -1,9 +1,10 @@
 import cors from 'cors';
 import express from 'express';
 import { setupSwagger } from '../swagger';
-import { newsRouter } from './routes/news';
-import { productsRouter } from './routes/products';
-import { promotionsRouter } from './routes/promotions';
+import { newsRouter } from './routes/newsCards.routes';
+import { productsRouter } from './routes/productCards.routes';
+import { promotionsRouter } from './routes/promotionCards.routes';
+import { emailRouter } from './routes/email.routes';
 
 export const app = express();
 
@@ -17,8 +18,9 @@ app.use(
     }),
 );
 
-app.use('/products', productsRouter);
-app.use('/news', newsRouter);
-app.use('/promotions', promotionsRouter);
+app.use('/product_cards', productsRouter);
+app.use('/news_cards', newsRouter);
+app.use('/promotion_cards', promotionsRouter);
+app.use('/send', emailRouter);
 
 setupSwagger(app);
