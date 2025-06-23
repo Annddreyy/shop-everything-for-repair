@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { promotionCardsCollection } from '../db';
+import { PromotionCardsModel } from '../db';
 
 export interface IPromotionCardDBWithoutID {
     title: string;
@@ -22,17 +22,17 @@ export const promotionCardsRepository = {
             promotionPercent,
             backgroundImg,
         };
-        const result = await promotionCardsCollection.insertOne(
+        const result = await PromotionCardsModel.insertOne(
             promotionCard as IPromotionCardDB,
         );
-        return result.insertedId.toString();
+        return result._id.toString();
     },
 
     async updatePromotionCard(
         id: string,
         update: Partial<IPromotionCardDB>,
     ): Promise<string | null> {
-        const result = await promotionCardsCollection.updateOne(
+        const result = await PromotionCardsModel.updateOne(
             { _id: new ObjectId(id) },
             update,
         );
@@ -41,7 +41,7 @@ export const promotionCardsRepository = {
     },
 
     async deletePromotionCard(id: string): Promise<string | null> {
-        const result = await promotionCardsCollection.deleteOne({
+        const result = await PromotionCardsModel.deleteOne({
             _id: new ObjectId(id),
         });
 

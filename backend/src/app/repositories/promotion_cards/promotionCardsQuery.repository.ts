@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { promotionCardsCollection } from '../db';
+import { ProductCardsModel } from '../db';
 import { IPromotionCardView } from '../../../routes/promotionCards.routes';
 import { IPromotionCardDB } from './promotionCards.repository';
 
@@ -8,12 +8,12 @@ export const promotionCardsQueryRepository = {
         page: number,
         size: number,
     ): Promise<{ promotions: IPromotionCardView[]; pagesCount: number }> {
-        const promotionsCount = await promotionCardsCollection.countDocuments();
-        const promotionsDB = await promotionCardsCollection
+        const promotionsCount = await ProductCardsModel.countDocuments();
+        const promotionsDB = await ProductCardsModel
             .find()
             .skip(size * (page - 1))
             .limit(size)
-            .toArray();
+            .lean();
 
         const promotions: IPromotionCardView[] = promotionsDB.map((promotion) =>
             convertType(promotion),
@@ -28,9 +28,9 @@ export const promotionCardsQueryRepository = {
     async findPromotionCard(
         id: string,
     ): Promise<IPromotionCardView | undefined> {
-        const promotionCardDB = await promotionCardsCollection
+        const promotionCardDB = await ProductCardsModel
             .find({ _id: new ObjectId(id) })
-            .toArray();
+            .lean();
 
         if (promotionCardDB) {
             const promotionCard = promotionCardDB[0];

@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { productCardsCollection } from '../db';
+import { ProductCardsModel } from '../db';
 import { IProductCardView } from '../../../routes/productCards.routes';
 import { IProductCardDB } from './productCards.repository';
 
@@ -31,12 +31,12 @@ export const productCardsQueryRepository = {
         }
 
         const productsCount =
-            await productCardsCollection.countDocuments(filter);
-        const productsDB = await productCardsCollection
+            await ProductCardsModel.countDocuments(filter);
+        const productsDB = await ProductCardsModel
             .find(filter)
             .skip(size * (page - 1))
             .limit(size)
-            .toArray();
+            .lean();
 
         const products: IProductCardView[] = productsDB.map((product) =>
             convertType(product),
@@ -49,11 +49,11 @@ export const productCardsQueryRepository = {
     },
 
     async findProductCard(id: string): Promise<IProductCardView | undefined> {
-        const productCardDB = await productCardsCollection
+        const productCardDB = await ProductCardsModel
             .find({
                 _id: new ObjectId(id),
             })
-            .toArray();
+            .lean();
 
         if (productCardDB) {
             return convertType(productCardDB[0]);

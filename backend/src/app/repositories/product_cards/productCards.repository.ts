@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
-import { db } from '../db';
 import { ProductCardStatus } from '../../services/productCards.service';
+import { ProductCardsModel } from '../db';
 
 interface IProductCardWithoutId {
     title: string;
@@ -14,8 +14,6 @@ interface IProductCardWithoutId {
 export interface IProductCardDB extends IProductCardWithoutId {
     _id: ObjectId;
 }
-
-const productCardsCollection = db.collection<IProductCardDB>('product_cards');
 
 export const productCardsRepository = {
     async createProductCard({
@@ -38,18 +36,18 @@ export const productCardsRepository = {
             productCard.promotionPercent = promotionPercent;
         }
 
-        const result = await productCardsCollection.insertOne(
+        const result = await ProductCardsModel.insertOne(
             productCard as IProductCardDB,
         );
 
-        return result.insertedId.toString();
+        return result._id.toString();
     },
 
     async updateProductCard(
         id: string,
         update: Partial<IProductCardWithoutId>,
     ): Promise<string | undefined> {
-        const result = await productCardsCollection.updateOne(
+        const result = await ProductCardsModel.updateOne(
             { _id: new ObjectId(id) },
             { $set: update },
         );
@@ -57,7 +55,7 @@ export const productCardsRepository = {
     },
 
     async deleteProductCard(id: string): Promise<string | null> {
-        const result = await productCardsCollection.deleteOne({
+        const result = await ProductCardsModel.deleteOne({
             _id: new ObjectId(id),
         });
 

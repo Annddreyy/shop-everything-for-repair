@@ -1,10 +1,15 @@
 import nodemailer from 'nodemailer';
 
 export interface Email {
-    to: string,
-    subject: string,
-    html: string,
-};
+    to: string;
+    subject: string;
+    html: string;
+}
+
+export interface ConfirmationEmail {
+    to: string;
+    code: string;
+}
 
 export const emailAdapter = {
     async sendEmail({ to, subject, html }: Email) {
@@ -27,5 +32,13 @@ export const emailAdapter = {
 
         const { accepted } = info;
         return { accepted };
+    },
+
+    async sendEmailConfirmationMessage({ to, code }: ConfirmationEmail) {
+        return await this.sendEmail({
+            to,
+            subject: 'Подтверждение пароля',
+            html: `<p>${code}</p>`,
+        });
     },
 };

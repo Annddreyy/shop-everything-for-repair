@@ -6,20 +6,55 @@ services:
     container_name: backend
     ports:
       - '8080:8080'
+    depends_on:
+      - mongo
+      - mongoexport
+  
   frontend:
     build: './frontend'
     container_name: frontend
     ports:
       - '5173:5173'
   
-  mongodb:
-    image: mongo:7
-    container_name: mongodb
-    restart: always
+  mongo:
+    image: mongo:latest
+    container_name: my_mongo
     ports:
       - "27017:27017"
     volumes:
-      - mongo_data:/data/db
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      - ./dump:/dump
+    command: mongod --bind_ip_all
+
+  mongoimport:
+    image: mongo:latest
+    depends_on:
+      - mongo
+    volumes:
+      - ./dump:/dump
+    entrypoint: >
+      bash -c "
+        echo '⏳ Waiting for MongoDB to start...';
+        sleep 5;
+        echo '📥 Importing product_cards...';
+        mongoimport --host mongo --db shop-everything-for-repair --collection product_cards --file /dump/shop-everything-for-repair/product_cards.json --jsonArray || true;
+        echo '📥 Importing promotion_cards...';
+        mongoimport --host mongo --db shop-everything-for-repair --collection promotion_cards --file /dump/shop-everything-for-repair/promotion_cards.json --jsonArray || true;
+        echo '✅ Import complete.';
+      "
+
+  mongoexport:
+    image: mongo:latest
+    depends_on:
+      - mongoimport
+    volumes:
+      - ./dump:/dump
+    entrypoint: >
+      bash -c "
+        echo '⏳ Waiting for MongoDB to start...';
+        sleep 5;
+        echo '📤 Exporting product_cards...';
+        mongoexport --host mongo --db shop-everything-for-repair --collection product_cards --out /dump/shop-everything-for-repair/product_cards.exported.json --jsonArray;
+        echo '📤 Exporting promotion_cards...';
+        mongoexport --host mongo --db shop-everything-for-repair --collection promotion_cards --out /dump/shop-everything-for-repair/promotion_cards.exported.json --jsonArray;
+        echo '✅ Export complete.';
+      "

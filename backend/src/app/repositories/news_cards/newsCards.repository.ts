@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { newsCardsCollection } from '../db';
+import { NewsCardsModel } from '../db';
 
 export interface INewsCardDB {
     _id: ObjectId;
@@ -16,20 +16,20 @@ export const newsCardsRepository = {
         description: string,
         date: Date,
     ): Promise<string> {
-        const result = await newsCardsCollection.insertOne({
+        const result = await NewsCardsModel.insertOne({
             img,
             title,
             description,
             date,
         } as INewsCardDB);
-        return result.insertedId.toString();
+        return result._id.toString();
     },
 
     async updateNewsCard(
         id: string,
         update: Partial<INewsCardDB>,
     ): Promise<string | null> {
-        const result = await newsCardsCollection.updateOne(
+        const result = await NewsCardsModel.updateOne(
             { _id: new ObjectId(id) },
             { $set: update },
         );
@@ -37,7 +37,7 @@ export const newsCardsRepository = {
     },
 
     async deleteNewsCard(id: string): Promise<string | null> {
-        const result = await newsCardsCollection.deleteOne({
+        const result = await NewsCardsModel.deleteOne({
             _id: new ObjectId(id),
         });
         return result.deletedCount ? id : null;

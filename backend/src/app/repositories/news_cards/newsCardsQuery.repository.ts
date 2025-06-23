@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { newsCardsCollection } from '../db';
+import { NewsCardsModel } from '../db';
 import { INewsCardView } from '../../../routes/newsCards.routes';
 import { INewsCardDB } from './newsCards.repository';
 
@@ -11,12 +11,12 @@ export const newsCardsQueryRepository = {
         newsCards: INewsCardView[];
         pagesCount: number;
     }> {
-        const newsCardsCount = await newsCardsCollection.countDocuments();
-        const newsCardsDB = await newsCardsCollection
+        const newsCardsCount = await NewsCardsModel.countDocuments();
+        const newsCardsDB = await NewsCardsModel
             .find()
             .skip(size * (page - 1))
             .limit(size)
-            .toArray();
+            .lean();
 
         const newsCards: INewsCardView[] = newsCardsDB.map((card) =>
             convertType(card),
@@ -29,11 +29,11 @@ export const newsCardsQueryRepository = {
     },
 
     async findNewsCard(id: string): Promise<INewsCardView | undefined> {
-        const newsCardDB = await newsCardsCollection
+        const newsCardDB = await NewsCardsModel
             .find({
                 _id: new ObjectId(id),
             })
-            .toArray();
+            .lean();
 
         if (newsCardDB) {
             return convertType(newsCardDB[0]);

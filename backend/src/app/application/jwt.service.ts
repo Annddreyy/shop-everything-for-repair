@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 import { settings } from '../../settings';
-import { IUserDB } from '../repositories/auth/auth.repository';
+import { IUserAccountDB } from '../repositories/auth/auth.repository';
 
 export const jwtService = {
-    async createJWT(user: IUserDB) {
+    async createJWT(user: IUserAccountDB) {
         const token = jwt.sign({ userId: user._id }, settings.JWT_SECRET, {
             expiresIn: '1h',
         });
