@@ -1,6 +1,7 @@
 <template>
     <HeaderComponent />
     <AdvantagesComponent />
+    <BreadCrumbs :links="links" />
     <ComponentsList
         :component="ProductCategoryCard"
         :items="categories"
@@ -49,11 +50,14 @@ import { categories } from '@/shared/config/productCategoryCards/categories';
 import AboutMagazine from '@/shared/ui/AboutMagazine/AboutMagazine.vue';
 import AdvantagesComponent from '@/shared/ui/Advantages/AdvantagesComponent.vue';
 import BrandsList from '@/shared/ui/Brands/BrandsList.vue';
+import BreadCrumbs, { type Link } from '@/shared/ui/BreadCrumbs/BreadCrumbs.vue';
 import ProductCategoryCard from '@/shared/ui/ProductCategoryCard/ProductCategoryCard.vue';
 import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
 import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
 import HeaderComponent from '@/widgets/Header/HeaderComponent.vue';
 import { onBeforeMount } from 'vue';
+
+const links: Link[] = [{ link: '/', title: 'Главная' }];
 
 const promotions = usePromotionCardsStore();
 const news = useNewsStore();
