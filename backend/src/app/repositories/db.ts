@@ -52,9 +52,11 @@ export const PromotionCardsModel = mongoose.model('promotion_cards', ProductCard
 
 export async function runDb() {
     try {
+        console.log(mongoUri);
         await mongoose.connect(mongoUri + '/' + 'shop-everything-for-repair');
         console.log('Connected successfully to mongo server');
-    } catch {
+    } catch (ex) {
+        console.log(ex);
         console.log("Can't connect to db");
         await mongoose.disconnect();
     }

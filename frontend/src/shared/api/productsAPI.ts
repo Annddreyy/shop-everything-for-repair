@@ -9,7 +9,7 @@ export type GetProductsResponse = {
 export const productsAPI = {
     async getProducts(page: number, size: number) {
         const response = await instance.get<GetProductsResponse>(
-            `/products?page=${page}&size=${size}`,
+            `/product_cards?page=${page}&size=${size}`,
         );
         return response.data;
     },

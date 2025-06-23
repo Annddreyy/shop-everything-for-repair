@@ -9,7 +9,7 @@ export type GetNewsResponse = {
 export const newsAPI = {
     async getNews(page: number, pageSize: number) {
         const response = await instance.get<{ news: NewsCard[]; pagesCount: number }>(
-            `/news?page=${page}&size=${pageSize}`,
+            `/news_cards?page=${page}&size=${pageSize}`,
         );
         return response.data;
     },

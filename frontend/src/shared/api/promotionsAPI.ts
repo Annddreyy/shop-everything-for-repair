@@ -9,7 +9,7 @@ export type GetPromotionsResponse = {
 export const promotionsAPI = {
     async getPromotions(page: number, pageSize: number) {
         const response = await instance.get<GetPromotionsResponse>(
-            `/promotions?page=${page}&size=${pageSize}`,
+            `/promotion_cards?page=${page}&size=${pageSize}`,
         );
         return response.data;
     },
