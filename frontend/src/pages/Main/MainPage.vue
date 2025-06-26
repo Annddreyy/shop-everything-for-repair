@@ -2,6 +2,7 @@
     <HeaderComponent />
     <AdvantagesComponent />
     <BreadCrumbs :links="links" />
+    <PaginationElement />
     <ComponentsList
         :component="ProductCategoryCard"
         :items="categories"
@@ -51,6 +52,7 @@ import AboutMagazine from '@/shared/ui/AboutMagazine/AboutMagazine.vue';
 import AdvantagesComponent from '@/shared/ui/Advantages/AdvantagesComponent.vue';
 import BrandsList from '@/shared/ui/Brands/BrandsList.vue';
 import BreadCrumbs, { type Link } from '@/shared/ui/BreadCrumbs/BreadCrumbs.vue';
+import PaginationElement from '@/shared/ui/PaginationElement/PaginationElement.vue';
 import ProductCategoryCard from '@/shared/ui/ProductCategoryCard/ProductCategoryCard.vue';
 import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
 import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
