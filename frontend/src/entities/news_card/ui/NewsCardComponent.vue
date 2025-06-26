@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate } from '@/shared/lib/formatDate';
+import { formatDate } from '@/shared/lib/workingWithDate/formatDate';
 import type { NewsCard } from '../types/news';
 import { RouterLink } from 'vue-router';
 import defaultImg from '@/assets/images/img_not_found.png';

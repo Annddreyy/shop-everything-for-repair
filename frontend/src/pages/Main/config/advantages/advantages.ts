@@ -7,6 +7,7 @@ export type Advantage = {
     img: string;
     description: string;
 };
+
 export const advantages: Advantage[] = [
     { img: img1, description: 'Оплата любым удобным способом' },
     { img: img2, description: 'Большой выбор товаров в каталоге' },

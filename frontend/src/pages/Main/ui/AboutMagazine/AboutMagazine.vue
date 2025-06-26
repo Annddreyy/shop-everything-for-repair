@@ -57,8 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import ButtonComponent from '../ButtonComponent/ButtonComponent.vue';
-import { Colors } from '../ButtonComponent/types';
+import { Colors } from '@/shared/ui/ButtonComponent/types';
 import aboutCompany from './../../../assets/images/main_page/about_company.svg';
 </script>
 

@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { advantages } from '@/shared/config/advantages/advantages';
+import { advantages } from '@/pages/Main/config/advantages/advantages';
 </script>
 
 <style lang="scss" module>

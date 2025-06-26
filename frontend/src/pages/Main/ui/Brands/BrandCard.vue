@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Brand } from '@/shared/config/brands/brands';
+import type { Brand } from '@/pages/Main/config/brands/brands';
 
 const { card } = defineProps<{ card: Brand }>();
 </script>

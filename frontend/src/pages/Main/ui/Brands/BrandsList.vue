@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
 import BrandCard from './BrandCard.vue';
-import { brands } from '@/shared/config/brands/brands';
+import { brands } from '@/pages/Main/config/brands/brands';
 </script>
 
 <style lang="scss" module>
@@ -26,7 +26,7 @@ import { brands } from '@/shared/config/brands/brands';
     @extend .column;
     gap: $base-gap-2;
 
-    background-color: #F9FAFB;
+    background-color: #f9fafb;
     padding: $base-padding-9 0;
 
     .title {
