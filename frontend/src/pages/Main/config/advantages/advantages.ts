@@ -1,7 +1,7 @@
-import img1 from './../../../assets/images/advantages/pay.svg';
-import img2 from './../../../assets/images/advantages/catalog.svg';
-import img3 from './../../../assets/images/advantages/delivery.svg';
-import img4 from './../../../assets/images/advantages/promotion.svg';
+import img1 from './../../../../assets/images/advantages/pay.svg';
+import img2 from './../../../../assets/images/advantages/catalog.svg';
+import img3 from './../../../../assets/images/advantages/delivery.svg';
+import img4 from './../../../../assets/images/advantages/promotion.svg';
 
 export type Advantage = {
     img: string;

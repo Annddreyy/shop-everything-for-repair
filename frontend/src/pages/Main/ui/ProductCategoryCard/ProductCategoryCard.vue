@@ -11,8 +11,8 @@ const { card } = defineProps<{ card: ProductCategory }>();
 </script>
 
 <style lang="scss" module>
-@use './../../../assets/scss/variables' as *;
-@use './../../../assets/scss/display' as *;
+@use './../../../../assets/scss/variables' as *;
+@use './../../../../assets/scss/display' as *;
 
 .card {
     @extend .column-a-c;

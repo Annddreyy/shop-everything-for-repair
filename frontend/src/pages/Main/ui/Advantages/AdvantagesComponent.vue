@@ -18,8 +18,8 @@ import { advantages } from '@/pages/Main/config/advantages/advantages';
 </script>
 
 <style lang="scss" module>
-@use './../../../assets/scss/variables' as *;
-@use './../../../assets/scss/display' as *;
+@use './../../../../assets/scss/variables' as *;
+@use './../../../../assets/scss/display' as *;
 
 .advantages {
     @extend .row-a-c;
