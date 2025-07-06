@@ -1,4 +1,5 @@
 import MainPage from '@/pages/Main/MainPage.vue';
+import ReviewsPage from '@/pages/Reviews/ReviewsPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 export const router = createRouter({
@@ -6,5 +7,6 @@ export const router = createRouter({
     routes: [
         { path: '/', component: MainPage, name: 'main' },
         { path: '/page', component: MainPage, name: 'page' },
+        { path: '/reviews', component: ReviewsPage, name: 'reviews '}
     ],
 });
