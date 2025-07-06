@@ -1,4 +1,4 @@
-export interface Promotion {
+export interface IPromotion {
     id: string;
     title: string;
     promotionPercent: number;

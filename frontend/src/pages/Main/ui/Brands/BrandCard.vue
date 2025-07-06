@@ -1,13 +1,13 @@
 <template>
-    <article :class="$style.brand">
-        <img :src="card.img" alt="" />
+    <article class="brand">
+        <img :src="img" alt="" class="brand__img" />
     </article>
 </template>
 
 <script setup lang="ts">
 import type { Brand } from '@/pages/Main/config/brands/brands';
 
-const { card } = defineProps<{ card: Brand }>();
+defineProps<Brand>();
 </script>
 
 <style lang="scss" module>

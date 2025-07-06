@@ -1,7 +1,7 @@
 <template>
-    <section :class="$style.brands">
+    <section class="brands">
         <div class="container">
-            <h2 :class="$style.title">Популярные бренды</h2>
+            <h2 class="brands__title">Популярные бренды</h2>
         </div>
         <ComponentsList
             :component="BrandCard"
@@ -29,7 +29,7 @@ import { brands } from '@/pages/Main/config/brands/brands';
     background-color: #f9fafb;
     padding: $base-padding-9 0;
 
-    .title {
+    &__title {
         width: 100%;
         display: flex;
         text-align: start;

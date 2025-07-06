@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia';
-import type { Promotion } from '../types/promotion';
+import type { IPromotion } from '../types/promotion';
 import { promotionsAPI } from '@/shared/api/promotionsAPI';
 
 export const usePromotionCardsStore = defineStore('promotionCards', {
     state: () => ({
-        promotionCards: [] as Promotion[],
+        promotionCards: [] as IPromotion[],
         currentPage: 1,
         pageSize: 12,
         pagesCount: 0,

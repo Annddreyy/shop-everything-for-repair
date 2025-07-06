@@ -1,43 +1,43 @@
 <template>
-    <section :class="$style.about">
-        <div class="container">
-            <div :class="$style.left">
-                <h2 :class="$style.title">О нашем магазине</h2>
-                <p :class="$style.textTop">
+    <section class="about">
+        <div class="about__container">
+            <div class="about__left">
+                <h2 class="about__title">О нашем магазине</h2>
+                <p class="about__text-top">
                     Цель и главная задача компании- создать сервис, который не
                     ограничится продажей строительных и отделочных материалов, а
                     будет решать задачи и трудности, с которыми сталкиваются
                     люди во время ремонта.
                 </p>
                 <div>
-                    <div :class="$style.statistics">
-                        <span :class="$style.count"
+                    <div class="about__statistics">
+                        <span class="about__count"
                             >17 805,3 м<sup>2</sup></span
                         >
-                        <span :class="$style.description"
+                        <span class="about__description"
                             >торговых и складских помещений</span
                         >
                     </div>
-                    <div :class="$style.statistics">
-                        <span :class="$style.count">50 000+</span>
-                        <span :class="$style.description"
+                    <div class="about_statistics">
+                        <span class="about__count">50 000+</span>
+                        <span class="about__description"
                             >наименований товара</span
                         >
                     </div>
-                    <div :class="$style.statistics">
-                        <span :class="$style.count">2 500+</span>
-                        <span :class="$style.description"
+                    <div class="about_statistics">
+                        <span class="about_count">2 500+</span>
+                        <span class="about_description"
                             >постоянных клиентов</span
                         >
                     </div>
-                    <div :class="$style.statistics">
-                        <span :class="$style.count">440</span>
-                        <span :class="$style.description"
+                    <div class="about_statistics">
+                        <span class="about_count">440</span>
+                        <span class="about_description"
                             >опытных сотрудников</span
                         >
                     </div>
                 </div>
-                <p :class="$style.textBottom">
+                <p class="about_text-bottom">
                     Уже второе десятилетие мы готовы воплотить в реальность Вашу
                     мечту о красивом, комфортабельном доме, благоустроенном
                     современном офисе, уютной теплой даче, помочь реализовать
@@ -48,17 +48,17 @@
                     text="Подробнее о компании &nbsp;&gt;"
                     :bg-color="Colors['BLACK']"
                     :text-color="Colors['WHITE']"
-                    :class="$style.button"
+                    class="about__button"
                 />
             </div>
-            <img :src="aboutCompany" alt="" />
+            <img :src="aboutCompanyImg" alt="" class="about_img" />
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
 import { Colors } from '@/shared/ui/ButtonComponent/types';
-import aboutCompany from './../../../assets/images/main_page/about_company.svg';
+import aboutCompanyImg from './../../../assets/images/main_page/about_company.svg';
 </script>
 
 <style lang="scss" module>
@@ -71,63 +71,63 @@ import aboutCompany from './../../../assets/images/main_page/about_company.svg';
     background-color: #f9fafb;
     padding: $base-padding-9 0;
 
-    div {
+    &__container {
         @extend .row-a-c;
+    }
 
-        .left {
-            position: relative;
-            z-index: 2;
-            width: 40%;
-            @extend .column-j-s;
-            gap: $base-gap-2;
+    &__left {
+        @extend .column-j-s;
+        gap: $base-gap-2;
+        position: relative;
+        z-index: 2;
+        width: 40%;
+    }
 
-            .title {
-                align-self: flex-start;
-                font-size: var(--fz-xxl);
-            }
+    &__title {
+        align-self: flex-start;
+        font-size: var(--fz-xxl);
+    }
 
-            .textTop {
-                font-size: 17px;
-                font-weight: bold;
-            }
+    &__text-top {
+        font-size: 17px;
+        font-weight: bold;
+    }
 
-            .statistics {
-                @extend .column-a-s;
-                @extend .column-j-s;
-                gap: $base-gap-2;
+    &__statistics {
+        @extend .column-a-s;
+        @extend .column-j-s;
+        gap: $base-gap-2;
+    }
 
-                .count {
-                    font-size: 26px;
-                    font-weight: bolder;
-                    color: #117fe3;
-                }
+    &__count {
+        font-size: 26px;
+        font-weight: bolder;
+        color: #117fe3;
+    }
 
-                sup {
-                    font-size: var(--fz-base);
-                    font-weight: bolder;
-                    color: #117fe3;
-                }
-            }
+    sup {
+        font-size: var(--fz-base);
+        font-weight: bolder;
+        color: #117fe3;
+    }
 
-            .button {
-                align-self: flex-start;
+    &__button {
+        align-self: flex-start;
 
-                padding: 24px 27px;
-                border-radius: $base-border-radius-2;
+        padding: 24px 27px;
+        border-radius: $base-border-radius-2;
 
-                text-transform: uppercase;
-                font-size: var(--fz-small);
-            }
+        text-transform: uppercase;
+        font-size: var(--fz-small);
+    }
 
-            .textBottom {
-                font-size: var(--fz-medium);
-            }
-        }
+    &__text-bottom {
+        font-size: var(--fz-medium);
+    }
 
-        img {
-            position: absolute;
-            right: 0;
-        }
+    &__img {
+        position: absolute;
+        right: 0;
     }
 }
 </style>

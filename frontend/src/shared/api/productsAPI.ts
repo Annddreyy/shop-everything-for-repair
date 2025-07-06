@@ -1,8 +1,8 @@
-import type { ProductCard } from '@/entities/product_card/types/product';
+import type { IProductCard } from '@/entities/product_card/types/product';
 import { instance } from '../config/api/api';
 
 export type GetProductsResponse = {
-    products: ProductCard[];
+    products: IProductCard[];
     pagesCount: number;
 };
 

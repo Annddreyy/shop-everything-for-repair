@@ -1,28 +1,28 @@
 <template>
-    <RouterLink :to="`/promotions/${card.id}`">
+    <RouterLink :to="`/promotions/${id}`">
         <article
-            :style="{ backgroundImage: `url(${card.backgroundImg})` }"
-            :class="$style.card"
+            :style="{ backgroundImage: `url(${backgroundImg})` }"
+            class="promotion-card"
         >
-            <h3 :class="$style.title">{{ card.title }}</h3>
-            <span :class="$style.promotionPercent"
-                >до -{{ card.promotionPercent }}%</span
+            <h3 class="promotion-card__title">{{ title }}</h3>
+            <span class="promotion-card__percent"
+                >до -{{ promotionPercent }}%</span
             >
         </article>
     </RouterLink>
 </template>
 
 <script setup lang="ts">
-import type { Promotion } from '../types/promotion';
+import type { IPromotion } from '../types/promotion';
 
-const { card } = defineProps<{ card: Promotion }>();
+defineProps<IPromotion>();
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 @use './../../../assets/scss/variables' as *;
 @use './../../../assets/scss/display' as *;
 
-.card {
+.promotion__card {
     @extend .column;
     gap: $base-gap-4;
 
@@ -33,11 +33,11 @@ const { card } = defineProps<{ card: Promotion }>();
     border-radius: $base-border-radius-2;
     background-size: cover;
 
-    .title {
+    &__title {
         font-size: var(--fz-large);
     }
 
-    .promotionPercent {
+    &__percent {
         width: max-content;
         padding: 6px 8px;
         border-radius: $base-border-radius;
