@@ -10,7 +10,7 @@ on:
     branches: [master]
     paths:
       - 'frontend/**'
-      - 'backend/**'
+      - 'backend/**' 
 
 jobs:
   lint-frontend:
