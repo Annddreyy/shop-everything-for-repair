@@ -1,4 +1,3 @@
-
 <template>
     <HeaderComponent />
     <ContactPersons />
@@ -11,6 +10,6 @@
 import HeaderComponent from '@/widgets/Header/HeaderComponent.vue';
 import ContactPersons from './ui/ContactPersons/ContactPersons.vue';
 import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
-import Regions from './ui/Regions/Regions.vue';
+import Regions from './ui/Regions/RegionsComponent.vue';
 import FeedbackForm from './ui/FeedbackForm/FeedbackForm.vue';
 </script>

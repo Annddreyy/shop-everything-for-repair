@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
 import { Colors } from '@/shared/ui/ButtonComponent/types';
-import Checkbox from '@/shared/ui/Forms/Checkbox.vue';
+import Checkbox from '@/shared/ui/Forms/CheckboxField.vue';
 import FormGroupComponent from '@/shared/ui/Forms/FormGroupComponent.vue';
 </script>
 

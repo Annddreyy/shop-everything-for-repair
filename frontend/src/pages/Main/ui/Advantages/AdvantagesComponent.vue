@@ -6,8 +6,14 @@
                 :key="advantage.description"
                 class="advantages-section__advantage"
             >
-                <img :src="advantage.img" :alt="advantage.description" class="advantages-section__img" />
-                <span class="advantages-section__description">{{ advantage.description }}</span>
+                <img
+                    :src="advantage.img"
+                    :alt="advantage.description"
+                    class="advantages-section__img"
+                />
+                <span class="advantages-section__description">{{
+                    advantage.description
+                }}</span>
             </div>
         </section>
     </div>

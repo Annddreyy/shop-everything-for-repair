@@ -1,6 +1,12 @@
 <template>
     <div class="checkbox">
-        <input type="checkbox" :id="id" :name="name" required class="checkbox__hidden-checkbox">
+        <input
+            type="checkbox"
+            :id="id"
+            :name="name"
+            required
+            class="checkbox__hidden-checkbox"
+        />
         <label :for="id" class="checkbox__label">
             <div class="checkbox__custom-checkbox"></div>
             <span class="checkbox__label-text">{{ label }}</span>
@@ -34,7 +40,7 @@ defineProps<{
         width: 26px;
         height: 26px;
 
-        border: 1px solid #DFE0E2;
+        border: 1px solid #dfe0e2;
         border-radius: 4px;
     }
 }

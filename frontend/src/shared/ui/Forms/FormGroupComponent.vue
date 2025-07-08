@@ -44,7 +44,6 @@ const fieldComponent = computed(() => {
 });
 </script>
 
-
 <style lang="scss" scoped>
 @use './../../../assets/scss/display' as *;
 
@@ -56,7 +55,7 @@ const fieldComponent = computed(() => {
         font-size: 14px;
     }
 
-     &__redstar {
+    &__redstar {
         color: #e52b0e;
     }
 }

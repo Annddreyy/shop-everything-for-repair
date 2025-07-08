@@ -42,12 +42,20 @@ const pages = computed(() => {
     } else if (currentPage.value < 5) {
         result.push(1, 2, 3, 4, 5, 0, pagesCount);
     } else if (pagesCount - 3 >= currentPage.value && currentPage.value >= 5) {
-        result.push(1, 0, currentPage.value - 1, currentPage.value, currentPage.value + 1, 0, pagesCount);
+        result.push(
+            1,
+            0,
+            currentPage.value - 1,
+            currentPage.value,
+            currentPage.value + 1,
+            0,
+            pagesCount,
+        );
     } else {
         result.push(1, 0, pagesCount - 2, pagesCount - 1, pagesCount);
     }
 
-    return result
+    return result;
 });
 
 const nextPage = () => {

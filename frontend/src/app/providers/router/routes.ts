@@ -1,4 +1,4 @@
-import Page404 from '@/pages/404/Page404.vue';
+import Page404Page from '@/pages/404/Page404Page.vue';
 import ContactsPage from '@/pages/Contacts/ContactsPage.vue';
 import FAQPage from '@/pages/FAQ/FAQPage.vue';
 import MainPage from '@/pages/Main/MainPage.vue';
@@ -13,6 +13,6 @@ export const router = createRouter({
         { path: '/reviews', component: ReviewsPage, name: 'reviews' },
         { path: '/contacts', component: ContactsPage, name: 'contacts' },
         { path: '/faq', component: FAQPage, name: 'faq' },
-        { path: '/:pathMatch(.*)*', component: Page404, name: '404' }
+        { path: '/:pathMatch(.*)*', component: Page404Page, name: '404' },
     ],
 });

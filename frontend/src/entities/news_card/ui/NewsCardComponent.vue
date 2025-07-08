@@ -1,7 +1,12 @@
 <template>
     <RouterLink :to="`/news/${id}`">
         <article class="news-card">
-            <img :src="img" :alt="title" class="news-card__img" @error="onImageNotLoad" />
+            <img
+                :src="img"
+                :alt="title"
+                class="news-card__img"
+                @error="onImageNotLoad"
+            />
             <h3 class="news-card__title">{{ title }}</h3>
             <p class="news-card__description">{{ description }}</p>
             <time :datetime="date.toDateString()" class="news-card__date">{{
@@ -20,8 +25,8 @@ import defaultImg from '@/assets/images/img_not_found.png';
 defineProps<INewsCard>();
 
 const onImageNotLoad = (event: Event) => {
-  const target = event.target as HTMLImageElement;
-  target.src = defaultImg;
+    const target = event.target as HTMLImageElement;
+    target.src = defaultImg;
 };
 </script>
 

@@ -88,8 +88,8 @@ onBeforeMount(() => {
         }
 
         .button {
-            color: #117FE3;
-            background-color: #F6F8FB;
+            color: #117fe3;
+            background-color: #f6f8fb;
             padding: 17px 20px;
             border-radius: $base-border-radius;
         }

@@ -20,9 +20,9 @@ import { faqList } from '@/pages/FAQ/config/faqList';
         padding: 18.5px 10px;
 
         font-size: 18px;
-        color: #2C333D;
+        color: #2c333d;
 
-        border-bottom: 1px solid #EDF0F2;
+        border-bottom: 1px solid #edf0f2;
         list-style-type: none;
 
         &::after {
@@ -30,7 +30,7 @@ import { faqList } from '@/pages/FAQ/config/faqList';
             @extend .row-j-c;
 
             position: absolute;
-            content: "+";
+            content: '+';
             top: 10px;
             bottom: 10px;
             right: 10px;
@@ -38,9 +38,9 @@ import { faqList } from '@/pages/FAQ/config/faqList';
             width: 44px;
             height: 44px;
 
-            background-color: #EBF7FF;
+            background-color: #ebf7ff;
             border-radius: 50%;
-            color: #186FD4;
+            color: #186fd4;
         }
 
         &::-webkit-details-marker {
@@ -50,7 +50,7 @@ import { faqList } from '@/pages/FAQ/config/faqList';
 
     &__answer {
         font-size: 16px;
-        color: #64676A;
+        color: #64676a;
         padding: 20px;
     }
 }

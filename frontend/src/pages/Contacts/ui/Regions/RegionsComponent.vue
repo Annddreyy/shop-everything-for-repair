@@ -3,7 +3,11 @@
         <section class="regions">
             <h2>Работаем по регионам:</h2>
             <div class="regions__list">
-                <article class="region" v-for="region in regionsList" :key="region.city">
+                <article
+                    class="region"
+                    v-for="region in regionsList"
+                    :key="region.city"
+                >
                     <span class="region__city">{{ region.city }}</span>
                     <span class="region__phone">{{ region.phone }}</span>
                     <span class="region__email">{{ region.email }}</span>
@@ -44,7 +48,7 @@ import { regionsList } from '../../config/regions';
                     top: 0;
                     bottom: 0;
                     right: -35px;
-                    border: 1px solid #E5E9ED;
+                    border: 1px solid #e5e9ed;
                 }
             }
 
@@ -59,7 +63,7 @@ import { regionsList } from '../../config/regions';
 
             &__email {
                 font-size: 15px;
-                color: #186FD4;
+                color: #186fd4;
                 text-decoration: underline;
             }
         }

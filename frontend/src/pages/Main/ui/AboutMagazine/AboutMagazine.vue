@@ -11,9 +11,7 @@
                 </p>
                 <div>
                     <div class="about__statistics">
-                        <span class="about__count"
-                            >17 805,3 м<sup>2</sup></span
-                        >
+                        <span class="about__count">17 805,3 м<sup>2</sup></span>
                         <span class="about__description"
                             >торговых и складских помещений</span
                         >

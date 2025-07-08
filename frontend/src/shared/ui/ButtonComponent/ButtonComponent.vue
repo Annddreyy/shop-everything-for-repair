@@ -5,7 +5,7 @@
             borderColor: borderColor,
             backgroundColor: bgColor,
             borderRadius: `${isRound && '50%'}`,
-            cursor: 'pointer'
+            cursor: 'pointer',
         }"
     >
         <span v-if="icon"><img :src="icon" :alt="text" /></span>

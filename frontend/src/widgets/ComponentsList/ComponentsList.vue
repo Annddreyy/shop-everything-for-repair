@@ -16,6 +16,7 @@ import type { Component } from 'vue';
 
 defineProps<{
     component: Component;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     items: any[];
     propName: string;
     itemKey?: string;

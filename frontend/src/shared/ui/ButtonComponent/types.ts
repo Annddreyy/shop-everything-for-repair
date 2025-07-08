@@ -5,7 +5,7 @@ export enum Colors {
     GRAY = '#F6F8FB',
     LIGHT_BLUE = '#117FE3',
     WHITE = '#ffffff',
-};
+}
 
 export type Button = {
     text: string;

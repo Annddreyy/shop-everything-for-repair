@@ -4,13 +4,14 @@ import { instance } from '../config/api/api';
 export type GetNewsResponse = {
     news: INewsCard[];
     pagesCount: number;
-}
+};
 
 export const newsAPI = {
     async getNews(page: number, pageSize: number) {
-        const response = await instance.get<{ news: INewsCard[]; pagesCount: number }>(
-            `/news_cards?page=${page}&size=${pageSize}`,
-        );
+        const response = await instance.get<{
+            news: INewsCard[];
+            pagesCount: number;
+        }>(`/news_cards?page=${page}&size=${pageSize}`);
         return response.data;
     },
 };

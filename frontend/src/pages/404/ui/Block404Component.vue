@@ -31,7 +31,6 @@
 <script setup lang="ts">
 import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
 import { Colors } from '@/shared/ui/ButtonComponent/types';
-
 </script>
 
 <style lang="scss" scoped>
