@@ -1,35 +1,54 @@
 <script setup lang="ts">
 import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
 import { Colors } from '@/shared/ui/ButtonComponent/types';
-
+import Checkbox from '@/shared/ui/Forms/Checkbox.vue';
+import FormGroupComponent from '@/shared/ui/Forms/FormGroupComponent.vue';
 </script>
 
 <template>
     <section class="feedback-form">
-        <h2 class="feedback-form__title">У вас есть вопросы? С радостью ответим на них!</h2>
+        <h2 class="feedback-form__title">
+            У вас есть вопросы? С радостью ответим на них!
+        </h2>
         <form class="feedback-form__form">
-            <div class="feedback-form__form-group feedback-form__form-group--name">
-                <label for="name">Ваше имя <span class="feedback-form__redstar">*</span>:</label>
-                <input type="text" name="name" id="name" placeholder="Введите ваше имя">
-            </div>
-            <div class="feedback-form__form-group feedback-form__form-group--phone">
-                <label for="phone">Номер телефона <span class="feedback-form__redstar">*</span>:</label>
-                <input type="tel" name="phone" id="phone" inputmode="tel" placeholder="+7 (  )  -  -"/>
-            </div>
-            <div class="feedback-form__form-group feedback-form__form-group--message">
-                <label for="message">Текст сообщения <span class="feedback-form__redstar">*</span>:</label>
-                <textarea name="message" id="message" placeholder="Введите ваш вопрос" />
-            </div>
-            <div class="feedback-form__form-group feedback-form__form-group--button">
-                <ButtonComponent class="feedback-form__button" text="Отправить" :bg-color="Colors.BLUE" :text-color="Colors.WHITE" />
-            </div>
-            <div class="feedback-form__form-group feedback-form__form-group--checkbox">
-                <Checkbox></Checkbox>
-                <label>
-                    Согласен с обработкой персональных данных в соответствии с политой
-                    конфиденциальности
-                </label>
-            </div>
+            <FormGroupComponent
+                label="Ваше имя"
+                required
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Введите ваше имя"
+                class="feedback-form__name"
+            />
+            <FormGroupComponent
+                label="Номер телефона"
+                required
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+7 (  )  -  -"
+                class="feedback-form__phone"
+            />
+            <FormGroupComponent
+                label="Текст сообщения"
+                required
+                type="textarea"
+                id="message"
+                name="message"
+                placeholder="Введите ваш вопрос"
+                class="feedback-form__message"
+            />
+            <ButtonComponent
+                class="feedback-form__button"
+                text="Отправить"
+                :bg-color="Colors.BLUE"
+                :text-color="Colors.WHITE"
+            />
+            <Checkbox
+                id="checkbox"
+                name="checkbox"
+                label="Согласен с обработкой персональных данных в соответствии сполитой конфиденциальности"
+            />
         </form>
     </section>
 </template>
@@ -40,7 +59,7 @@ import { Colors } from '@/shared/ui/ButtonComponent/types';
 .feedback-form {
     @extend .column-a-c;
 
-    background-color: #F9FAFB;
+    background-color: #f9fafb;
     margin: 0 auto;
 
     &__title {
@@ -63,59 +82,32 @@ import { Colors } from '@/shared/ui/ButtonComponent/types';
         padding-bottom: 60px;
     }
 
-    &__form-group {
-        @extend .column;
-        gap: 10px;
-
-        label {
-            font-size: 14px;
-        }
-
-        input, textarea {
-            padding: 25px 20px;
-            border: 1px solid #EBEEF0;
-            border-radius: 7px;
-
-            box-shadow: 0 1px 2px #00000012 inset;
-
-            font-size: 15px;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 89px;
-        }
-
-        &--name {
-            grid-area: name;
-        }
-
-        &--phone {
-            grid-area: phone;
-        }
-
-        &--message {
-            grid-area: message;
-        }
-
-        &--button {
-            grid-area: button;
-        }
-
-        &--checkbox {
-            @extend .row;
-            gap: 10px;
-            grid-area: checkbox;
-
-            label {
-                font-size: 13px;
-                color: #696D70;
-            }
-        }
+    &__name {
+        grid-area: name;
     }
 
-    &__redstar {
-        color: #E52B0E;
+    &__phone {
+        grid-area: phone;
+    }
+
+    &__message {
+        grid-area: message;
+    }
+
+    &__button {
+        grid-area: button;
+    }
+
+    &__checkbox {
+        @extend .row;
+        gap: 10px;
+
+        grid-area: checkbox;
+
+        label {
+            font-size: 13px;
+            color: #696d70;
+        }
     }
 
     &__button {

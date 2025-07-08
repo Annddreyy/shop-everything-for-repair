@@ -5,6 +5,7 @@
             borderColor: borderColor,
             backgroundColor: bgColor,
             borderRadius: `${isRound && '50%'}`,
+            cursor: 'pointer'
         }"
     >
         <span v-if="icon"><img :src="icon" :alt="text" /></span>
@@ -15,5 +16,5 @@
 <script setup lang="ts">
 import type { Button } from './types';
 
-const { text, icon, textColor, borderColor, bgColor, isRound } = defineProps<Button>();
+defineProps<Button>();
 </script>
