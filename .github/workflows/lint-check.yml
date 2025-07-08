@@ -1,0 +1,58 @@
+name: Lint Check
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'frontend/**'
+      - 'backend/**'
+  pull_request:
+    branches: [master]
+    paths:
+      - 'frontend/**'
+      - 'backend/**'
+
+jobs:
+  lint-frontend:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install frontend dependencies
+        run: npm install
+
+      - name: ✅ Run ESLint (frontend)
+        run: npm run lint
+
+  lint-backend:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install backend dependencies
+        run: npm install
+
+      - name: ✅ Run ESLint (backend)
+        run: npm run lint
