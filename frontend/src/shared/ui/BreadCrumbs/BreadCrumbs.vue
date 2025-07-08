@@ -12,11 +12,9 @@
 </template>
 
 <script setup lang="ts">
-export type Link = {
-    link: `/${string}`;
-    title: string;
-};
-const { links } = defineProps<{ links: Link[] }>();
+import type { Link } from '@/shared/types/link';
+
+defineProps<{ links: Link[] }>();
 </script>
 
 <style lang="scss" module>

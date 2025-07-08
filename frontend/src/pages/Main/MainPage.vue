@@ -49,13 +49,14 @@ import { usePromotionCardsStore } from '@/entities/promotion_card/model/promotio
 import PromotionCard from '@/entities/promotion_card/ui/PromotionCard.vue';
 import { categories } from '@/pages/Main/config/productCategoryCards/categories';
 import AdvantagesComponent from '@/pages/Main/ui/Advantages/AdvantagesComponent.vue';
-import BreadCrumbs, { type Link } from '@/shared/ui/BreadCrumbs/BreadCrumbs.vue';
+import BreadCrumbs from '@/shared/ui/BreadCrumbs/BreadCrumbs.vue';
 import PaginationElement from '@/shared/ui/PaginationElement/PaginationElement.vue';
 import ProductCategoryCard from '@/pages/Main/ui/ProductCategoryCard/ProductCategoryCard.vue';
 import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
 import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
 import HeaderComponent from '@/widgets/Header/HeaderComponent.vue';
 import { onBeforeMount } from 'vue';
+import type { Link } from '@/shared/types/link';
 
 const links: Link[] = [{ link: '/', title: 'Главная' }];
 
