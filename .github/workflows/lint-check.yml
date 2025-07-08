@@ -2,9 +2,11 @@ name: Lint Check
 
 on:
   push:
-    branches: [master]
+    paths:
+      - 'frontend/**'
   pull_request:
-    branches: [master]
+    paths:
+      - 'frontend/**'
 
 jobs:
   lint:
