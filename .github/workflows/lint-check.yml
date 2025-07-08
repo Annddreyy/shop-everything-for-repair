@@ -2,15 +2,23 @@ name: Lint Check
 
 on:
   push:
+    branches: [master]
     paths:
       - 'frontend/**'
+      - 'backend/**'
   pull_request:
+    branches: [master]
     paths:
       - 'frontend/**'
+      - 'backend/**'
 
 jobs:
-  lint:
+  lint-frontend:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
 
     steps:
       - name: checkout code
@@ -21,8 +29,30 @@ jobs:
         with:
           node-version: 18
 
-      - name: install dependencies
-        run: npm ci
+      - name: install frontend dependencies
+        run: npm install
 
-      - name: run ESLint and Prettier
+      - name: run ESLint
+        run: npm run lint
+
+  lint-backend:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: install backend dependencies
+        run: npm install
+
+      - name: run ESLint (backend)
         run: npm run lint
