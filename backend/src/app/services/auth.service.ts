@@ -1,5 +1,9 @@
 import bcrypt from 'bcrypt';
-import { authRepository, IUserAccountDB, IUserAccountDBWithoutId } from '../repositories/auth/auth.repository';
+import {
+    authRepository,
+    IUserAccountDB,
+    IUserAccountDBWithoutId,
+} from '../repositories/auth/auth.repository';
 import { v4 } from 'uuid';
 import { add } from 'date-fns/add';
 import { emailAdapter } from '../adapters/email.adapter';
@@ -33,15 +37,18 @@ export const authService = {
                 confirmationCode: v4(),
                 expirationDate: add(new Date(), {
                     hours: 1,
-                    minutes: 3
+                    minutes: 3,
                 }),
-                isConfirmed: false
-            }
+                isConfirmed: false,
+            },
         };
         const createResult = authRepository.createUser(newUser);
 
         try {
-            const result = await emailAdapter.sendEmailConfirmationMessage({ to: newUser.accountData.email, code: newUser.emailConfirmation.confirmationCode });
+            const result = await emailAdapter.sendEmailConfirmationMessage({
+                to: newUser.accountData.email,
+                code: newUser.emailConfirmation.confirmationCode,
+            });
             if (!result.accepted) {
                 return null;
             }
@@ -79,7 +86,10 @@ export const authService = {
         if (!user) {
             return false;
         }
-        if (user.emailConfirmation.confirmationCode === code && user.emailConfirmation.expirationDate > new Date()) {
+        if (
+            user.emailConfirmation.confirmationCode === code &&
+            user.emailConfirmation.expirationDate > new Date()
+        ) {
             return await authRepository.updateConfirmation(user._id.toString());
         }
         return false;

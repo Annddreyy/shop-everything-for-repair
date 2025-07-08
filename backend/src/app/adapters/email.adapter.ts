@@ -23,7 +23,7 @@ export const emailAdapter = {
             },
         });
 
-        let info = await transporter.sendMail({
+        const info = await transporter.sendMail({
             from: 'Андрюха <andreymail22112006@gmail.com>',
             to,
             subject,

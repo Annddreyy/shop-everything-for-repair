@@ -12,7 +12,7 @@ export const productCardsQueryRepository = {
         price_max: number,
     ): Promise<{ products: IProductCardView[]; pagesCount: number }> {
         const priceFilter: Record<string, number> = {};
-        let filter: { title?: object; price?: object } = {};
+        const filter: { title?: object; price?: object } = {};
 
         if (price_min) {
             priceFilter.$gt = +price_min - 1;
@@ -30,10 +30,8 @@ export const productCardsQueryRepository = {
             filter.price = priceFilter;
         }
 
-        const productsCount =
-            await ProductCardsModel.countDocuments(filter);
-        const productsDB = await ProductCardsModel
-            .find(filter)
+        const productsCount = await ProductCardsModel.countDocuments(filter);
+        const productsDB = await ProductCardsModel.find(filter)
             .skip(size * (page - 1))
             .limit(size)
             .lean();
@@ -49,11 +47,9 @@ export const productCardsQueryRepository = {
     },
 
     async findProductCard(id: string): Promise<IProductCardView | undefined> {
-        const productCardDB = await ProductCardsModel
-            .find({
-                _id: new ObjectId(id),
-            })
-            .lean();
+        const productCardDB = await ProductCardsModel.find({
+            _id: new ObjectId(id),
+        }).lean();
 
         if (productCardDB) {
             return convertType(productCardDB[0]);

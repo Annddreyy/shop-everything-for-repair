@@ -1,9 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
 import { settings } from '../../settings';
-import { IUserAccountDB } from './auth/auth.repository';
-import { INewsCardDB } from './news_cards/newsCards.repository';
-import { IProductCardDB } from './product_cards/productCards.repository';
-import { IPromotionCardDB } from './promotion_cards/promotionCards.repository';
 
 const mongoUri = settings.MONGO_URI;
 
@@ -42,13 +38,16 @@ export const ProductCardsModel = mongoose.model(
     ProductCardsSchema,
 );
 
-const PromotionCardsSchema = new Schema({
-    title: { type: String, required: true },
-    promotionPercent: { type: Number, required: true },
-    backgroundImg: { type: String, required: true },
-});
+// const PromotionCardsSchema = new Schema({
+//     title: { type: String, required: true },
+//     promotionPercent: { type: Number, required: true },
+//     backgroundImg: { type: String, required: true },
+// });
 
-export const PromotionCardsModel = mongoose.model('promotion_cards', ProductCardsSchema);
+export const PromotionCardsModel = mongoose.model(
+    'promotion_cards',
+    ProductCardsSchema,
+);
 
 export async function runDb() {
     try {

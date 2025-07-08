@@ -8,4 +8,4 @@ describe('/news_cards', () => {
     it('should return 200 and news cards array', async () => {
         await request(app).get('/news_cards').expect(200);
     });
-})
+});

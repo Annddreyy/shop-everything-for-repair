@@ -12,8 +12,7 @@ export const newsCardsQueryRepository = {
         pagesCount: number;
     }> {
         const newsCardsCount = await NewsCardsModel.countDocuments();
-        const newsCardsDB = await NewsCardsModel
-            .find()
+        const newsCardsDB = await NewsCardsModel.find()
             .skip(size * (page - 1))
             .limit(size)
             .lean();
@@ -29,11 +28,9 @@ export const newsCardsQueryRepository = {
     },
 
     async findNewsCard(id: string): Promise<INewsCardView | undefined> {
-        const newsCardDB = await NewsCardsModel
-            .find({
-                _id: new ObjectId(id),
-            })
-            .lean();
+        const newsCardDB = await NewsCardsModel.find({
+            _id: new ObjectId(id),
+        }).lean();
 
         if (newsCardDB) {
             return convertType(newsCardDB[0]);

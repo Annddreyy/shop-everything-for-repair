@@ -1,4 +1,3 @@
-
 import { IUserDB } from './app/repositories/user/user.repository';
 
 declare global {

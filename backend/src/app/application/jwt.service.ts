@@ -12,9 +12,12 @@ export const jwtService = {
 
     async getUserIdByToken(token: string) {
         try {
-            const { userId } = jwt.verify(token, settings.JWT_SECRET) as jwt.JwtPayload;
+            const { userId } = jwt.verify(
+                token,
+                settings.JWT_SECRET,
+            ) as jwt.JwtPayload;
             return userId;
-        } catch (error) {
+        } catch {
             return null;
         }
     },

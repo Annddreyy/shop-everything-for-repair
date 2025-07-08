@@ -24,19 +24,17 @@ authRouter.post(
     },
 );
 
-authRouter.post('/confirm-email',
-    async(
-        req: Request,
-        res: Response
-    ) => {
-        const result = await authService.confirmEmail(req.body.code, req.body.email);
-        if (result) {
-            res.sendStatus(201);
-        } else {
-            res.sendStatus(400);
-        }
+authRouter.post('/confirm-email', async (req: Request, res: Response) => {
+    const result = await authService.confirmEmail(
+        req.body.code,
+        req.body.email,
+    );
+    if (result) {
+        res.sendStatus(201);
+    } else {
+        res.sendStatus(400);
     }
-)
+});
 
 authRouter.post('/login', async (req: Request, res: Response) => {
     const user = await authService.checkCredentials(

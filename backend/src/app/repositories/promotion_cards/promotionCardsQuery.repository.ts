@@ -9,8 +9,7 @@ export const promotionCardsQueryRepository = {
         size: number,
     ): Promise<{ promotions: IPromotionCardView[]; pagesCount: number }> {
         const promotionsCount = await ProductCardsModel.countDocuments();
-        const promotionsDB = await ProductCardsModel
-            .find()
+        const promotionsDB = await ProductCardsModel.find()
             .skip(size * (page - 1))
             .limit(size)
             .lean();
@@ -28,9 +27,9 @@ export const promotionCardsQueryRepository = {
     async findPromotionCard(
         id: string,
     ): Promise<IPromotionCardView | undefined> {
-        const promotionCardDB = await ProductCardsModel
-            .find({ _id: new ObjectId(id) })
-            .lean();
+        const promotionCardDB = await ProductCardsModel.find({
+            _id: new ObjectId(id),
+        }).lean();
 
         if (promotionCardDB) {
             const promotionCard = promotionCardDB[0];

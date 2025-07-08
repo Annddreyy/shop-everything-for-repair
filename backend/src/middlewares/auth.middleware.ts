@@ -15,7 +15,7 @@ export const authMiddleware = async (
     const userId = await jwtService.getUserIdByToken(token);
 
     if (userId) {
-        // @ts-ignore
+        // @ts-expect-error: не работает проверка типов
         req.user = await usersService.findUserById(userId);
         next();
     }
