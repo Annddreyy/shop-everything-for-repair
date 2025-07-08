@@ -13,6 +13,7 @@ export const router = createRouter({
         { path: '/reviews', component: ReviewsPage, name: 'reviews' },
         { path: '/contacts', component: ContactsPage, name: 'contacts' },
         { path: '/faq', component: FAQPage, name: 'faq' },
+        // 
         { path: '/:pathMatch(.*)*', component: Page404Page, name: '404' },
     ],
 });
