@@ -38,11 +38,11 @@ export const promotionCardsQueryRepository = {
     },
 };
 
-function convertType(promotionCardDB: IPromotionCardDB): IPromotionCardView {
+function convertType(promotionCardDB: any): IPromotionCardView {
     return {
         id: promotionCardDB._id.toHexString(),
         title: promotionCardDB.title,
-        backgroundImg: promotionCardDB.backgroundImg,
+        backgroundImg: promotionCardDB.backgroundImg ?? promotionCardDB.img,
         promotionPercent: promotionCardDB.promotionPercent,
     };
 }

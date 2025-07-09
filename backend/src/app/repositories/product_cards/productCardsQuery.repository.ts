@@ -2,6 +2,7 @@ import { ObjectId } from 'mongodb';
 import { ProductCardsModel } from '../db';
 import { IProductCardView } from '../../../routes/productCards.routes';
 import { IProductCardDB } from './productCards.repository';
+import { ProductCardStatus } from '../../services/productCards.service';
 
 export const productCardsQueryRepository = {
     async findProductCards(
@@ -57,7 +58,7 @@ export const productCardsQueryRepository = {
     },
 };
 
-function convertType(productCardDB: IProductCardDB): IProductCardView {
+function convertType(productCardDB: any): IProductCardView {
     return {
         id: productCardDB._id.toString(),
         title: productCardDB.title,
@@ -65,6 +66,6 @@ function convertType(productCardDB: IProductCardDB): IProductCardView {
         price: productCardDB.price,
         promotionPercent: productCardDB.promotionPercent,
         article: productCardDB.article,
-        statuses: productCardDB.statuses,
+        statuses: (productCardDB.statuses as string[]).map(s => s as ProductCardStatus),
     };
 }

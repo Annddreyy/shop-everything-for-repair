@@ -1,12 +1,14 @@
 import mongoose, { Schema } from 'mongoose';
+import { MongoClient } from 'mongodb';
 import { settings } from '../../settings';
+import { IUserAccountDB } from './auth/auth.repository';
 
 const mongoUri = settings.MONGO_URI;
 
-// export const db = client.db('shop-everything-for-repair');
+export const client = new MongoClient(mongoUri);
+export const db = client.db('shop-everything-for-repair');
 
-// export const productCardsCollection =
-//     db.collection<IProductCardDB>('product_cards');
+export const usersCollection = db.collection<IUserAccountDB>('users');
 // export const promotionCardsCollection =
 //     db.collection<IPromotionCardDB>('promotion_cards');
 // export const usersCollection = db.collection<IUserAccountDB>('users');
@@ -38,24 +40,26 @@ export const ProductCardsModel = mongoose.model(
     ProductCardsSchema,
 );
 
-// const PromotionCardsSchema = new Schema({
-//     title: { type: String, required: true },
-//     promotionPercent: { type: Number, required: true },
-//     backgroundImg: { type: String, required: true },
-// });
+const PromotionCardsSchema = new Schema({
+    title: { type: String, required: true },
+    promotionPercent: { type: Number, required: true },
+    backgroundImg: { type: String, required: true },
+});
 
 export const PromotionCardsModel = mongoose.model(
     'promotion_cards',
-    ProductCardsSchema,
+    PromotionCardsSchema,
 );
+
+const UsersSchema = new Schema({
+
+})
 
 export async function runDb() {
     try {
-        console.log(mongoUri);
         await mongoose.connect(mongoUri + '/' + 'shop-everything-for-repair');
         console.log('Connected successfully to mongo server');
     } catch (ex) {
-        console.log(ex);
         console.log("Can't connect to db");
         await mongoose.disconnect();
     }
