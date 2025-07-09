@@ -15,6 +15,11 @@ export default defineConfig({
             usePolling: true,
         },
     },
+    test: {
+        coverage: {
+            provider: 'v8',
+        },
+    },
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),
