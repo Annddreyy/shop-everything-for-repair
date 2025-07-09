@@ -1,8 +1,7 @@
 import { ObjectId } from 'mongodb';
-import { ProductCardsModel } from '../db';
 import { IProductCardView } from '../../../routes/productCards.routes';
-import { IProductCardDB } from './productCards.repository';
 import { ProductCardStatus } from '../../services/productCards.service';
+import { ProductCardsModel } from '../db';
 
 export const productCardsQueryRepository = {
     async findProductCards(
@@ -58,14 +57,16 @@ export const productCardsQueryRepository = {
     },
 };
 
-function convertType(productCardDB: any): IProductCardView {
+function convertType(productCardDB: Record<string, unknown>): IProductCardView {
     return {
-        id: productCardDB._id.toString(),
-        title: productCardDB.title,
-        img: productCardDB.img,
-        price: productCardDB.price,
-        promotionPercent: productCardDB.promotionPercent,
-        article: productCardDB.article,
-        statuses: (productCardDB.statuses as string[]).map(s => s as ProductCardStatus),
+        id: (productCardDB._id as ObjectId).toString(),
+        title: productCardDB.title as string,
+        img: productCardDB.img as string,
+        price: productCardDB.price as number,
+        promotionPercent: productCardDB.promotionPercent as number,
+        article: productCardDB.article as string,
+        statuses: (productCardDB.statuses as string[]).map(
+            (s) => s as ProductCardStatus,
+        ),
     };
 }

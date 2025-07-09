@@ -1,7 +1,6 @@
 import { ObjectId } from 'mongodb';
-import { ProductCardsModel } from '../db';
 import { IPromotionCardView } from '../../../routes/promotionCards.routes';
-import { IPromotionCardDB } from './promotionCards.repository';
+import { ProductCardsModel } from '../db';
 
 export const promotionCardsQueryRepository = {
     async findPromotionCards(
@@ -38,11 +37,14 @@ export const promotionCardsQueryRepository = {
     },
 };
 
-function convertType(promotionCardDB: any): IPromotionCardView {
+function convertType(
+    promotionCardDB: Record<string, unknown>,
+): IPromotionCardView {
     return {
-        id: promotionCardDB._id.toHexString(),
-        title: promotionCardDB.title,
-        backgroundImg: promotionCardDB.backgroundImg ?? promotionCardDB.img,
-        promotionPercent: promotionCardDB.promotionPercent,
+        id: (promotionCardDB._id as ObjectId).toHexString(),
+        title: promotionCardDB.title as string,
+        backgroundImg: (promotionCardDB.backgroundImg ??
+            promotionCardDB.img) as string,
+        promotionPercent: Number(promotionCardDB.promotionPercent),
     };
 }

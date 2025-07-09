@@ -1,5 +1,5 @@
-import mongoose, { Schema } from 'mongoose';
 import { MongoClient } from 'mongodb';
+import mongoose, { Schema } from 'mongoose';
 import { settings } from '../../settings';
 import { IUserAccountDB } from './auth/auth.repository';
 
@@ -51,15 +51,11 @@ export const PromotionCardsModel = mongoose.model(
     PromotionCardsSchema,
 );
 
-const UsersSchema = new Schema({
-
-})
-
 export async function runDb() {
     try {
         await mongoose.connect(mongoUri + '/' + 'shop-everything-for-repair');
         console.log('Connected successfully to mongo server');
-    } catch (ex) {
+    } catch {
         console.log("Can't connect to db");
         await mongoose.disconnect();
     }
