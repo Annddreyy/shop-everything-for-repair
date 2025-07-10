@@ -68,7 +68,7 @@
 </template>
 
 <script setup lang="ts">
-import { links } from '@/shared/config/header/links';
+import { links } from '@/shared/config/header/links.config';
 
 import logo from './../../assets/images/logo.svg';
 import burgerButton from './../../assets/images/header/burger-button.svg';

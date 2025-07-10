@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { contactPersons } from '../../config/contact_persons';
+import { contactPersons } from '../../config/contact_persons.config';
 </script>
 
 <style lang="scss" scoped>

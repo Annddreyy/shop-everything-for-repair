@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductCategory } from '../../config/productCategoryCards/categories';
+import type { ProductCategory } from '../../config/productCategoryCards/categories.config';
 
 defineProps<ProductCategory>();
 </script>

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import type { IProductCard } from '../types/product';
+import type { IProductCard } from '../types/product.types';
 import { productsAPI } from '@/shared/api/productsAPI';
 
 export const useProductStore = defineStore('products', {

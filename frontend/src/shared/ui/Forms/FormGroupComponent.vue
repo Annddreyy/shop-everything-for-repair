@@ -1,8 +1,8 @@
 <template>
     <div class="form-group">
         <label :for="id" class="form-group__label">
-            {{ label }}
-            <span v-if="required" class="form-group__redstar">*</span>:
+            {{ label
+            }}<span v-if="required" class="form-group__redstar"> *</span>:
         </label>
         <component
             :is="fieldComponent"

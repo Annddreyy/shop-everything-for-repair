@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { faqList } from '@/pages/FAQ/config/faqList';
+import { faqList } from '@/pages/FAQ/config/faqList.config';
 </script>
 
 <style lang="scss" scoped>

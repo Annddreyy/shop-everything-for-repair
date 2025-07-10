@@ -1,28 +1,32 @@
 import { defineStore } from 'pinia';
-import type { IPromotion } from '../types/promotion';
-import { promotionsAPI } from '@/shared/api/promotionsAPI';
+import type { INewsCard } from '../types/news.types';
+import { newsAPI } from '@/shared/api/newsAPI';
 
-export const usePromotionCardsStore = defineStore('promotionCards', {
+export const useNewsStore = defineStore('news', {
     state: () => ({
-        promotionCards: [] as IPromotion[],
+        news: [] as INewsCard[],
         currentPage: 1,
         pageSize: 12,
         pagesCount: 0,
     }),
 
     getters: {
-        getPromotions: (state) => state.promotionCards,
+        getNewsCards: (state) => state.news,
         getCurrentPage: (state) => state.currentPage,
         getPageSize: (state) => state.pageSize,
         getPagesCount: (state) => state.pagesCount,
     },
 
     actions: {
-        async setPromotions(page = 1, pageSize = 4) {
-            const response = await promotionsAPI.getPromotions(page, pageSize);
-            const { promotions, pagesCount } = response;
+        async setNews(page = 1, pageSize = 4) {
+            const response = await newsAPI.getNews(page, pageSize);
+            const { news, pagesCount } = response;
 
-            this.promotionCards = promotions;
+            this.news = news.map((n) => ({
+                ...n,
+                date: new Date(n.date),
+            }));
+
             this.pagesCount = pagesCount;
         },
 

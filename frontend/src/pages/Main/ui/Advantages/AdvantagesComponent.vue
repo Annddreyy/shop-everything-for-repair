@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { advantages } from '@/pages/Main/config/advantages/advantages';
+import { advantages } from '@/pages/Main/config/advantages/advantages.config';
 </script>
 
 <style lang="scss" scoped>

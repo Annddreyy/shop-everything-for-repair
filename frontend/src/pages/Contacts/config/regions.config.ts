@@ -1,4 +1,4 @@
-import type { Region } from '../types/region';
+import type { Region } from '../types/region.types';
 
 export const regionsList: Region[] = [
     {
