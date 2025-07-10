@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import type { IPromotion } from '../types/promotion';
+import type { IPromotionCard } from '../types/promotion.types';
 
-defineProps<IPromotion>();
+defineProps<IPromotionCard>();
 </script>
 
 <style lang="scss" scoped>

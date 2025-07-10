@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@/shared/types/link';
+import type { Link } from '@/shared/types/link.types';
 import PageTitle from '@/shared/ui/PageTitle/PageTitle.vue';
 import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
 import HeaderComponent from '@/widgets/Header/HeaderComponent.vue';

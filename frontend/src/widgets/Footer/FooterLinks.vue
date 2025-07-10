@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { links } from '@/shared/config/footer/links';
+import { links } from '@/shared/config/footer/links.config';
 </script>
 
 <style lang="scss" module>

@@ -1,4 +1,4 @@
-export interface IPromotion {
+export interface IPromotionCard {
     id: string;
     title: string;
     promotionPercent: number;

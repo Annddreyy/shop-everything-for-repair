@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import NewsCard from '../../../../../src/entities/news_card/ui/NewsCardComponent.vue';
-import { INewsCard } from '../../../../../src/entities/news_card/types/news';
-import { formatDate } from '../../../../../src/shared/lib/workingWithDate/formatDate';
+import { INewsCard } from '../../../../../src/entities/news_card/types/news.types';
+import { formatDate } from '../../../../../src/shared/lib/workingWithDate/formatDate.lib';
 
 describe('NewsCard.vue', () => {
     it('Отображаются переданные props', () => {

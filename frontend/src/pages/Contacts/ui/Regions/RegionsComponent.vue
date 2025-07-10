@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { regionsList } from '../../config/regions';
+import { regionsList } from '../../config/regions.config';
 </script>
 
 <style lang="scss" scoped>

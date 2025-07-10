@@ -1,4 +1,4 @@
-import type { ContactPerson } from '../types/contact_person';
+import type { ContactPerson } from '../types/contact_person.types';
 
 export const contactPersons: ContactPerson[] = [
     {

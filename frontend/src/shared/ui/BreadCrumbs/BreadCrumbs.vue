@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@/shared/types/link';
+import type { Link } from '@/shared/types/link.types';
 
 defineProps<{ links: Link[] }>();
 </script>

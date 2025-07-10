@@ -1,4 +1,4 @@
-import type { IFAQ } from '../entities/faq/types/faq';
+import type { IFAQ } from '../entities/faq/types/faq.types';
 
 export const faqList: IFAQ[] = [
     {

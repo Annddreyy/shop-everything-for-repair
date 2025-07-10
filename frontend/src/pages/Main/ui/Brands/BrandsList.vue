@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
 import BrandCard from './BrandCard.vue';
-import { brands } from '@/pages/Main/config/brands/brands';
+import { brands } from '@/pages/Main/config/brands/brands.config';
 </script>
 
 <style lang="scss" module>

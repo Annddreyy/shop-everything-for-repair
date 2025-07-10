@@ -41,7 +41,7 @@
 import AddToCartButton from '@/features/cart/ui/AddToCartButton.vue';
 import CompareButton from '@/features/compare/ui/CompareButton.vue';
 import FavoriteButton from '@/features/favorite/ui/FavoriteButton.vue';
-import type { IProductCard } from '../types/product';
+import type { IProductCard } from '../types/product.types';
 
 defineProps<IProductCard>();
 </script>

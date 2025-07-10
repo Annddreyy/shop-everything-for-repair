@@ -78,6 +78,9 @@ jobs:
       
       - name: run tests
         run: npm run test:unit
+      
+      - name: run check tests coverage
+        run: npm run check-coverage
 
   build-backend:
     runs-on: ubuntu-latest
