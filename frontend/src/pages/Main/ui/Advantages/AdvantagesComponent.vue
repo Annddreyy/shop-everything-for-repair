@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <section class="advantages-section">
-            <div
+            <article
                 v-for="advantage in advantages"
                 :key="advantage.description"
                 class="advantages-section__advantage"
@@ -14,7 +14,7 @@
                 <span class="advantages-section__description">{{
                     advantage.description
                 }}</span>
-            </div>
+            </article>
         </section>
     </div>
 </template>
