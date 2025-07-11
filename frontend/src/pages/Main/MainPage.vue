@@ -41,13 +41,13 @@
 </template>
 
 <script setup lang="ts">
-import { useNewsStore } from '@/entities/news_card/model/newsStore';
+import { useNewsStore } from '@/entities/news_card/model/newsStore.model';
 import NewsCardComponent from '@/entities/news_card/ui/NewsCardComponent.vue';
-import { useProductStore } from '@/entities/product_card/model/productStore';
+import { useProductStore } from '@/entities/product_card/model/productStore.model';
 import ProductCard from '@/entities/product_card/ui/ProductCard.vue';
-import { usePromotionCardsStore } from '@/entities/promotion_card/model/promotionCardsStore';
+import { usePromotionCardsStore } from '@/entities/promotion_card/model/promotionCardsStore.model';
 import PromotionCard from '@/entities/promotion_card/ui/PromotionCard.vue';
-import { categories } from '@/pages/Main/config/productCategoryCards/categories';
+import { categories } from '@/pages/Main/config/productCategoryCards/categories.config';
 import AdvantagesComponent from '@/pages/Main/ui/Advantages/AdvantagesComponent.vue';
 import BreadCrumbs from '@/shared/ui/BreadCrumbs/BreadCrumbs.vue';
 import PaginationElement from '@/shared/ui/PaginationElement/PaginationElement.vue';
@@ -56,7 +56,7 @@ import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
 import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
 import HeaderComponent from '@/widgets/Header/HeaderComponent.vue';
 import { onBeforeMount } from 'vue';
-import type { Link } from '@/shared/types/link';
+import type { Link } from '@/shared/types/link.types';
 
 const links: Link[] = [{ link: '/', title: 'Главная' }];
 

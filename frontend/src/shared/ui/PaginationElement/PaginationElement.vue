@@ -59,7 +59,6 @@ const pages = computed(() => {
 });
 
 const nextPage = () => {
-    console.log(currentPage.value);
     if (currentPage.value + 1 <= pagesCount) {
         currentPage.value++;
     }

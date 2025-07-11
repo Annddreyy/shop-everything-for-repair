@@ -10,7 +10,7 @@ import BreadCrumbs from '@/shared/ui/BreadCrumbs/BreadCrumbs.vue';
 import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
 import HeaderComponent from '@/widgets/Header/HeaderComponent.vue';
 import FAQCard from './entities/faq/ui/FAQCard.vue';
-import type { Link } from '@/shared/types/link';
+import type { Link } from '@/shared/types/link.types';
 
 const breadCrumbsLinks: Link[] = [
     { title: 'Главная', link: '/' },

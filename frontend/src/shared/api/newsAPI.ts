@@ -1,5 +1,5 @@
-import type { INewsCard } from '@/entities/news_card/types/news';
-import { instance } from '../config/api/api';
+import type { INewsCard } from '@/entities/news_card/types/news.types';
+import { instance } from '../config/api/api.config';
 
 export type GetNewsResponse = {
     news: INewsCard[];
