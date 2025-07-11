@@ -7,7 +7,6 @@ describe('BrandList.vue', () => {
     it('Проверка отображения списка всех переданных брендов', () => {
         const wrapper = mount(BrandList);
         const brandComponents = wrapper.findAll('article');
-        console.log(brandComponents);
 
         expect(brandComponents.length).toBe(brands.length);
         // brandComponents.forEach((brand, index) => {
