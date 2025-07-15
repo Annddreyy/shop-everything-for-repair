@@ -1,9 +1,9 @@
 <template>
     <section class="about">
         <div class="about__container">
-            <div class="about__left">
+            <div class="about__information">
                 <h2 class="about__title">О нашем магазине</h2>
-                <p class="about__text-top">
+                <p class="about__purpose">
                     Цель и главная задача компании- создать сервис, который не
                     ограничится продажей строительных и отделочных материалов, а
                     будет решать задачи и трудности, с которыми сталкиваются
@@ -35,7 +35,7 @@
                         >
                     </div>
                 </div>
-                <p class="about_text-bottom">
+                <p class="about_text">
                     Уже второе десятилетие мы готовы воплотить в реальность Вашу
                     мечту о красивом, комфортабельном доме, благоустроенном
                     современном офисе, уютной теплой даче, помочь реализовать
@@ -56,12 +56,12 @@
 
 <script setup lang="ts">
 import { Colors } from '@/shared/ui/ButtonComponent/types';
-import aboutCompanyImg from './../../../assets/images/main_page/about_company.svg';
+import aboutCompanyImg from '@/assets/images/main_page/about_company.svg';
 </script>
 
 <style lang="scss" module>
-@use './../../../assets/scss/variables' as *;
-@use './../../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .about {
     position: relative;
@@ -73,7 +73,7 @@ import aboutCompanyImg from './../../../assets/images/main_page/about_company.sv
         @extend .row-a-c;
     }
 
-    &__left {
+    &__information {
         @extend .column-j-s;
         gap: $base-gap-2;
         position: relative;
@@ -86,7 +86,7 @@ import aboutCompanyImg from './../../../assets/images/main_page/about_company.sv
         font-size: var(--fz-xxl);
     }
 
-    &__text-top {
+    &__purpose {
         font-size: 17px;
         font-weight: bold;
     }
@@ -119,7 +119,7 @@ import aboutCompanyImg from './../../../assets/images/main_page/about_company.sv
         font-size: var(--fz-small);
     }
 
-    &__text-bottom {
+    &__text {
         font-size: var(--fz-medium);
     }
 

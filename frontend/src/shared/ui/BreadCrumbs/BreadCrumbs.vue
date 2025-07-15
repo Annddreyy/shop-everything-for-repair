@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div :class="$style.links">
+        <div class="links">
             <RouterLink
                 :to="link.link"
                 v-for="link in links"
@@ -14,10 +14,14 @@
 <script setup lang="ts">
 import type { Link } from '@/shared/types/link.types';
 
-defineProps<{ links: Link[] }>();
+defineProps<{
+    links: Link[];
+}>();
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
+@use '@/assets/scss/display' as *;
+
 .links {
     display: flex;
     gap: 1em;

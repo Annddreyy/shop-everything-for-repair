@@ -24,8 +24,8 @@ import { advantages } from '@/pages/Main/config/advantages/advantages.config';
 </script>
 
 <style lang="scss" scoped>
-@use './../../../../assets/scss/variables' as *;
-@use './../../../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .advantages-section {
     @extend .row-a-c;

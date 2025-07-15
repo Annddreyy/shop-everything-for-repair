@@ -13,14 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import type { IPromotionCard } from '../types/promotion.types';
+import type { PromotionCard } from '../types/promotion.types';
 
-defineProps<IPromotionCard>();
+defineProps<PromotionCard>();
 </script>
 
 <style lang="scss" scoped>
-@use './../../../assets/scss/variables' as *;
-@use './../../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .promotion__card {
     @extend .column;

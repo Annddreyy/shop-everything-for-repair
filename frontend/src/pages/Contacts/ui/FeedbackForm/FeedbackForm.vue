@@ -1,10 +1,3 @@
-<script setup lang="ts">
-import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
-import { Colors } from '@/shared/ui/ButtonComponent/types';
-import Checkbox from '@/shared/ui/Forms/CheckboxField.vue';
-import FormGroupComponent from '@/shared/ui/Forms/FormGroupComponent.vue';
-</script>
-
 <template>
     <section class="feedback-form">
         <h2 class="feedback-form__title">
@@ -53,8 +46,15 @@ import FormGroupComponent from '@/shared/ui/Forms/FormGroupComponent.vue';
     </section>
 </template>
 
+<script setup lang="ts">
+import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
+import Checkbox from '@/shared/ui/Forms/CheckboxField.vue';
+import FormGroupComponent from '@/shared/ui/Forms/FormGroupComponent.vue';
+import { Colors } from '@/shared/ui/ButtonComponent/types';
+</script>
+
 <style lang="scss" scoped>
-@use './../../../../assets/scss/display' as *;
+@use '@/assets/scss/display' as *;
 
 .feedback-form {
     @extend .column-a-c;

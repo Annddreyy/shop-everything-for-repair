@@ -20,8 +20,8 @@ import { links } from '@/shared/config/footer/links.config';
 </script>
 
 <style lang="scss" module>
-@use './../../assets/scss/display' as *;
-@use './../../assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
 
 .linksBlock {
     @extend .row-a-c;

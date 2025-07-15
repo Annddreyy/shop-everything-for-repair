@@ -5,11 +5,11 @@
 </template>
 
 <script setup lang="ts">
-import likeUnfill from './../../../assets/images/product/like-unfill.svg';
+import likeUnfill from '@/assets/images/product/like-unfill.svg';
 </script>
 
 <style lang="scss" module>
-@use './../../../assets/scss/variables' as *;
+@use '@/assets/scss/variables' as *;
 .button {
     width: 40px;
     height: 40px;

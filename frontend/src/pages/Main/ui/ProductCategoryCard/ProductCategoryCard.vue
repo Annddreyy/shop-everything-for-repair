@@ -6,14 +6,14 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductCategory } from '../../config/productCategoryCards/categories.config';
+import type { ProductCategory } from '../../types/productCategory.types';
 
 defineProps<ProductCategory>();
 </script>
 
 <style lang="scss" module>
-@use './../../../../assets/scss/variables' as *;
-@use './../../../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .product-category-card {
     @extend .column-a-c;

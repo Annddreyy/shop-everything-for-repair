@@ -22,7 +22,7 @@ import { regionsList } from '../../config/regions.config';
 </script>
 
 <style lang="scss" scoped>
-@use './../../../../assets/scss/display' as *;
+@use '@/assets/scss/display' as *;
 
 .regions {
     @extend .column;

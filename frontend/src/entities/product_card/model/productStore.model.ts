@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia';
-import type { IProductCard } from '../types/product.types';
+import type { ProductCard } from '../types/product.types';
 import { productsAPI } from '@/shared/api/productsAPI';
 
 export const useProductStore = defineStore('products', {
     state: () => ({
-        products: [] as IProductCard[],
-        favoriteProducts: [] as IProductCard[],
-        compareProducts: [] as IProductCard[],
+        products: [] as ProductCard[],
+        favoriteProducts: [] as ProductCard[],
+        compareProducts: [] as ProductCard[],
         currentPage: 1,
         pageSize: 12,
         pagesCount: 0,

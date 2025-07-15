@@ -1,7 +1,11 @@
-export const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat('ru', {
+export const formatDate = (
+    date: Date,
+    options?: Intl.DateTimeFormatOptions,
+) => {
+    const dateFormatOptions: Intl.DateTimeFormatOptions = options || {
         day: 'numeric',
         month: 'long',
         year: 'numeric',
-    }).format(date);
+    };
+    return new Intl.DateTimeFormat('ru', dateFormatOptions).format(date);
 };

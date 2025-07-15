@@ -1,8 +1,8 @@
-import type { IPromotionCard } from '@/entities/promotion_card/types/promotion.types';
+import type { PromotionCard } from '@/entities/promotion_card/types/promotion.types';
 import { instance } from '../config/api/api.config';
 
 export type GetPromotionsResponse = {
-    promotions: IPromotionCard[];
+    promotions: PromotionCard[];
     pagesCount: number;
 };
 

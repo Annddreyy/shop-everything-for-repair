@@ -1,7 +1,4 @@
-type Link = {
-    title: string;
-    link: `/${string}`;
-};
+import type { Link } from '@/shared/types/link.types';
 
 export const links: Link[] = [
     { title: 'О компании', link: '/about-company' },

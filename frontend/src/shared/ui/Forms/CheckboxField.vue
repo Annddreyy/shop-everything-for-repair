@@ -23,7 +23,7 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
-@use './../../../assets/scss/display' as *;
+@use '@/assets/scss/display' as *;
 
 .checkbox {
     &__label {

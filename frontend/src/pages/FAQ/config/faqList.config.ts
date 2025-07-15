@@ -1,6 +1,6 @@
-import type { IFAQ } from '../entities/faq/types/faq.types';
+import type { FAQ } from '../entities/faq/types/faq.types';
 
-export const faqList: IFAQ[] = [
+export const faqList: FAQ[] = [
     {
         question:
             'Могу ли я сделать возврат материалов, не использованных в процессе строительства?',

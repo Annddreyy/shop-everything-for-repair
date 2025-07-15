@@ -1,15 +1,11 @@
-import brand1 from './../../../../assets/images/brands/brand1.svg';
-import brand2 from './../../../../assets/images/brands/brand2.svg';
-import brand3 from './../../../../assets/images/brands/brand3.svg';
-import brand4 from './../../../../assets/images/brands/brand4.svg';
-import brand5 from './../../../../assets/images/brands/brand5.svg';
-import brand6 from './../../../../assets/images/brands/brand6.svg';
-import brand7 from './../../../../assets/images/brands/brand7.svg';
-
-export type Brand = {
-    id: number;
-    img: string;
-};
+import type { Brand } from '../../types/brand.types';
+import brand1 from '@/assets/images/brands/brand1.svg';
+import brand2 from '@/assets/images/brands/brand2.svg';
+import brand3 from '@/assets/images/brands/brand3.svg';
+import brand4 from '@/assets/images/brands/brand4.svg';
+import brand5 from '@/assets/images/brands/brand5.svg';
+import brand6 from '@/assets/images/brands/brand6.svg';
+import brand7 from '@/assets/images/brands/brand7.svg';
 
 export const brands: Brand[] = [
     { id: 1, img: brand1 },

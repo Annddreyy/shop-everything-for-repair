@@ -1,4 +1,4 @@
-export const hexToRgb = (hex: `#${string}`) => {
+export const hexToRGB = (hex: `#${string}`) => {
     let hexConvertedString = hex.replace('#', '');
     if (hex.length - 1 === 3) {
         hexConvertedString = hexConvertedString

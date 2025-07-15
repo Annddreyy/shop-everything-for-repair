@@ -7,12 +7,12 @@
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@/shared/types/link.types';
-import PageTitle from '@/shared/ui/PageTitle/PageTitle.vue';
 import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
 import HeaderComponent from '@/widgets/Header/HeaderComponent.vue';
-import Block404 from './ui/Block404Component.vue';
+import PageTitle from '@/shared/ui/PageTitle/PageTitle.vue';
 import BreadCrumbs from '@/shared/ui/BreadCrumbs/BreadCrumbs.vue';
+import Block404 from './ui/Block404Component.vue';
+import type { Link } from '@/shared/types/link.types';
 
 const links: Link[] = [
     {

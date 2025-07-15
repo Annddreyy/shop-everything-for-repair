@@ -21,12 +21,12 @@
 </template>
 
 <script setup lang="ts">
-import logo from './../../assets/images/logo.svg';
+import logo from '@/assets/images/logo.svg';
 </script>
 
 <style lang="scss" module>
-@use './../../assets/scss/variables' as *;
-@use './../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .top {
     @extend .row-a-c;

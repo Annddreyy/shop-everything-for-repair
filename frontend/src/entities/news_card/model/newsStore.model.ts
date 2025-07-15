@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia';
-import type { INewsCard } from '../types/news.types';
+import type { NewsCard } from '../types/news.types';
 import { newsAPI } from '@/shared/api/newsAPI';
 
 export const useNewsStore = defineStore('news', {
     state: () => ({
-        news: [] as INewsCard[],
+        news: [] as NewsCard[],
         currentPage: 1,
         pageSize: 12,
         pagesCount: 0,

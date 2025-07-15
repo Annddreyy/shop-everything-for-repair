@@ -45,7 +45,7 @@ const fieldComponent = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use './../../../assets/scss/display' as *;
+@use '@/assets/scss/display' as *;
 
 .form-group {
     @extend .column;

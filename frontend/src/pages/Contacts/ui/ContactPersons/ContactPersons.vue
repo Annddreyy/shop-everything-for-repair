@@ -35,7 +35,7 @@ import { contactPersons } from '../../config/contact_persons.config';
 </script>
 
 <style lang="scss" scoped>
-@use './../../../../assets/scss/display' as *;
+@use '@/assets/scss/display' as *;
 
 .contact-persons {
     @extend .grid;

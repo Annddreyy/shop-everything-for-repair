@@ -26,17 +26,17 @@
 </template>
 
 <script setup lang="ts">
-import sberIcon from './../../assets/images/footer/sber-icon.svg';
-import tinkoffIcon from './../../assets/images/footer/tinkoff-icon.svg';
-import mirIcon from './../../assets/images/footer/mir-icon.svg';
-import visaIcon from './../../assets/images/footer/visa-icon.svg';
-import xalvaIcon from './../../assets/images/footer/xalva-icon.svg';
-import sendEmail from './../../assets/images/footer/send-email.svg';
+import sberIcon from '@/assets/images/footer/sber-icon.svg';
+import tinkoffIcon from '@/assets/images/footer/tinkoff-icon.svg';
+import mirIcon from '@/assets/images/footer/mir-icon.svg';
+import visaIcon from '@/assets/images/footer/visa-icon.svg';
+import xalvaIcon from '@/assets/images/footer/xalva-icon.svg';
+import sendEmail from '@/assets/images/footer/send-email.svg';
 </script>
 
 <style module lang="scss">
-@use './../../assets/scss/variables' as *;
-@use './../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .cardsBlock {
     @extend .row-a-c;
