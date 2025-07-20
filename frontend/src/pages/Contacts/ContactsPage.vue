@@ -1,15 +1,12 @@
 <template>
     <HeaderComponent />
     <ContactPersons />
-    <Regions />
+    <RegionsComponent />
     <FeedbackForm />
     <FooterComponent />
 </template>
 
 <script setup lang="ts">
-import HeaderComponent from '@/widgets/Header/HeaderComponent.vue';
-import ContactPersons from './ui/ContactPersons/ContactPersons.vue';
-import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
-import Regions from './ui/RegionsComponent/RegionsComponent.vue';
-import FeedbackForm from './ui/FeedbackForm/FeedbackForm.vue';
+import { FooterComponent, HeaderComponent } from '@/widgets';
+import { ContactPersons, FeedbackForm, RegionsComponent } from './ui';
 </script>

@@ -5,7 +5,7 @@ import {
     Button,
     Colors,
 } from './../../../../../src/shared/ui/ButtonComponent/types';
-import { hexToRgb } from '../../../../../src/shared/lib/workingWithColors/hexToRGB.lib';
+import { hexToRGB } from '../../../../../src/shared/lib/workingWithColors/hexToRGB.lib';
 
 const props: Button = {
     text: 'Тестовый текст',
@@ -20,10 +20,10 @@ describe('ButtonComponent.vue', () => {
         expect(wrapper.text()).toBe(props.text);
 
         expect(wrapper.attributes('style')).toContain(
-            `color: ${hexToRgb(Colors.BLUE)}`,
+            `color: ${hexToRGB(Colors.BLUE)}`,
         );
         expect(wrapper.attributes('style')).toContain(
-            `background-color: ${hexToRgb(Colors.BLACK)}`,
+            `background-color: ${hexToRGB(Colors.BLACK)}`,
         );
     });
 
@@ -45,7 +45,7 @@ describe('ButtonComponent.vue', () => {
         const wrapper = mount(ButtonComponent, { props: propsWithBorderColor });
 
         expect(wrapper.attributes('style')).toContain(
-            `border-color: ${hexToRgb(Colors.LIGHT_BLUE)}`,
+            `border-color: ${hexToRGB(Colors.LIGHT_BLUE)}`,
         );
     });
 
