@@ -7,15 +7,15 @@ server {
     proxy_set_header X-Scheme $$scheme;
 
     location / {
-        proxy_pass http://localhost:${FRONTEND_PUBLIC_PORT}
+        proxy_pass http://localhost:${FRONTEND_PUBLIC_PORT};
     }
 
     location /api/v1/ {
-        proxy_pass http://localhost:${BACKEND_PUBLIC_PORT}
+        proxy_pass http://localhost:${BACKEND_PUBLIC_PORT};
     }
 
     location /api/auth/ {
-        proxy_pass https://localhost:${AUTH_API_PUBLIC_PORT}
+        proxy_pass http://localhost:${AUTH_API_PUBLIC_PORT};
     }
 
     location /images {
