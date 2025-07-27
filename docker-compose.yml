@@ -39,7 +39,6 @@ services:
     image: mongo:latest
     depends_on:
       - mongo
-    restart: 'always'
     volumes:
       - ./dump:/dump
     entrypoint: >
@@ -59,7 +58,6 @@ services:
       - mongoimport
     volumes:
       - ./dump:/dump
-    restart: 'always'
     entrypoint: >
       bash -c "
         echo '⏳ Waiting for MongoDB to start...';
