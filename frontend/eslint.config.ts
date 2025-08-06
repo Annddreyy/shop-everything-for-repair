@@ -10,11 +10,6 @@ import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
 // @ts-expect-error TODO: fix this
 import pluginBoundaries from 'eslint-plugin-boundaries';
 
-// To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
-// import { configureVueProject } from '@vue/eslint-config-typescript'
-// configureVueProject({ scriptLangs: ['ts', 'tsx'] })
-// More info at https://github.com/vuejs/eslint-config-typescript/#advanced-setup
-
 export default defineConfigWithVueTs(
     {
         name: 'app/files-to-lint',
@@ -38,7 +33,6 @@ export default defineConfigWithVueTs(
     },
     skipFormatting,
 
-    // 👇 Конфигурация плагина boundaries
     {
         plugins: {
             boundaries: pluginBoundaries,
