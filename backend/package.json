@@ -10,6 +10,7 @@
         "@typescript-eslint/eslint-plugin": "^8.34.0",
         "@typescript-eslint/parser": "^8.34.0",
         "bcrypt": "^6.0.0",
+        "class-transformer": "^0.5.1",
         "cors": "^2.8.5",
         "date-fns": "^4.1.0",
         "express": "^5.1.0",
@@ -19,6 +20,7 @@
         "mongodb": "^6.17.0",
         "mongoose": "^8.16.0",
         "nodemailer": "^7.0.3",
+        "reflect-metadata": "^0.2.2",
         "swagger-jsdoc": "^6.2.8",
         "swagger-ui-express": "^5.0.1",
         "ts-jest": "^29.4.0",
@@ -31,6 +33,7 @@
         "build": "tsc",
         "start": "node dist/src/index.js",
         "test": "jest --watch",
+        "typecheck": "tsc --noEmit",
         "lint": "npm run lint:eslint && npm run lint:prettier",
         "lint:eslint": "eslint .",
         "lint:prettier": "prettier . --check",
@@ -47,6 +50,7 @@
         "prettier": "3.5.3",
         "supertest": "^7.1.1",
         "ts-node": "^10.9.2",
-        "typescript": "^5.8.3"
+        "typescript": "^5.8.3",
+        "vite": "^7.1.0"
     }
 }

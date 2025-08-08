@@ -1,14 +1,14 @@
 import { MongoClient } from 'mongodb';
 import mongoose, { Schema } from 'mongoose';
-import { settings } from '../../settings';
-import { IUserAccountDB } from './auth/auth.repository';
+import { settings } from '@/settings';
+import { UserAccountDB } from './auth/types';
 
 const mongoUri = settings.MONGO_URI;
 
 export const client = new MongoClient(mongoUri);
 export const db = client.db('shop-everything-for-repair');
 
-export const usersCollection = db.collection<IUserAccountDB>('users');
+export const usersCollection = db.collection<UserAccountDB>('users');
 // export const promotionCardsCollection =
 //     db.collection<IPromotionCardDB>('promotion_cards');
 // export const usersCollection = db.collection<IUserAccountDB>('users');
