@@ -11,12 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import readyCodeLogo from './../../assets/images/footer/readycode_logo.svg';
+import readyCodeLogo from '@/assets/images/footer/readycode_logo.svg';
 </script>
 
 <style lang="scss" module>
-@use './../../assets/scss/variables' as *;
-@use './../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .bottomBlock {
     @extend .grid-3;

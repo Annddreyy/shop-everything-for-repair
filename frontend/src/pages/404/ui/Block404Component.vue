@@ -2,7 +2,7 @@
     <div class="container">
         <section class="block-404">
             <img
-                src="./../../../assets/images/404/404.svg"
+                src="@/assets/images/404/404.svg"
                 alt="404"
                 class="block-404__img"
             />

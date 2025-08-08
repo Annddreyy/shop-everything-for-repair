@@ -14,13 +14,13 @@
 
 <script setup lang="ts">
 import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
+import { brands } from '@/pages/Main/config/brands/brands.config';
 import BrandCard from './BrandCard.vue';
-import { brands } from '@/pages/Main/config/brands/brands';
 </script>
 
 <style lang="scss" module>
-@use './../../../assets/scss/variables' as *;
-@use './../../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .brands {
     @extend .column;
@@ -30,11 +30,13 @@ import { brands } from '@/pages/Main/config/brands/brands';
     padding: $base-padding-9 0;
 
     &__title {
+        @extend .row;
         width: 100%;
-        display: flex;
+
         text-align: start;
         align-self: flex-start;
         justify-self: self-start;
+
         font-size: var(--fz-xxl);
     }
 }

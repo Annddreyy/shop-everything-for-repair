@@ -5,7 +5,6 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
-// https://vite.dev/config/
 export default defineConfig({
     plugins: [vue(), vueJsx(), vueDevTools()],
     server: {
@@ -14,6 +13,36 @@ export default defineConfig({
         watch: {
             usePolling: true,
         },
+        allowedHosts: ['repair.localhost.com'],
+    },
+    test: {
+        coverage: {
+            provider: 'v8',
+            exclude: [
+                'src/app/**',
+                'src/**/*.types.ts',
+                'src/pages/*/*Page.vue',
+                'env.d.ts',
+                'eslint.config.ts',
+                'playwright.config.ts',
+                'vite.config.ts',
+                'vitest.config.ts',
+            ],
+            thresholds: {
+                statements: 95,
+                branches: 95,
+                functions: 95,
+                lines: 95,
+            },
+        },
+        exclude: [
+            'env.d.ts',
+            'eslint.config.ts',
+            'playwright.config.ts',
+            'vite.config.ts',
+            'vitest.config.ts',
+            'src/app/**',
+        ],
     },
     resolve: {
         alias: {

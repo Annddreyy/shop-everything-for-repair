@@ -17,12 +17,12 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate } from '@/shared/lib/workingWithDate/formatDate';
-import type { INewsCard } from '../types/news';
 import { RouterLink } from 'vue-router';
+import { formatDate } from '@/shared/lib/workingWithDate/formatDate.lib';
 import defaultImg from '@/assets/images/img_not_found.png';
+import type { NewsCard } from '../types/news.types';
 
-defineProps<INewsCard>();
+defineProps<NewsCard>();
 
 const onImageNotLoad = (event: Event) => {
     const target = event.target as HTMLImageElement;
@@ -31,8 +31,8 @@ const onImageNotLoad = (event: Event) => {
 </script>
 
 <style lang="scss" scoped>
-@use './../../../assets/scss/variables' as *;
-@use './../../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .news-card {
     @extend .column;

@@ -14,14 +14,14 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate } from '@/shared/lib/workingWithDate/formatDate';
-import type { IReviews } from '../types/reviews';
+import { formatDate } from '@/shared/lib/workingWithDate/formatDate.lib';
+import type { Review } from '../types/reviews.types';
 
-defineProps<IReviews>();
+defineProps<Review>();
 </script>
 
 <style lang="scss" scoped>
-@use './../../../assets/scss/display' as *;
+@use '@/assets/scss/display' as *;
 
 .review-card {
     @extend .column;

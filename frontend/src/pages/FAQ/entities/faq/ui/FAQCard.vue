@@ -8,11 +8,11 @@
 </template>
 
 <script setup lang="ts">
-import { faqList } from '@/pages/FAQ/config/faqList';
+import { faqList } from '@/pages/FAQ/config/faqList.config';
 </script>
 
 <style lang="scss" scoped>
-@use './../../../../../assets/scss/display' as *;
+@use '@/assets/scss/display' as *;
 
 .faq-card {
     &__question {
@@ -26,8 +26,7 @@ import { faqList } from '@/pages/FAQ/config/faqList';
         list-style-type: none;
 
         &::after {
-            @extend .row-a-c;
-            @extend .row-j-c;
+            @extend .row-c;
 
             position: absolute;
             content: '+';

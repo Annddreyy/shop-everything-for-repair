@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <section class="advantages-section">
-            <div
+            <article
                 v-for="advantage in advantages"
                 :key="advantage.description"
                 class="advantages-section__advantage"
@@ -14,18 +14,18 @@
                 <span class="advantages-section__description">{{
                     advantage.description
                 }}</span>
-            </div>
+            </article>
         </section>
     </div>
 </template>
 
 <script setup lang="ts">
-import { advantages } from '@/pages/Main/config/advantages/advantages';
+import { advantages } from '@/pages/Main/config/advantages/advantages.config';
 </script>
 
 <style lang="scss" scoped>
-@use './../../../../assets/scss/variables' as *;
-@use './../../../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .advantages-section {
     @extend .row-a-c;

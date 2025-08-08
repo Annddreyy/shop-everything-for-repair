@@ -1,0 +1,220 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'frontend/**'
+      - 'backend/**'
+  pull_request:
+    branches: [master]
+    paths:
+      - 'frontend/**'
+      - 'backend/**'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      frontend: ${{ steps.filter.outputs.frontend }}
+      backend: ${{ steps.filter.outputs.backend }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check paths
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            frontend:
+              - 'frontend/**'
+            backend:
+              - 'backend/**'
+  
+  lint-frontend:
+    needs: 
+      - changes
+    if: needs.changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: install frontend dependencies
+        run: npm ci
+
+      - name: run ESLint and Prettier
+        run: npm run lint
+
+  lint-backend:
+    needs:
+      - changes
+    if: needs.changes.outputs.backend == 'true'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: install backend dependencies
+        run: npm install
+
+      - name: run ESLint and Prettier
+        run: npm run lint
+  
+  typecheck-frontend:
+    needs: 
+      - changes
+    if: needs.changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: install frontend dependencies
+        run: npm ci
+
+      - name: run ts check
+        run: npm run typecheck
+
+  typecheck-backend:
+    needs: 
+      - changes
+    if: needs.changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: install frontend dependencies
+        run: npm ci
+
+      - name: run ts check
+        run: npm run typecheck
+
+  test-frontend:
+    needs: 
+      - changes
+      - lint-frontend
+      - typecheck-frontend
+    if: needs.changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+    
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: install frontend dependencies
+        run: npm ci
+      
+      - name: run tests
+        run: npm run test:unit
+      
+      - name: run check tests coverage
+        run: npm run check-coverage
+
+  build-backend:
+    needs:
+      - changes
+      - lint-backend
+      - typecheck-backend
+    if: needs.changes.outputs.backend == 'true'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+    
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      
+      - name: install dependencies
+        run: npm ci
+      
+      - name: run build backend
+        run: npm run build
+  
+  build-frontend:
+    needs:
+      - changes
+      - lint-frontend
+      - typecheck-frontend
+    if: needs.changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+    
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      
+      - name: install dependencies
+        run: npm ci
+      
+      - name: run build frontend
+        run: npm run build

@@ -5,11 +5,11 @@
 </template>
 
 <script setup lang="ts">
-import compareUnfill from './../../../assets/images/product/compare-icon.svg';
+import compareUnfill from '@/assets/images/product/compare-icon.svg';
 </script>
 
 <style lang="scss" module>
-@use './../../../assets/scss/variables' as *;
+@use '@/assets/scss/variables' as *;
 .button {
     width: 40px;
     height: 40px;

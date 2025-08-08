@@ -2,17 +2,15 @@
     <HeaderComponent />
     <BreadCrumbs :links="links" />
     <PageTitle title="Страница не найдена" />
-    <Block404 />
+    <Block404Component />
     <FooterComponent />
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@/shared/types/link';
-import PageTitle from '@/shared/ui/PageTitle/PageTitle.vue';
-import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
-import HeaderComponent from '@/widgets/Header/HeaderComponent.vue';
-import Block404 from './ui/Block404Component.vue';
-import BreadCrumbs from '@/shared/ui/BreadCrumbs/BreadCrumbs.vue';
+import { BreadCrumbs, PageTitle } from '@/shared/ui';
+import { FooterComponent, HeaderComponent } from '@/widgets';
+import { Block404Component } from './ui';
+import type { Link } from '@/shared/types/link.types';
 
 const links: Link[] = [
     {

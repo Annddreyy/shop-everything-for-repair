@@ -68,24 +68,23 @@
 </template>
 
 <script setup lang="ts">
-import { links } from '@/shared/config/header/links';
-
-import logo from './../../assets/images/logo.svg';
-import burgerButton from './../../assets/images/header/burger-button.svg';
-import search from './../../assets/images/header/search.svg';
-
-import promotionsIcon from './../../assets/images/header/promotions-icon.svg';
-import likeIcon from './../../assets/images/header/like-icon.svg';
-import cartIcon from './../../assets/images/header/cart-icon.svg';
-import accountIcon from './../../assets/images/header/account-icon.svg';
-import compareIcon from './../../assets/images/header/compare-icon.svg';
-import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
+import { links } from '@/shared/config/header/links.config';
 import { Colors } from '@/shared/ui/ButtonComponent/types';
+import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
+
+import logo from '@/assets/images/logo.svg';
+import burgerButton from '@/assets/images/header/burger-button.svg';
+import search from '@/assets/images/header/search.svg';
+import promotionsIcon from '@/assets/images/header/promotions-icon.svg';
+import likeIcon from '@/assets/images/header/like-icon.svg';
+import cartIcon from '@/assets/images/header/cart-icon.svg';
+import accountIcon from '@/assets/images/header/account-icon.svg';
+import compareIcon from '@/assets/images/header/compare-icon.svg';
 </script>
 
 <style module lang="scss">
-@use './../../assets/scss/display' as *;
-@use './../../assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
 
 header {
     .top {

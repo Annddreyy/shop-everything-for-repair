@@ -5,13 +5,13 @@
 </template>
 
 <script setup lang="ts">
-import type { Brand } from '@/pages/Main/config/brands/brands';
+import type { Brand } from '../../types/brand.types';
 
 defineProps<Brand>();
 </script>
 
 <style lang="scss" module>
-@use './../../../assets/scss/display' as *;
+@use '@/assets/scss/display' as *;
 
 .brand {
     @extend .row-a-c;

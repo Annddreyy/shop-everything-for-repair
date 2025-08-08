@@ -6,11 +6,12 @@
 </template>
 
 <script setup lang="ts">
-import img from './../../../assets/images/product/bin-icon.svg';
+import img from '@/assets/images/product/bin-icon.svg';
 </script>
 
 <style module lang="scss">
-@use './../../../assets/scss/variables' as *;
+@use '@/assets/scss/variables' as *;
+
 .button {
     width: max-content;
     height: 40px;

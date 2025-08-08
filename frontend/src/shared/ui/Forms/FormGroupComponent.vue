@@ -1,8 +1,8 @@
 <template>
     <div class="form-group">
         <label :for="id" class="form-group__label">
-            {{ label }}
-            <span v-if="required" class="form-group__redstar">*</span>:
+            {{ label
+            }}<span v-if="required" class="form-group__redstar"> *</span>:
         </label>
         <component
             :is="fieldComponent"
@@ -45,7 +45,7 @@ const fieldComponent = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use './../../../assets/scss/display' as *;
+@use '@/assets/scss/display' as *;
 
 .form-group {
     @extend .column;

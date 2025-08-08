@@ -24,8 +24,8 @@ defineProps<{
 </script>
 
 <style lang="scss" module>
-@use './../../assets/scss/variables' as *;
-@use './../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 
 .list {
     @extend .row;

@@ -3,7 +3,7 @@
         <div :class="$style.buttons">
             <button @click="previousPage">
                 <img
-                    src="./../../../assets/images/breadcrumbs/previos.svg"
+                    src="@/assets/images/breadcrumbs/previos.svg"
                     alt="назад"
                 />Назад
             </button>
@@ -18,7 +18,7 @@
             </div>
             <button @click="nextPage">
                 <img
-                    src="./../../../assets/images/breadcrumbs/next.svg"
+                    src="@/assets/images/breadcrumbs/next.svg"
                     alt="далее"
                 />Далее
             </button>
@@ -59,7 +59,6 @@ const pages = computed(() => {
 });
 
 const nextPage = () => {
-    console.log(currentPage.value);
     if (currentPage.value + 1 <= pagesCount) {
         currentPage.value++;
     }

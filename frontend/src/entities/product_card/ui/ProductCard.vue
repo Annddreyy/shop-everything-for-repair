@@ -27,9 +27,9 @@
                 >
             </div>
         </div>
-        <div class="product-card__bottom-buttons">
+        <div class="buttons">
             <AddToCartButton />
-            <div class="product-card__right-buttons">
+            <div class="buttons__right">
                 <FavoriteButton />
                 <CompareButton />
             </div>
@@ -41,14 +41,14 @@
 import AddToCartButton from '@/features/cart/ui/AddToCartButton.vue';
 import CompareButton from '@/features/compare/ui/CompareButton.vue';
 import FavoriteButton from '@/features/favorite/ui/FavoriteButton.vue';
-import type { IProductCard } from '../types/product';
+import type { ProductCard } from '../types/product.types';
 
-defineProps<IProductCard>();
+defineProps<ProductCard>();
 </script>
 
 <style module lang="scss">
-@use './../../../assets/scss/variables' as *;
-@use './../../../assets/scss/display' as *;
+@use '@/assets/scss/variables' as *;
+@use '@/assets/scss/display' as *;
 @use 'sass:map';
 
 .product-card {
@@ -137,13 +137,13 @@ defineProps<IProductCard>();
         font-weight: bold;
     }
 
-    &__bottom-buttons {
+    .buttons {
         display: flex;
         justify-content: space-between;
-    }
 
-    &__right-buttons {
-        @extend .row;
+        &__right {
+            @extend .row;
+        }
     }
 }
 </style>
