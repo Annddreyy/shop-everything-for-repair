@@ -1,6 +1,6 @@
 {
     "name": "shop-everything-for-repair",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "private": true,
     "type": "module",
     "scripts": {
@@ -15,7 +15,8 @@
         "lint": "npm run lint:eslint && npm run lint:prettier",
         "lint:eslint": "eslint .",
         "lint:prettier": "prettier . --check",
-        "lintfix": "eslint . --fix && prettier --write --list-different ."
+        "lintfix": "eslint . --fix && prettier --write --list-different .",
+        "prepare": "husky"
     },
     "dependencies": {
         "axios": "^1.9.0",
@@ -44,8 +45,10 @@
         "eslint-plugin-boundaries": "^5.0.1",
         "eslint-plugin-playwright": "^2.2.0",
         "eslint-plugin-vue": "~10.0.0",
+        "husky": "^9.1.7",
         "jiti": "^2.4.2",
         "jsdom": "^26.1.0",
+        "lint-staged": "^16.1.5",
         "npm-run-all2": "^7.0.2",
         "prettier": "3.5.3",
         "sass-embedded": "^1.89.2",
@@ -54,5 +57,14 @@
         "vite-plugin-vue-devtools": "^7.7.2",
         "vitest": "^3.2.4",
         "vue-tsc": "^2.2.8"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx,vue}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{json,css,scss,md}": [
+            "prettier --write"
+        ]
     }
 }

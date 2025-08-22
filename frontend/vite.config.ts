@@ -13,7 +13,7 @@ export default defineConfig({
         watch: {
             usePolling: true,
         },
-        allowedHosts: ['repair.localhost.com']
+        allowedHosts: ['repair.localhost.com'],
     },
     test: {
         coverage: {

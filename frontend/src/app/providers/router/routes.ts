@@ -4,6 +4,7 @@ import ContactsPage from '@/pages/Contacts/ContactsPage.vue';
 import FAQPage from '@/pages/FAQ/FAQPage.vue';
 import MainPage from '@/pages/Main/MainPage.vue';
 import ReviewsPage from '@/pages/Reviews/ReviewsPage.vue';
+import PrivacyPolicy from '@/pages/PrivacyPolicy/PrivacyPolicy.vue';
 
 export const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +14,11 @@ export const router = createRouter({
         { path: '/reviews', component: ReviewsPage, name: 'reviews' },
         { path: '/contacts', component: ContactsPage, name: 'contacts' },
         { path: '/faq', component: FAQPage, name: 'faq' },
+        {
+            path: '/privacy-policy',
+            component: PrivacyPolicy,
+            name: 'privacy-policy',
+        },
         { path: '/:pathMatch(.*)*', component: Page404Page, name: '404' },
     ],
 });
