@@ -14,7 +14,7 @@ export default defineConfig([
         languageOptions: { globals: globals.browser },
     },
     {
-        ignores: ['./swagger.js', './dist'],
+        ignores: ['./swagger.js', './dist', './node_modules'],
     },
     // @ts-expect-error: игнорировать, потому что правильно не определяется тип
     tseslint.configs.recommended,
