@@ -600,10 +600,5 @@ const breadCrumbsLinks: Link[] = [
     li {
         margin-bottom: 10px;
     }
-    ul {
-        li {
-            list-style: disc inside;
-        }
-    }
 }
 </style>

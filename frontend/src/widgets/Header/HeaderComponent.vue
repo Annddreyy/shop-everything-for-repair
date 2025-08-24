@@ -2,7 +2,7 @@
     <header>
         <div :class="$style.top">
             <div class="container">
-                <nav>
+                <nav class="navigation">
                     <ul :class="$style.links">
                         <li v-for="link in links" :key="link.link">
                             <RouterLink :to="link.link" :class="$style.link">
@@ -86,6 +86,11 @@ import compareIcon from '@/assets/images/header/compare-icon.svg';
 @use '@/assets/scss/display' as *;
 @use '@/assets/scss/variables' as *;
 
+.navigation {
+    ul {
+        list-style: none;
+    }
+}
 header {
     .top {
         padding: 9px;
