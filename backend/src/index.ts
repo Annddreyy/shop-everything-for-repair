@@ -1,5 +1,8 @@
 import { app } from './app';
 import { runDb } from './app/repositories/db';
+import { config } from 'dotenv';
+
+config();
 
 const port = 8080;
 
