@@ -1,16 +1,16 @@
 <template>
-    <div :class="$style.button">
-        <img :src="likeUnfill" alt="Добавить в избаранное" />
+    <div class="like-button">
+        <img :src="likeIcon" alt="Добавить в избаранное" />
     </div>
 </template>
 
 <script setup lang="ts">
-import likeUnfill from '@/assets/images/product/like-unfill.svg';
+import { likeIcon } from '@/assets/images';
 </script>
 
 <style lang="scss" module>
 @use '@/assets/scss/variables' as *;
-.button {
+.like-button {
     width: 40px;
     height: 40px;
     display: flex;

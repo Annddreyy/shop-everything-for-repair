@@ -43,6 +43,8 @@ export default defineConfig({
 
         /* Only on CI systems run the tests headless */
         headless: !!process.env.CI,
+
+        viewport: { width: 2156, height: 1256 }, // фиксируем размер окна
     },
 
     /* Configure projects for major browsers */

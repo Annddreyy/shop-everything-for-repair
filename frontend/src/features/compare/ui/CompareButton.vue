@@ -1,16 +1,17 @@
 <template>
-    <div :class="$style.button">
-        <img :src="compareUnfill" alt="" />
+    <div class="compare-button">
+        <img :src="compareIcon" alt="" />
     </div>
 </template>
 
 <script setup lang="ts">
-import compareUnfill from '@/assets/images/product/compare-icon.svg';
+import { compareIcon } from '@/assets/images';
 </script>
 
 <style lang="scss" module>
 @use '@/assets/scss/variables' as *;
-.button {
+
+.compare-button {
     width: 40px;
     height: 40px;
     display: flex;

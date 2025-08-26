@@ -1,12 +1,16 @@
 <template>
-    <section :class="$style.linksBlock">
-        <div v-for="linksCategory in links" :key="linksCategory.category">
-            <p :class="$style.category">{{ linksCategory.category }}</p>
-            <ul :class="$style.linksList">
+    <section class="links-block">
+        <div
+            v-for="linksCategory in links"
+            :key="linksCategory.category"
+            class="links-group"
+        >
+            <p class="links-group__category">{{ linksCategory.category }}</p>
+            <ul class="links-group__links-list">
                 <li
                     v-for="link in linksCategory.links"
                     :key="link.link"
-                    :class="$style.linkItem"
+                    class="links-group__link"
                 >
                     <RouterLink :to="link.link">{{ link.title }}</RouterLink>
                 </li>
@@ -16,14 +20,14 @@
 </template>
 
 <script setup lang="ts">
-import { links } from '@/shared/config/footer/links.config';
+import { links } from '@/shared/config/footer/links';
 </script>
 
 <style lang="scss" module>
 @use '@/assets/scss/display' as *;
 @use '@/assets/scss/variables' as *;
 
-.linksBlock {
+.links-block {
     @extend .row-a-c;
     align-items: stretch;
     justify-content: space-between;
@@ -31,15 +35,17 @@ import { links } from '@/shared/config/footer/links.config';
     padding: $base-padding-9 0;
     border-bottom: 1px solid #dce1e7;
 
-    .category {
-        font-weight: bolder;
-        margin-bottom: $base-margin-4;
-    }
+    .links-group {
+        &__category {
+            font-weight: bolder;
+            margin-bottom: $base-margin-4;
+        }
 
-    .linksList {
-        @extend .grid-2;
-        gap: $base-gap-4;
-        row-gap: $base-gap;
+        &__links-list {
+            @extend .grid-2;
+            gap: $base-gap-4;
+            row-gap: $base-gap;
+        }
     }
 }
 </style>

@@ -10,7 +10,7 @@
 import { BreadCrumbs, PageTitle } from '@/shared/ui';
 import { FooterComponent, HeaderComponent } from '@/widgets';
 import { Block404Component } from './ui';
-import type { Link } from '@/shared/types/link.types';
+import type { Link } from '@/shared/types';
 
 const links: Link[] = [
     {

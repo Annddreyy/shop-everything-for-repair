@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
-import { brands } from '@/pages/Main/config/brands/brands.config';
+import ComponentsList from '@/widgets/ComponentsList.vue';
+import { brands } from '../../config/brands/brands';
 import BrandCard from './BrandCard.vue';
 </script>
 

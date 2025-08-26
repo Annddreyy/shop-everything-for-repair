@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { advantages } from '@/pages/Main/config/advantages/advantages.config';
+import { advantages } from '@/pages/Main/config/advantages/advantages';
 </script>
 
 <style lang="scss" scoped>

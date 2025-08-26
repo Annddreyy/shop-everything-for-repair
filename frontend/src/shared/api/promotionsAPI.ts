@@ -1,5 +1,5 @@
-import type { PromotionCard } from '@/entities/promotion_card/types/promotion.types';
-import { instance } from '../config/api/api.config';
+import type { PromotionCard } from '@/entities/promotionCard/types/types';
+import { instance } from '../config/api/api';
 
 export type GetPromotionsResponse = {
     promotions: PromotionCard[];

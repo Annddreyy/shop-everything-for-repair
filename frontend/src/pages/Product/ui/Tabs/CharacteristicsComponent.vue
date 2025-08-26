@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { useProductStore } from '@/entities/product/model/productStore';
+import { useProductStore } from '@/entities/product/model/productCardsStore';
 
 const productStore = useProductStore();
 </script>

@@ -11,13 +11,13 @@
     />
     <ComponentsList
         :component="PromotionCard"
-        :items="promotions.getPromotions.slice(0, 4)"
+        :items="promotionsCardsStore.promotionCards"
         prop-name="card"
         item-key="id"
     />
     <ComponentsList
         :component="ProductCard"
-        :items="products.getProducts"
+        :items="productsCardsStore.products"
         prop-name="card"
         item-key="id"
     />
@@ -31,7 +31,7 @@
             </div>
             <ComponentsList
                 :component="NewsCardComponent"
-                :items="news.getNewsCards.slice(0, 4)"
+                :items="newsCardsStore.news"
                 prop-name="card"
                 item-key="id"
             />
@@ -41,34 +41,27 @@
 </template>
 
 <script setup lang="ts">
-import { useNewsStore } from '@/entities/news_card/model/newsStore.model';
-import NewsCardComponent from '@/entities/news_card/ui/NewsCardComponent.vue';
-import { useProductStore } from '@/entities/product_card/model/productStore.model';
-import ProductCard from '@/entities/product_card/ui/ProductCard.vue';
-import { usePromotionCardsStore } from '@/entities/promotion_card/model/promotionCardsStore.model';
-import PromotionCard from '@/entities/promotion_card/ui/PromotionCard.vue';
-import { categories } from '@/pages/Main/config/productCategoryCards/categories.config';
-import AdvantagesComponent from '@/pages/Main/ui/Advantages/AdvantagesComponent.vue';
+import { useNewsCardsStore } from '@/entities/newsCard';
+import NewsCardComponent from '@/entities/newsCard/ui/NewsCard.vue';
+import { useProductCardsStore } from '@/entities/productCard';
+import ProductCard from '@/entities/productCard/ui/ProductCard.vue';
+import { usePromotionCardsStore } from '@/entities/promotionCard/model/promotionCardsStore';
+import PromotionCard from '@/entities/promotionCard/ui/PromotionCard.vue';
+import { categories } from '@/pages/Main/config/productCategoryCards/categories';
+import AdvantagesComponent from '@/pages/Main/ui/AdvantagesComponent.vue';
+import ProductCategoryCard from '@/pages/Main/ui/ProductCategoryCard.vue';
+import type { Link } from '@/shared/types/types';
 import BreadCrumbs from '@/shared/ui/BreadCrumbs/BreadCrumbs.vue';
 import PaginationElement from '@/shared/ui/PaginationElement/PaginationElement.vue';
-import ProductCategoryCard from '@/pages/Main/ui/ProductCategoryCard/ProductCategoryCard.vue';
-import ComponentsList from '@/widgets/ComponentsList/ComponentsList.vue';
-import FooterComponent from '@/widgets/Footer/FooterComponent.vue';
-import HeaderComponent from '@/widgets/Header/HeaderComponent.vue';
-import { onBeforeMount } from 'vue';
-import type { Link } from '@/shared/types/link.types';
+import ComponentsList from '@/widgets/ComponentsList.vue';
+import FooterComponent from '@/widgets/FooterComponent.vue';
+import HeaderComponent from '@/widgets/HeaderComponent.vue';
 
 const links: Link[] = [{ link: '/', title: 'Главная' }];
 
-const promotions = usePromotionCardsStore();
-const news = useNewsStore();
-const products = useProductStore();
-
-onBeforeMount(() => {
-    promotions.setPromotions();
-    news.setNews();
-    products.setProducts(1, 4);
-});
+const promotionsCardsStore = usePromotionCardsStore();
+const newsCardsStore = useNewsCardsStore();
+const productsCardsStore = useProductCardsStore();
 </script>
 
 <style lang="scss" module>

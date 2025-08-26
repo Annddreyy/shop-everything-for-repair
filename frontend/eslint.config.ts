@@ -72,6 +72,7 @@ export default defineConfigWithVueTs(
                     ],
                 },
             ],
+            'vue/multi-word-component-names': 'off',
         },
         settings: {
             'boundaries/elements': [

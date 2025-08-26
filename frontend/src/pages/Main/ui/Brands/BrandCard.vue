@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Brand } from '../../types/brand.types';
+import type { Brand } from '../../types';
 
 defineProps<Brand>();
 </script>

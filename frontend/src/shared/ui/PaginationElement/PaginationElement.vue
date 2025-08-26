@@ -1,26 +1,24 @@
 <template>
     <div class="container">
-        <div :class="$style.buttons">
+        <div class="buttons">
             <button @click="previousPage">
-                <img
-                    src="@/assets/images/breadcrumbs/previos.svg"
-                    alt="назад"
-                />Назад
+                <img :src="previosIcon" alt="Назад" />Назад
             </button>
-            <div :class="$style.pages">
+            <div class="pages">
                 <span
                     v-for="page in pages"
                     :key="page"
-                    :class="page === currentPage ? $style.active : currentPage"
+                    :class="[
+                        'page',
+                        page === currentPage ? 'page--active' : currentPage,
+                    ]"
                     @click="setPage(page)"
-                    >{{ page === 0 ? '...' : page }}</span
                 >
+                    {{ page === 0 ? '...' : page }}
+                </span>
             </div>
             <button @click="nextPage">
-                <img
-                    src="@/assets/images/breadcrumbs/next.svg"
-                    alt="далее"
-                />Далее
+                <img :src="nextIcon" alt="Далее" />Далее
             </button>
         </div>
     </div>
@@ -28,6 +26,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import { previosIcon, nextIcon } from '@/assets/images';
 
 const pagesCount = 20;
 const MAX_PAGES_COUNT = 10;
@@ -75,21 +74,16 @@ const setPage = (page: number) => {
 };
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
+@use '@/assets/scss/display.scss' as *;
+
 .buttons {
-    display: flex;
-    align-items: center;
+    @extend .row-a-c;
     gap: 12px;
 
-    .pages {
-        display: flex;
-        gap: 12px;
-    }
-
     button {
-        display: flex;
+        @extend .row-a-c;
         gap: 12px;
-        align-items: center;
 
         width: max-content;
         height: 57px;
@@ -102,10 +96,11 @@ const setPage = (page: number) => {
     }
 
     .pages {
-        span {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        @extend .row;
+        gap: 12px;
+
+        .page {
+            @extend .row-c;
 
             width: 57px;
             height: 57px;
@@ -114,12 +109,12 @@ const setPage = (page: number) => {
             border-radius: 5px;
 
             cursor: pointer;
-        }
 
-        span.active {
-            background-color: #011120;
-            color: white;
-            border-color: #011120;
+            &--active {
+                background-color: #011120;
+                color: white;
+                border-color: #011120;
+            }
         }
     }
 }
