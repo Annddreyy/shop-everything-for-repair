@@ -1,5 +1,5 @@
-import type { ProductCard } from '@/entities/product_card/types/product.types';
-import { instance } from '../config/api/api.config';
+import type { ProductCard } from '@/entities/productCard/types/types';
+import { instance } from '../config/api/api';
 
 export type GetProductsResponse = {
     products: ProductCard[];

@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { useProductStore } from '@/entities/product/model/productStore';
+import { useProductStore } from '@/entities/product/model/productCardsStore';
 import { parse } from 'marked';
 
 const productStore = useProductStore();

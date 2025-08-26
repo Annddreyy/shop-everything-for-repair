@@ -1,18 +1,18 @@
 <template>
-    <div :class="$style.button">
-        <img :src="img" alt="Добавить в корзину" />
+    <div class="cart-button">
+        <img :src="binIcon" alt="Добавить в корзину" />
         <span>Купить</span>
     </div>
 </template>
 
 <script setup lang="ts">
-import img from '@/assets/images/product/bin-icon.svg';
+import { binIcon } from '@/assets/images';
 </script>
 
-<style module lang="scss">
+<style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
 
-.button {
+.cart-button {
     width: max-content;
     height: 40px;
 

@@ -542,7 +542,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@/shared/types/link.types';
+import type { Link } from '@/shared/types/types';
 import { BreadCrumbs } from '@/shared/ui';
 import PageTitle from '@/shared/ui/PageTitle/PageTitle.vue';
 import { FooterComponent, HeaderComponent } from '@/widgets';

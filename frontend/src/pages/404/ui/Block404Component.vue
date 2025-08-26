@@ -1,11 +1,7 @@
 <template>
     <div class="container">
         <section class="block-404">
-            <img
-                src="@/assets/images/404/404.svg"
-                alt="404"
-                class="block-404__img"
-            />
+            <img :src="img404" alt="" class="block-404__img" />
             <p class="block-404__text">
                 Запрашиваемая страница не найдена. Возможно она была удалена,
                 либо её адрес был изменен. Попробуйте воспользоваться поиском.
@@ -31,6 +27,7 @@
 <script setup lang="ts">
 import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
 import { Colors } from '@/shared/ui/ButtonComponent/types';
+import { img404 } from '@/assets/images';
 </script>
 
 <style lang="scss" scoped>
@@ -38,11 +35,10 @@ import { Colors } from '@/shared/ui/ButtonComponent/types';
 
 .block-404 {
     @extend .column-a-c;
-    margin: 0 auto;
     gap: 55px;
 
     width: 727px;
-
+    margin: auto;
     margin-top: 106px;
     margin-bottom: 110px;
 

@@ -24,14 +24,14 @@
 </template>
 
 <script setup lang="ts">
-import { useProductStore } from '@/entities/product/model/productStore';
-import type { Link } from '@/shared/types/link.types';
+import { useProductStore } from '@/entities/product/model/productCardsStore';
+import type { Link } from '@/shared/types/types';
 import { BreadCrumbs } from '@/shared/ui';
 import PageTitle from '@/shared/ui/PageTitle/PageTitle.vue';
 import { FooterComponent, HeaderComponent } from '@/widgets';
 import { transliterate } from 'transliteration';
-import ProductMainCharacteristics from './ui/ProductMainCharacteristics/ProductMainCharacteristics.vue';
-import Slider from './ui/Slider/SliderComponent.vue';
+import ProductMainCharacteristics from './ui/ProductMainCharacteristics.vue';
+import Slider from './ui/SliderComponent.vue';
 import Advantages from './ui/AdvantagesComponent.vue';
 import Buy from './ui/BuyComponent.vue';
 import Tabs from './ui/TabsComponent.vue';

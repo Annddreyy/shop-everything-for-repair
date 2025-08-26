@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate } from '@/shared/lib/workingWithDate/formatDate.lib';
-import type { Review } from '../types/reviews.types';
+import { formatDate } from '@/shared/lib';
+import type { Review } from '../types';
 
 defineProps<Review>();
 </script>
