@@ -1,16 +1,13 @@
 <template>
-    <BasePage :links="links" title="Вопрос-ответ">
-        <FAQCard />
-    </BasePage>
+    <BasePage :links="links" title="О компании"> </BasePage>
 </template>
 
 <script setup lang="ts">
 import type { Link } from '@/shared/types';
 import { BasePage } from '@/widgets';
-import { FAQCard } from './entities/faq/ui';
 
 const links: Link[] = [
     { title: 'Главная', link: '/' },
-    { title: 'Вопрос-ответ', link: '/faq' },
+    { title: 'О компании', link: '/about-company' },
 ];
 </script>

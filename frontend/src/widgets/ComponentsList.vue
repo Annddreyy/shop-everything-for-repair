@@ -5,7 +5,7 @@
                 v-for="(item, index) in items"
                 :key="itemKey ? (item[itemKey] ?? index) : index"
                 :is="component"
-                v-bind="{ [propName]: item }"
+                v-bind="{ ...item }"
             />
         </div>
     </div>
@@ -14,13 +14,15 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
 
-defineProps<{
+const { items } = defineProps<{
     component: Component;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     items: any[];
     propName: string;
     itemKey?: string;
 }>();
+
+console.log(items);
 </script>
 
 <style lang="scss" scoped>

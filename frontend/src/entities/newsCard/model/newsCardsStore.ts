@@ -6,7 +6,7 @@ import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
 import type { NewsCard } from '../types/types';
 
 type NewsCardsStoreType = {
-    news: NewsCard[];
+    newsCards: NewsCard[];
     pageSize: number;
     pagesCount: number;
     currentPage: number;
@@ -16,7 +16,7 @@ export const useNewsCardsStore = defineStore<'newsCards', NewsCardsStoreType>(
     'newsCards',
     {
         state: () => ({
-            news: [] as NewsCard[],
+            newsCards: [] as NewsCard[],
             pageSize: DEFAULT_API_RESPONSE_PAGE_VALUE,
             pagesCount: 0,
             currentPage: 1,
@@ -25,9 +25,10 @@ export const useNewsCardsStore = defineStore<'newsCards', NewsCardsStoreType>(
         actions: {
             async setNews(page = 1, pageSize = 4) {
                 const response = await newsAPI.getNews(page, pageSize);
-                const { news, pagesCount } = response;
+                const { newsCards, pagesCount } = response;
 
-                this.news = news.map((n) => ({
+                console.log(newsCards);
+                this.newsCards = newsCards.map((n) => ({
                     ...n,
                     date: new Date(n.date),
                 }));

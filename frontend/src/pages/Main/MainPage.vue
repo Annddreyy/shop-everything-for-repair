@@ -1,43 +1,42 @@
 <template>
-    <HeaderComponent />
-    <AdvantagesComponent />
-    <BreadCrumbs :links="links" />
-    <PaginationElement />
-    <ComponentsList
-        :component="ProductCategoryCard"
-        :items="categories"
-        propName="card"
-        itemKey="id"
-    />
-    <ComponentsList
-        :component="PromotionCard"
-        :items="promotionsCardsStore.promotionCards"
-        prop-name="card"
-        item-key="id"
-    />
-    <ComponentsList
-        :component="ProductCard"
-        :items="productsCardsStore.products"
-        prop-name="card"
-        item-key="id"
-    />
-    <BrandsList />
-    <AboutMagazine />
-    <div class="container">
-        <section :class="$style.newsSection">
-            <div :class="$style.top">
-                <h2 :class="$style.title">Последние новости</h2>
-                <button :class="$style.button">Больше новостей</button>
-            </div>
-            <ComponentsList
-                :component="NewsCardComponent"
-                :items="newsCardsStore.news"
-                prop-name="card"
-                item-key="id"
-            />
-        </section>
-    </div>
-    <FooterComponent />
+    <BasePage :links="links" title="Главная">
+        <AdvantagesComponent />
+        <PaginationElement />
+        <ComponentsList
+            :component="ProductCategoryCard"
+            :items="categories"
+            propName="card"
+            itemKey="id"
+        />
+        <ComponentsList
+            :component="PromotionCard"
+            :items="promotionsCardsStore.promotionCards"
+            prop-name="card"
+            item-key="id"
+        />
+        <ComponentsList
+            :component="ProductCard"
+            :items="productsCardsStore.products"
+            prop-name="card"
+            item-key="id"
+        />
+        <BrandsList />
+        <AboutMagazine />
+        <div class="container">
+            <section :class="$style.newsSection">
+                <div :class="$style.top">
+                    <h2 :class="$style.title">Последние новости</h2>
+                    <button :class="$style.button">Больше новостей</button>
+                </div>
+                <ComponentsList
+                    :component="NewsCardComponent"
+                    :items="newsCardsStore.newsCards"
+                    prop-name="card"
+                    item-key="id"
+                />
+            </section>
+        </div>
+    </BasePage>
 </template>
 
 <script setup lang="ts">
@@ -51,17 +50,21 @@ import { categories } from '@/pages/Main/config/productCategoryCards/categories'
 import AdvantagesComponent from '@/pages/Main/ui/AdvantagesComponent.vue';
 import ProductCategoryCard from '@/pages/Main/ui/ProductCategoryCard.vue';
 import type { Link } from '@/shared/types/types';
-import BreadCrumbs from '@/shared/ui/BreadCrumbs/BreadCrumbs.vue';
 import PaginationElement from '@/shared/ui/PaginationElement/PaginationElement.vue';
+import { BasePage } from '@/widgets';
 import ComponentsList from '@/widgets/ComponentsList.vue';
-import FooterComponent from '@/widgets/FooterComponent.vue';
-import HeaderComponent from '@/widgets/HeaderComponent.vue';
+import { onBeforeMount } from 'vue';
 
 const links: Link[] = [{ link: '/', title: 'Главная' }];
 
 const promotionsCardsStore = usePromotionCardsStore();
 const newsCardsStore = useNewsCardsStore();
 const productsCardsStore = useProductCardsStore();
+
+onBeforeMount(async () => {
+    await newsCardsStore.setNews(1, 10);
+    await productsCardsStore.setProducts(1, 10);
+});
 </script>
 
 <style lang="scss" module>

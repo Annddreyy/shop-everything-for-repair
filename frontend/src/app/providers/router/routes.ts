@@ -1,4 +1,5 @@
 import {
+    AboutCompanyPage,
     ContactsPage,
     FAQPage,
     MainPage,
@@ -21,6 +22,11 @@ export const router = createRouter({
             path: '/privacy-policy',
             component: PrivacyPolicy,
             name: 'privacy-policy',
+        },
+        {
+            path: '/about-company',
+            component: AboutCompanyPage,
+            name: 'about-company',
         },
         { path: '/:pathMatch(.*)*', component: Page404Page, name: '404' },
     ],

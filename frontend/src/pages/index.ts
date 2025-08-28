@@ -5,6 +5,7 @@ import { MainPage } from './Main';
 import { PrivacyPolicy } from './PrivacyPolicy';
 import { ProductPage } from './Product';
 import { ReviewsPage } from './Reviews';
+import { AboutCompanyPage } from './AboutCompany';
 
 export {
     Page404Page,
@@ -14,4 +15,5 @@ export {
     PrivacyPolicy,
     ProductPage,
     ReviewsPage,
+    AboutCompanyPage,
 };

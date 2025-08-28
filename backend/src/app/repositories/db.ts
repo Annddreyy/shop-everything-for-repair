@@ -13,6 +13,8 @@ export const usersCollection = db.collection<UserAccountDB>('users');
 //     db.collection<IPromotionCardDB>('promotion_cards');
 // export const usersCollection = db.collection<IUserAccountDB>('users');
 
+mongoose.set('debug', true);
+
 const NewsCardsSchema = new Schema({
     img: { type: String, required: true },
     title: { type: String, required: true },
@@ -22,22 +24,22 @@ const NewsCardsSchema = new Schema({
 
 export const NewsCardsModel = mongoose.model('news_cards', NewsCardsSchema);
 
-const ProductCardsSchema = new Schema({
-    title: { type: String, required: true },
-    price: { type: Number, required: true },
-    promotionPercent: { type: Number, required: true },
-    img: { type: String, required: true },
-    article: { type: String, required: true },
-    statuses: {
-        type: [String],
-        enum: ['хит', 'новинка', 'распродажа'],
-        required: true,
+const ProductCardsSchema = new Schema(
+    {
+        title: { type: String, required: true },
+        price: { type: Number, required: true },
+        promotionPercent: { type: Number, required: true },
+        img: { type: String, required: true },
+        article: { type: String, required: true },
+        statuses: { type: [String], default: [] },
     },
-});
+    { collection: 'product_cards' },
+);
 
 export const ProductCardsModel = mongoose.model(
-    'product_cards',
+    'ProductCards',
     ProductCardsSchema,
+    'product_cards',
 );
 
 const PromotionCardsSchema = new Schema({
@@ -53,7 +55,8 @@ export const PromotionCardsModel = mongoose.model(
 
 export async function runDb() {
     try {
-        await mongoose.connect(mongoUri + '/' + 'shop-everything-for-repair');
+        await mongoose.connect(mongoUri + '/shop-everything-for-repair');
+        console.log('Current DB:', mongoose.connection.name);
         console.log('Connected successfully to mongo server');
     } catch {
         console.log("Can't connect to db");

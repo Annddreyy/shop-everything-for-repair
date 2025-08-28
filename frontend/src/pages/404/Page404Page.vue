@@ -1,16 +1,13 @@
 <template>
-    <HeaderComponent />
-    <BreadCrumbs :links="links" />
-    <PageTitle title="Страница не найдена" />
-    <Block404Component />
-    <FooterComponent />
+    <BasePage :links="links" title="Страница не найдена">
+        <Block404Component />
+    </BasePage>
 </template>
 
 <script setup lang="ts">
-import { BreadCrumbs, PageTitle } from '@/shared/ui';
-import { FooterComponent, HeaderComponent } from '@/widgets';
-import { Block404Component } from './ui';
 import type { Link } from '@/shared/types';
+import { BasePage } from '@/widgets';
+import { Block404Component } from './ui';
 
 const links: Link[] = [
     {

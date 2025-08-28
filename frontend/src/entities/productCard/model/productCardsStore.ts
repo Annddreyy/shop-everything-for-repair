@@ -29,6 +29,8 @@ export const useProductCardsStore = defineStore<
             const response = await productsAPI.getProducts(page, size);
             const { products, pagesCount } = response;
 
+            debugger;
+
             this.products = products;
             this.pagesCount = pagesCount;
         },

@@ -26,6 +26,8 @@ import type { NewsCard } from '../types';
 
 defineProps<NewsCard>();
 
+debugger;
+
 const onImageNotLoad = (event: Event) => {
     const target = event.target as HTMLImageElement;
     target.src = imgNotFoundImg;

@@ -5,13 +5,13 @@ import { FindProductCardsType } from './types';
 import { ProductCardStatus } from '@/app/services/product_cards/types';
 
 export const productCardsQueryRepository = {
-    async findProductCards({
-        page,
-        size,
-        title,
-        price_min,
-        price_max,
-    }: FindProductCardsType) {
+    async findProductCards(
+        page: number,
+        size: number,
+        title?: string,
+        price_min?: number,
+        price_max?: number,
+    ): Promise<{ products: FindProductCardsType[]; pagesCount: number }> {
         const priceFilter: Record<string, number> = {};
         const filter: { title?: object; price?: object } = {};
 

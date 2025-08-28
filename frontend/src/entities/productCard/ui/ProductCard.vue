@@ -1,37 +1,45 @@
 <template>
-    <article class="product-card">
-        <div class="product-card__statuses">
-            <span
-                class="product-card__status"
-                :data-status="status"
-                v-for="status in statuses"
-                :key="status"
-            >
-                {{ status }}
-            </span>
-        </div>
-        <div class="product-card__top">
-            <img :src="img" class="product-card__img" />
-            <span class="product-card__article">{{ article }}</span>
-            <h3 class="product-card__title">{{ title }}</h3>
-            <div class="product-card__prices">
-                <span v-if="promotionPercent" class="product-card__old-price">
-                    {{ Math.round(price * (1 + promotionPercent / 100)) }}₽
-                </span>
-                <span class="product-card__price">{{ price }} ₽</span>
-                <span v-if="promotionPercent" class="product-card__promotion">
-                    -{{ promotionPercent }}%
+    <RouterLink :to="`/product/${id}`">
+        <article class="product-card">
+            <div class="product-card__statuses">
+                <span
+                    class="product-card__status"
+                    :data-status="status"
+                    v-for="status in statuses"
+                    :key="status"
+                >
+                    {{ status }}
                 </span>
             </div>
-        </div>
-        <div class="buttons">
-            <AddToCartButton />
-            <div class="buttons__right">
-                <FavoriteButton />
-                <CompareButton />
+            <div class="product-card__top">
+                <img :src="img" class="product-card__img" />
+                <span class="product-card__article">{{ article }}</span>
+                <h3 class="product-card__title">{{ title }}</h3>
+                <div class="product-card__prices">
+                    <span
+                        v-if="promotionPercent"
+                        class="product-card__old-price"
+                    >
+                        {{ Math.round(price * (1 + promotionPercent / 100)) }}₽
+                    </span>
+                    <span class="product-card__price">{{ price }} ₽</span>
+                    <span
+                        v-if="promotionPercent"
+                        class="product-card__promotion"
+                    >
+                        -{{ promotionPercent }}%
+                    </span>
+                </div>
             </div>
-        </div>
-    </article>
+            <div class="buttons">
+                <AddToCartButton />
+                <div class="buttons__right">
+                    <FavoriteButton />
+                    <CompareButton />
+                </div>
+            </div>
+        </article>
+    </RouterLink>
 </template>
 
 <script setup lang="ts">
@@ -43,7 +51,7 @@ import type { ProductCard } from '../types';
 defineProps<ProductCard>();
 </script>
 
-<style module lang="scss">
+<style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 @use 'sass:map';
