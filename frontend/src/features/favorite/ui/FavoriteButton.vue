@@ -1,14 +1,25 @@
 <template>
     <div class="like-button">
-        <img :src="likeIcon" alt="Добавить в избаранное" />
+        <img
+            :src="isFavoriteProduct ? likeFillIcon : likeIcon"
+            :alt="
+                !isFavoriteProduct
+                    ? 'Добавить в избранное'
+                    : 'Убрать из избранного'
+            "
+        />
     </div>
 </template>
 
 <script setup lang="ts">
-import { likeIcon } from '@/assets/images';
+import { likeIcon, likeFillIcon } from '@/assets/images';
+
+defineProps<{
+    isFavoriteProduct: boolean;
+}>();
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 @use '@/assets/scss/variables' as *;
 .like-button {
     width: 40px;

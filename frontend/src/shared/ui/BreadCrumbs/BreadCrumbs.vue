@@ -1,12 +1,9 @@
 <template>
     <div class="container">
         <div class="links">
-            <RouterLink
-                :to="link.link"
-                v-for="link in links"
-                :key="link.link"
-                >{{ link.title }}</RouterLink
-            >
+            <RouterLink :to="link.link" v-for="link in links" :key="link.link">
+                {{ link.title }}
+            </RouterLink>
         </div>
     </div>
 </template>
@@ -24,7 +21,8 @@ defineProps<{
 
 .links {
     display: flex;
-    gap: 1em;
+    gap: 30px;
+    padding: 18px 0;
 
     a {
         &:last-child {
@@ -37,7 +35,7 @@ defineProps<{
         &::before {
             position: absolute;
             content: '/';
-            left: -10px;
+            left: -15px;
             color: #91969d;
         }
     }

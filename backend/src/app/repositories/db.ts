@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 import mongoose, { Schema } from 'mongoose';
-import { settings } from '@/settings';
+import { settings } from '../../settings';
 import { UserAccountDB } from './auth/types';
 
 const mongoUri = settings.MONGO_URI;
@@ -24,22 +24,18 @@ const NewsCardsSchema = new Schema({
 
 export const NewsCardsModel = mongoose.model('news_cards', NewsCardsSchema);
 
-const ProductCardsSchema = new Schema(
-    {
-        title: { type: String, required: true },
-        price: { type: Number, required: true },
-        promotionPercent: { type: Number, required: true },
-        img: { type: String, required: true },
-        article: { type: String, required: true },
-        statuses: { type: [String], default: [] },
-    },
-    { collection: 'product_cards' },
-);
+const ProductCardsSchema = new Schema({
+    title: { type: String, required: true },
+    price: { type: Number, required: true },
+    promotionPercent: { type: Number, required: true },
+    img: { type: String, required: true },
+    article: { type: String, required: true },
+    statuses: { type: [String], default: [] },
+});
 
 export const ProductCardsModel = mongoose.model(
-    'ProductCards',
-    ProductCardsSchema,
     'product_cards',
+    ProductCardsSchema,
 );
 
 const PromotionCardsSchema = new Schema({
@@ -53,10 +49,17 @@ export const PromotionCardsModel = mongoose.model(
     PromotionCardsSchema,
 );
 
+const ReviewsSchema = new Schema({
+    date: { type: Date, required: true },
+    text: { type: String, required: true },
+    images: { type: Array, required: true, default: [] },
+});
+
+export const ReviewsModel = mongoose.model('reviews', ReviewsSchema);
+
 export async function runDb() {
     try {
         await mongoose.connect(mongoUri + '/shop-everything-for-repair');
-        console.log('Current DB:', mongoose.connection.name);
         console.log('Connected successfully to mongo server');
     } catch {
         console.log("Can't connect to db");

@@ -1,14 +1,25 @@
 <template>
     <div class="compare-button">
-        <img :src="compareIcon" alt="" />
+        <img
+            :src="isCompareProduct ? compareIconFill : compareIcon"
+            :alt="
+                !isCompareProduct
+                    ? 'Добавить в избранное'
+                    : 'Убрать из избранного'
+            "
+        />
     </div>
 </template>
 
 <script setup lang="ts">
-import { compareIcon } from '@/assets/images';
+import { compareIcon, compareIconFill } from '@/assets/images';
+
+defineProps<{
+    isCompareProduct: boolean;
+}>();
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 @use '@/assets/scss/variables' as *;
 
 .compare-button {

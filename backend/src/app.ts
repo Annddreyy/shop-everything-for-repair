@@ -6,7 +6,7 @@ import {
     newsCardsRouter,
     promotionCardsRouter,
     emailRouter,
-} from '@/routes';
+} from './routes';
 
 export const app = express();
 

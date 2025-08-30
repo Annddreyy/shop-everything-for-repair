@@ -2,9 +2,9 @@ import express, { Response } from 'express';
 import {
     PromotionCardsGetRequestModel,
     PromotionCardsGetResponseModel,
-} from '@/app/model';
-import { promotionCardsQueryRepository } from '@/app/repositories';
-import { promotionCardsService } from '@/app/services';
+} from '../app/model';
+import { promotionCardsQueryRepository } from '../app/repositories';
+import { promotionCardsService } from '../app/services';
 
 export interface PromotionCardView {
     id: string;

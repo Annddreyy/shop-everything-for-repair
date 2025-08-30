@@ -12,7 +12,7 @@ import { Block404Component } from './ui';
 const links: Link[] = [
     {
         link: '/',
-        title: 'Главная',
+        title: 'Стройоптторг',
     },
     {
         link: '/404',

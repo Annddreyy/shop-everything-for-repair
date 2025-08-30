@@ -1,4 +1,4 @@
-import { newsCardsRepository } from '@/app/repositories';
+import { newsCardsRepository } from '../../../app/repositories';
 import { NewsCard } from './types';
 
 export const newsCardsService = {

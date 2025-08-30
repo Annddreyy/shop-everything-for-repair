@@ -41,46 +41,26 @@ services:
       - mongo
     volumes:
       - ./dump:/dump
-    entrypoint: >
-      bash -c "
-        echo '⏳ Ожидание старта MongoDB...';
-        sleep 5;
-
-        ARCHIVE=/dump/shop-everything-for-repair/exported/export.tar.gz
-        TEMP_DIR=/tmp/mongo_import
-
-        echo '📦 Распаковка архива...';
-        mkdir -p $$TEMP_DIR
-        tar -xzf $$ARCHIVE -C $$TEMP_DIR
-
-        echo '📥 Импорт файлов в MongoDB...';
-        for $$file in $$TEMP_DIR/*.json; do
-          collection=$$(basename $$file .json)
-          collection=$${collection//-/_}
-          echo \"📥 Импортирование $$file в коллекцию $$collection...\"
-          mongoimport --host mongo --db shop-everything-for-repair --collection $$collection --file $$file --jsonArray || true
-        done
-
-        echo '✅ Импорт завершен.'
-      "
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        if [ ! -x /dump/scripts/mongoimport.sh ]; then
+          echo "mongoimport.sh not found or not executable" >&2; exit 1;
+        fi
+        /bin/bash /dump/scripts/mongoimport.sh
 
   mongoexport:
     image: mongo:latest
-    # depends_on:
-    #   - mongoimport
+    depends_on:
+      - mongoimport
     volumes:
       - ./dump:/dump
-    entrypoint: >
-      bash -c "
-        echo '⏳ Ожидание старта работы MongoDB...';
-        sleep 5;
-        echo '📤 Экспорт карточек товаров...';
-        mongoexport --host mongo --db shop-everything-for-repair --collection product_cards --out /dump/exported/product_cards.json --jsonArray;
-        echo '📤 Экспорт карточек акций...';
-        mongoexport --host mongo --db shop-everything-for-repair --collection promotion_cards --out /dump/exported/promotion_cards.json --jsonArray;
-        echo '📤 Экспорт карточек новостей...';
-        mongoexport --host mongo --db shop-everything-for-repair --collection news_cards --out /dump/exported/news_cards.json --jsonArray;
-        echo '📤 Сжатие экспортированных файлов в архив export.tar.gz...';
-        tar -czf /dump/exported/export.tar.gz -C /dump/exported $(ls /dump/exported | grep -v dump.tar.gz);
-        echo '✅ Экспорт завершен.';
-      "
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        if [ ! -x /dump/scripts/mongoexport.sh ]; then
+          echo "mongoexport.sh not found or not executable" >&2; exit 1;
+        fi
+        /bin/bash /dump/scripts/mongoexport.sh

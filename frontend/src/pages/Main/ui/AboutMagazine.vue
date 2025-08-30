@@ -1,6 +1,6 @@
 <template>
     <section class="about">
-        <div class="about__container">
+        <div class="about__container container">
             <div class="about__information">
                 <h2 class="about__title">О нашем магазине</h2>
                 <p class="about__purpose">
@@ -9,30 +9,30 @@
                     будет решать задачи и трудности, с которыми сталкиваются
                     люди во время ремонта.
                 </p>
-                <div>
+                <div class="about__statistics-list">
                     <div class="about__statistics">
                         <span class="about__count">17 805,3 м<sup>2</sup></span>
-                        <span class="about__description"
-                            >торговых и складских помещений</span
-                        >
+                        <span class="about__description">
+                            торговых и складских помещений
+                        </span>
                     </div>
-                    <div class="about_statistics">
+                    <div class="about__statistics">
                         <span class="about__count">50 000+</span>
-                        <span class="about__description"
-                            >наименований товара</span
-                        >
+                        <span class="about__description">
+                            наименований товара
+                        </span>
                     </div>
-                    <div class="about_statistics">
-                        <span class="about_count">2 500+</span>
-                        <span class="about_description"
-                            >постоянных клиентов</span
-                        >
+                    <div class="about__statistics">
+                        <span class="about__count">2 500+</span>
+                        <span class="about__description">
+                            постоянных клиентов
+                        </span>
                     </div>
-                    <div class="about_statistics">
-                        <span class="about_count">440</span>
-                        <span class="about_description"
-                            >опытных сотрудников</span
-                        >
+                    <div class="about__statistics">
+                        <span class="about__count">440</span>
+                        <span class="about__description">
+                            опытных сотрудников
+                        </span>
                     </div>
                 </div>
                 <p class="about_text">
@@ -49,7 +49,7 @@
                     class="about__button"
                 />
             </div>
-            <img :src="aboutCompanyImg" alt="" class="about_img" />
+            <img :src="aboutCompanyImg" alt="" class="about__img" />
         </div>
     </section>
 </template>
@@ -59,7 +59,7 @@ import { Colors } from '@/shared/ui/ButtonComponent/types';
 import { aboutCompanyImg } from '@/assets/images';
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 @use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
@@ -67,17 +67,19 @@ import { aboutCompanyImg } from '@/assets/images';
     position: relative;
     margin-top: $base-margin-8 0;
     background-color: #f9fafb;
-    padding: $base-padding-9 0;
 
     &__container {
         @extend .row-a-c;
+        justify-content: space-between;
+        margin-right: 0;
     }
 
     &__information {
         @extend .column-j-s;
         gap: $base-gap-2;
         position: relative;
-        z-index: 2;
+        margin: 30px 0;
+        z-index: 1;
         width: 40%;
     }
 
@@ -89,6 +91,10 @@ import { aboutCompanyImg } from '@/assets/images';
     &__purpose {
         font-size: 17px;
         font-weight: bold;
+    }
+
+    &__statistics-list {
+        @extend .row;
     }
 
     &__statistics {
@@ -124,8 +130,7 @@ import { aboutCompanyImg } from '@/assets/images';
     }
 
     &__img {
-        position: absolute;
-        right: 0;
+        position: relative;
     }
 }
 </style>

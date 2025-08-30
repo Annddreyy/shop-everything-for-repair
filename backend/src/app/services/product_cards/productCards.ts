@@ -1,4 +1,4 @@
-import { productCardsRepository } from '@/app/repositories';
+import { productCardsRepository } from '../../../app/repositories';
 import { ProductCard } from './types';
 
 export const productCardsService = {

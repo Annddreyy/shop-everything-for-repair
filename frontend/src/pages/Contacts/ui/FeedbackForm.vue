@@ -64,7 +64,7 @@ import { Colors } from '@/shared/ui/ButtonComponent/types';
 
     &__title {
         font-size: 33px;
-        font-weight: 700;
+        font-weight: 500;
         padding-top: 60px;
         margin-bottom: 53px;
     }
@@ -79,6 +79,7 @@ import { Colors } from '@/shared/ui/ButtonComponent/types';
         gap: 30px;
         align-items: center;
 
+        width: 736px;
         padding-bottom: 60px;
     }
 

@@ -1,4 +1,4 @@
-import { emailAdapter } from '@/app/adapters';
+import { emailAdapter } from '../../../../app/adapters';
 import { describe, it, expect } from 'vitest';
 import { config } from 'dotenv';
 

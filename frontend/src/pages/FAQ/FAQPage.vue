@@ -10,7 +10,7 @@ import { BasePage } from '@/widgets';
 import { FAQCard } from './entities/faq/ui';
 
 const links: Link[] = [
-    { title: 'Главная', link: '/' },
+    { title: 'Стройоптторг', link: '/' },
     { title: 'Вопрос-ответ', link: '/faq' },
 ];
 </script>

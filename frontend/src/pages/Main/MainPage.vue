@@ -1,7 +1,6 @@
 <template>
-    <BasePage :links="links" title="Главная">
+    <BasePage>
         <AdvantagesComponent />
-        <PaginationElement />
         <ComponentsList
             :component="ProductCategoryCard"
             :items="categories"
@@ -23,19 +22,19 @@
         <BrandsList />
         <AboutMagazine />
         <div class="container">
-            <section :class="$style.newsSection">
-                <div :class="$style.top">
-                    <h2 :class="$style.title">Последние новости</h2>
-                    <button :class="$style.button">Больше новостей</button>
+            <section class="news-section">
+                <div class="top">
+                    <h2 class="title">Последние новости</h2>
+                    <button class="button">Больше новостей</button>
                 </div>
-                <ComponentsList
-                    :component="NewsCardComponent"
-                    :items="newsCardsStore.newsCards"
-                    prop-name="card"
-                    item-key="id"
-                />
             </section>
         </div>
+        <ComponentsList
+            :component="NewsCardComponent"
+            :items="newsCardsStore.newsCards"
+            prop-name="card"
+            item-key="id"
+        />
     </BasePage>
 </template>
 
@@ -49,31 +48,29 @@ import PromotionCard from '@/entities/promotionCard/ui/PromotionCard.vue';
 import { categories } from '@/pages/Main/config/productCategoryCards/categories';
 import AdvantagesComponent from '@/pages/Main/ui/AdvantagesComponent.vue';
 import ProductCategoryCard from '@/pages/Main/ui/ProductCategoryCard.vue';
-import type { Link } from '@/shared/types/types';
-import PaginationElement from '@/shared/ui/PaginationElement/PaginationElement.vue';
 import { BasePage } from '@/widgets';
 import ComponentsList from '@/widgets/ComponentsList.vue';
 import { onBeforeMount } from 'vue';
-
-const links: Link[] = [{ link: '/', title: 'Главная' }];
+import { AboutMagazine, BrandsList } from './ui';
 
 const promotionsCardsStore = usePromotionCardsStore();
 const newsCardsStore = useNewsCardsStore();
 const productsCardsStore = useProductCardsStore();
 
 onBeforeMount(async () => {
-    await newsCardsStore.setNews(1, 10);
-    await productsCardsStore.setProducts(1, 10);
+    await promotionsCardsStore.setPromotions(1, 4);
+    await newsCardsStore.setNews(1, 4);
+    await productsCardsStore.setProducts(1, 5);
 });
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 @use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
-.newsSection {
+.news-section {
     @extend .column;
-    padding: $base-padding-9 0;
+    padding: 0;
 
     .top {
         @extend .row;

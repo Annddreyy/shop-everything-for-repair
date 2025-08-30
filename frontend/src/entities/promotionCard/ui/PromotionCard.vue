@@ -22,7 +22,7 @@ defineProps<PromotionCard>();
 @use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
-.promotion__card {
+.promotion-card {
     @extend .column;
     gap: $base-gap-4;
 

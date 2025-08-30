@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import { settings } from '@/settings';
-import { UserAccountDB } from '@/app/repositories/auth/types';
+import { settings } from '../../../settings';
+import { UserAccountDB } from '../../../app/repositories/auth/types';
 
 export const jwtService = {
     async createJWT(user: UserAccountDB) {

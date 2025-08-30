@@ -1,11 +1,11 @@
 <template>
     <section class="bottom-block">
-        <span
-            >© 2003-2023 Интернет-магазин ООО «Стройоптторг» р/с
+        <span>
+            © 2003-2023 Интернет-магазин ООО «Стройоптторг» р/с
             40702810360000102415 в Ставропольское отделение №5230 ПАО Сбербанк,
-            БИК 040702615</span
-        >
-        <img :src="readyCodeIcon" alt="" />
+            БИК 040702615
+        </span>
+        <img :src="readyCodeIcon" alt="ready code" />
         <span>Политика конфиденциальности</span>
     </section>
 </template>
@@ -14,7 +14,7 @@
 import { readyCodeIcon } from '@/assets/images';
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 @use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 

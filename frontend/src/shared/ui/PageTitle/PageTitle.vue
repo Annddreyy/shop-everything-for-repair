@@ -13,5 +13,7 @@ defineProps<{
 <style lang="scss" scoped>
 .page-title {
     font-size: 48px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 </style>

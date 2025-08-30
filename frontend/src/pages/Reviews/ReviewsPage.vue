@@ -18,7 +18,7 @@ import ReviewCard from './ui/ReviewCard.vue';
 import type { Link } from '@/shared/types';
 
 const links: Link[] = [
-    { title: 'Главная', link: '/' },
+    { title: 'Стройоптторг', link: '/' },
     { title: 'Отзывы', link: '/reviews' },
 ];
 </script>

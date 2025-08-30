@@ -89,7 +89,7 @@ $fz-xxxl: map.get($font-sizes, 'xxxl');
 }
 
 .container {
-    max-width: min(96%, 100em);
+    max-width: min(96%, 1620px);
     margin: auto;
 }
 
@@ -108,5 +108,4 @@ button {
 
 input {
     border: none;
-    outline: none;
 }
