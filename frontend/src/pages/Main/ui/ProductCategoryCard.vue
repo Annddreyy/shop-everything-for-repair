@@ -11,31 +11,30 @@ import type { ProductCategory } from '../types';
 defineProps<ProductCategory>();
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 @use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
 .product-category-card {
-    @extend .column-a-c;
-    gap: $base-gap-2;
+    @extend .column-c;
+    gap: 10px;
 
     width: 185px;
     height: 200px;
 
     background-color: #f3f4f5;
-    border-radius: $base-border-radius-3;
-
-    padding: $base-padding-4;
-
-    margin-bottom: $base-margin-4;
+    border-radius: 15px;
+    padding: 12px 16px;
 
     &__img {
-        width: 140px;
-        height: 120px;
+        max-width: 138px;
+        max-height: 123px;
     }
 
     &__title {
-        font-size: var(--fz-medium);
+        font-size: 15px;
+        list-style: 19px;
+        font-weight: 400;
         text-align: center;
     }
 }

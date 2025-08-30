@@ -1,4 +1,4 @@
-import { ProductCardView } from '@/routes/productCards';
+import { ProductCardView } from '../../routes/productCards';
 
 export interface ProductCardsGetRequestModel {
     page: number;

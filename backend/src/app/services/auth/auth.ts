@@ -1,12 +1,12 @@
 import bcrypt from 'bcrypt';
-import { authRepository } from '@/app/repositories/auth/auth';
+import { authRepository } from '../../../app/repositories/auth/auth';
 import { v4 } from 'uuid';
 import { add } from 'date-fns/add';
-import { emailAdapter } from '@/app/adapters/email/email';
+import { emailAdapter } from '../../../app/adapters/email/email';
 import {
     UserAccountDB,
     UserAccountDBWithoutId,
-} from '@/app/repositories/auth/types';
+} from '../../../app/repositories/auth/types';
 import {
     CheckCredentialsType,
     ConfirmEmailType,

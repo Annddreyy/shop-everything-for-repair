@@ -1,6 +1,6 @@
 import express from 'express';
-import { jwtService } from '@/app/application';
-import { authService } from '@/app/services';
+import { jwtService } from '../app/application';
+import { authService } from '../app/services';
 
 export const authRouter = express.Router();
 

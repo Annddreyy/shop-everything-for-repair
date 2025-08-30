@@ -12,13 +12,16 @@
                     :bg-color="Colors.GRAY"
                     :text-color="Colors.LIGHT_BLUE"
                     class="block-404__button"
+                    @click="router.back()"
                 />
-                <ButtonComponent
-                    text="На главную"
-                    :bg-color="Colors.BLUE"
-                    :text-color="Colors.WHITE"
-                    class="block-404__button"
-                />
+                <RouterLink to="/">
+                    <ButtonComponent
+                        text="На главную"
+                        :bg-color="Colors.BLUE"
+                        :text-color="Colors.WHITE"
+                        class="block-404__button"
+                    />
+                </RouterLink>
             </div>
         </section>
     </div>
@@ -28,6 +31,9 @@
 import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
 import { Colors } from '@/shared/ui/ButtonComponent/types';
 import { img404 } from '@/assets/images';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 </script>
 
 <style lang="scss" scoped>

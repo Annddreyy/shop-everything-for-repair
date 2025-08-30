@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { ProductCardsModel } from '../db';
-import { PromotionCardView } from '@/routes/promotionCards';
+import { PromotionCardView } from '../../../routes/promotionCards';
 
 type FindPromotionCardType = {
     page: number;

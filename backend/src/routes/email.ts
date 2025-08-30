@@ -1,6 +1,6 @@
 import express from 'express';
-import { emailAdapter } from '@/app/adapters';
-import { Email } from '@/app/adapters/email/types';
+import { emailAdapter } from '../app/adapters';
+import { Email } from '../app/adapters/email/types';
 
 export const emailRouter = express.Router();
 

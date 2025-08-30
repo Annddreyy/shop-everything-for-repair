@@ -35,7 +35,7 @@ import Tabs from './ui/TabsComponent.vue';
 const productStore = useProductStore();
 
 const links: Link[] = [
-    { title: 'Главная', link: '/' },
+    { title: 'Стройоптторг', link: '/' },
     {
         title: productStore.category,
         link: `/${transliterate(productStore.category)}`,

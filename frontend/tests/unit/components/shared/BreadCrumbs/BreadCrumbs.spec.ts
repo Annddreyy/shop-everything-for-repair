@@ -10,7 +10,7 @@ describe('BreadCrumbs.vue', () => {
         } = {
             links: [
                 {
-                    title: 'Главная',
+                    title: 'Стройоптторг',
                     link: '/',
                 },
                 {

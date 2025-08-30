@@ -1,11 +1,11 @@
 import express, { Response } from 'express';
-import { newsCardsQueryRepository } from '@/app/repositories';
-import { newsCardsService } from '@/app/services';
+import { newsCardsQueryRepository } from '../app/repositories';
+import { newsCardsService } from '../app/services';
 import {
     NewsCardsGetRequestModel,
     NewsCardsGetResponseModel,
-} from '@/app/model';
-import { NewsCard } from '@/app/services/news_cards/types';
+} from '../app/model';
+import { NewsCard } from '../app/services/news_cards/types';
 
 export const newsCardsRouter = express.Router();
 

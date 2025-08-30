@@ -8,7 +8,7 @@
             cursor: 'pointer',
         }"
     >
-        <span v-if="icon"><img :src="icon" :alt="text" /></span>
+        <img v-if="icon" :src="icon" :alt="text" />
         <span :style="{ color: textColor }">{{ text }}</span>
     </div>
 </template>

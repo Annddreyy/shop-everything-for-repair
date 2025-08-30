@@ -1,9 +1,9 @@
 import express, { Response } from 'express';
 import { plainToClass } from 'class-transformer';
-import { productCardsQueryRepository } from '@/app/repositories';
-import { productCardsService } from '@/app/services';
-import { ProductCardDTORequest, ProductCardDTOResponse } from '@/app/dto';
-import { ProductCardStatus } from '@/app/services/product_cards/types';
+import { productCardsQueryRepository } from '../app/repositories';
+import { productCardsService } from '../app/services';
+import { ProductCardDTORequest, ProductCardDTOResponse } from '../app/dto';
+import { ProductCardStatus } from '../app/services/product_cards/types';
 
 export interface ProductCardView {
     id: string;

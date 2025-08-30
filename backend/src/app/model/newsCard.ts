@@ -1,4 +1,4 @@
-import { NewsCard } from '@/app/services/news_cards/types';
+import { NewsCard } from '../../app/services/news_cards/types';
 
 export interface NewsCardsGetRequestModel {
     page: number;

@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { productsAPI } from '@/shared/api/productsAPI';
 import type { ProductCard } from '../types';
+import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
 
 type ProductCardsStoreType = {
     products: ProductCard[];
@@ -19,17 +20,15 @@ export const useProductCardsStore = defineStore<
         products: [] as ProductCard[],
         favoriteProducts: [] as ProductCard[],
         compareProducts: [] as ProductCard[],
-        currentPage: 1,
-        pageSize: 12,
+        pageSize: DEFAULT_API_RESPONSE_PAGE_VALUE,
         pagesCount: 0,
+        currentPage: 1,
     }),
 
     actions: {
         async setProducts(page: number, size: number) {
             const response = await productsAPI.getProducts(page, size);
             const { products, pagesCount } = response;
-
-            debugger;
 
             this.products = products;
             this.pagesCount = pagesCount;

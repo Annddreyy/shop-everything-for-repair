@@ -1,11 +1,13 @@
 <template>
     <RouterLink :to="`/news/${id}`">
         <article class="news-card">
+            <Skeleton v-if="imgIsLoading" width="390px" height="210px" />
             <img
                 :src="img"
                 :alt="title"
                 class="news-card__img"
-                @error="onImageNotLoad"
+                @error="onLoadError"
+                @load="onLoad"
             />
             <h3 class="news-card__title">{{ title }}</h3>
             <p class="news-card__description">{{ description }}</p>
@@ -19,19 +21,29 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
 
-import { formatDate } from '@/shared/lib';
-import { imgNotFoundImg } from '@/assets/images';
+import { formatDate, onLoadError } from '@/shared/lib';
 
+import Skeleton from '@/shared/ui/Skeleton/Skeleton.vue';
+import { nextTick, onMounted, ref } from 'vue';
 import type { NewsCard } from '../types';
 
 defineProps<NewsCard>();
 
-debugger;
+const imgIsLoading = ref(true);
 
-const onImageNotLoad = (event: Event) => {
-    const target = event.target as HTMLImageElement;
-    target.src = imgNotFoundImg;
+const onLoad = () => {
+    imgIsLoading.value = false;
 };
+
+onMounted(() => {
+    nextTick(() => {
+        const imageEl =
+            document.querySelector<HTMLImageElement>('.news-card__img');
+        if (imageEl && imageEl.complete) {
+            imgIsLoading.value = false;
+        }
+    });
+});
 </script>
 
 <style lang="scss" scoped>

@@ -21,8 +21,6 @@ const { items } = defineProps<{
     propName: string;
     itemKey?: string;
 }>();
-
-console.log(items);
 </script>
 
 <style lang="scss" scoped>

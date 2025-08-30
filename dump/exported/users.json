@@ -1,0 +1,212 @@
+[
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567811" },
+        "accountData": {
+            "userName": "user11",
+            "passwordSalt": "salt11",
+            "passwordHash": "hash11",
+            "email": "user11@example.com",
+            "createdAt": { "$date": "2024-01-15T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-11",
+            "expirationDate": { "$date": "2024-01-22T00:00:00Z" },
+            "isConfirmed": true
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567812" },
+        "accountData": {
+            "userName": "user12",
+            "passwordSalt": "salt12",
+            "passwordHash": "hash12",
+            "email": "user12@example.com",
+            "createdAt": { "$date": "2024-01-16T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-12",
+            "expirationDate": { "$date": "2024-01-23T00:00:00Z" },
+            "isConfirmed": false
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567813" },
+        "accountData": {
+            "userName": "user13",
+            "passwordSalt": "salt13",
+            "passwordHash": "hash13",
+            "email": "user13@example.com",
+            "createdAt": { "$date": "2024-01-17T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-13",
+            "expirationDate": { "$date": "2024-01-24T00:00:00Z" },
+            "isConfirmed": true
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567814" },
+        "accountData": {
+            "userName": "user14",
+            "passwordSalt": "salt14",
+            "passwordHash": "hash14",
+            "email": "user14@example.com",
+            "createdAt": { "$date": "2024-01-18T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-14",
+            "expirationDate": { "$date": "2024-01-25T00:00:00Z" },
+            "isConfirmed": false
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567815" },
+        "accountData": {
+            "userName": "user15",
+            "passwordSalt": "salt15",
+            "passwordHash": "hash15",
+            "email": "user15@example.com",
+            "createdAt": { "$date": "2024-01-19T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-15",
+            "expirationDate": { "$date": "2024-01-26T00:00:00Z" },
+            "isConfirmed": true
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567816" },
+        "accountData": {
+            "userName": "user16",
+            "passwordSalt": "salt16",
+            "passwordHash": "hash16",
+            "email": "user16@example.com",
+            "createdAt": { "$date": "2024-01-20T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-16",
+            "expirationDate": { "$date": "2024-01-27T00:00:00Z" },
+            "isConfirmed": false
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567817" },
+        "accountData": {
+            "userName": "user17",
+            "passwordSalt": "salt17",
+            "passwordHash": "hash17",
+            "email": "user17@example.com",
+            "createdAt": { "$date": "2024-01-21T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-17",
+            "expirationDate": { "$date": "2024-01-28T00:00:00Z" },
+            "isConfirmed": true
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567818" },
+        "accountData": {
+            "userName": "user18",
+            "passwordSalt": "salt18",
+            "passwordHash": "hash18",
+            "email": "user18@example.com",
+            "createdAt": { "$date": "2024-01-22T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-18",
+            "expirationDate": { "$date": "2024-01-29T00:00:00Z" },
+            "isConfirmed": false
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567819" },
+        "accountData": {
+            "userName": "user19",
+            "passwordSalt": "salt19",
+            "passwordHash": "hash19",
+            "email": "user19@example.com",
+            "createdAt": { "$date": "2024-01-23T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-19",
+            "expirationDate": { "$date": "2024-01-30T00:00:00Z" },
+            "isConfirmed": true
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567820" },
+        "accountData": {
+            "userName": "user20",
+            "passwordSalt": "salt20",
+            "passwordHash": "hash20",
+            "email": "user20@example.com",
+            "createdAt": { "$date": "2024-01-24T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-20",
+            "expirationDate": { "$date": "2024-01-31T00:00:00Z" },
+            "isConfirmed": false
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567821" },
+        "accountData": {
+            "userName": "user21",
+            "passwordSalt": "salt21",
+            "passwordHash": "hash21",
+            "email": "user21@example.com",
+            "createdAt": { "$date": "2024-01-25T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-21",
+            "expirationDate": { "$date": "2024-02-01T00:00:00Z" },
+            "isConfirmed": true
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567822" },
+        "accountData": {
+            "userName": "user22",
+            "passwordSalt": "salt22",
+            "passwordHash": "hash22",
+            "email": "user22@example.com",
+            "createdAt": { "$date": "2024-01-26T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-22",
+            "expirationDate": { "$date": "2024-02-02T00:00:00Z" },
+            "isConfirmed": false
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567823" },
+        "accountData": {
+            "userName": "user23",
+            "passwordSalt": "salt23",
+            "passwordHash": "hash23",
+            "email": "user23@example.com",
+            "createdAt": { "$date": "2024-01-27T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-23",
+            "expirationDate": { "$date": "2024-02-03T00:00:00Z" },
+            "isConfirmed": true
+        }
+    },
+    {
+        "_id": { "$oid": "64b8f4e23d1f8c1234567824" },
+        "accountData": {
+            "userName": "user24",
+            "passwordSalt": "salt24",
+            "passwordHash": "hash24",
+            "email": "user24@example.com",
+            "createdAt": { "$date": "2024-01-28T00:00:00Z" }
+        },
+        "emailConfirmation": {
+            "confirmationCode": "code-24",
+            "expirationDate": { "$date": "2024-02-04T00:00:00Z" },
+            "isConfirmed": false
+        }
+    }
+]

@@ -23,7 +23,7 @@
 import { links } from '@/shared/config/footer/links';
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 @use '@/assets/scss/display' as *;
 @use '@/assets/scss/variables' as *;
 
@@ -43,6 +43,7 @@ import { links } from '@/shared/config/footer/links';
 
         &__links-list {
             @extend .grid-2;
+            list-style-type: none;
             gap: $base-gap-4;
             row-gap: $base-gap;
         }

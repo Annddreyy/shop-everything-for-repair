@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
 import { NewsCardsModel } from '../db';
 import { FindNewsCardsType, NewsCardDB } from './types';
-import { NewsCardView } from '@/routes/newsCards';
+import { NewsCardView } from '../../../routes/newsCards';
 
 export const newsCardsQueryRepository = {
     async findNewsCards({ page, size }: FindNewsCardsType) {

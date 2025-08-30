@@ -1,4 +1,4 @@
-import { promotionCardsRepository } from '@/app/repositories';
+import { promotionCardsRepository } from '../../../app/repositories';
 import { PromotionCard, PromotionCardDBWithoutID } from './types';
 
 export const promotionCardsService = {

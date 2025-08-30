@@ -38,7 +38,7 @@ import {
 } from '@/assets/images';
 </script>
 
-<style module lang="scss">
+<style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 

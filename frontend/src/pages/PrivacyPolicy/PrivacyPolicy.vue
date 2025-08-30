@@ -565,7 +565,7 @@ import type { Link } from '@/shared/types/types';
 import { BasePage } from '@/widgets';
 
 const links: Link[] = [
-    { title: 'Главная', link: '/' },
+    { title: 'Стройоптторг', link: '/' },
     { title: 'Политика конфиденциальности', link: '/privacy-policy' },
 ];
 </script>

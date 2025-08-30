@@ -10,10 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import FooterBottom from './Footer/FooterBottom.vue';
-import FooterCards from './Footer/FooterCards.vue';
-import FooterLinks from './Footer/FooterLinks.vue';
-import FooterTop from './Footer/FooterTop.vue';
+import { FooterTop, FooterLinks, FooterCards, FooterBottom } from './Footer';
 </script>
 
 <style lang="scss" module>

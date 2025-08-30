@@ -26,12 +26,12 @@ import previosIcon from './breadcrumbs/previos.svg';
 
 // Иконки категорий товаров
 import category1 from './categoryCards/category1.svg';
-import category2 from './categoryCards/category2.svg';
+import category2 from './categoryCards/category2.png';
 import category3 from './categoryCards/category3.svg';
 import category4 from './categoryCards/category4.svg';
 import category5 from './categoryCards/category5.svg';
 import category6 from './categoryCards/category6.svg';
-import category7 from './categoryCards/category7.svg';
+import category7 from './categoryCards/category7.png';
 
 // Иконки способов оплаты
 import mirIcon from './footer/mir-icon.svg';
@@ -56,9 +56,16 @@ import aboutCompanyImg from './mainPage/about-company.svg';
 // Страница товара
 import binIcon from './product/bin-icon.svg';
 import compareIcon from './product/compare-icon.svg';
+import compareIconFill from './product/compare-icon-fill.svg';
 import cartIcon from './product/cart-icon.svg';
 import likeIcon from './product/like-icon.svg';
+import likeFillIcon from './product/like-fill-icon.svg';
 import resizeIcon from './product/resize-icon.svg';
+
+// Страница контактов
+import addressIcon from './contacts/address-icon.svg';
+import phoneIcon from './contacts/phone-icon.svg';
+import emailIcon from './contacts/email-icon.svg';
 
 export {
     companyLogo,
@@ -98,7 +105,12 @@ export {
     aboutCompanyImg,
     binIcon,
     compareIcon,
+    compareIconFill,
     cartIcon,
     likeIcon,
+    likeFillIcon,
     resizeIcon,
+    addressIcon,
+    phoneIcon,
+    emailIcon,
 };
