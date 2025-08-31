@@ -1,5 +1,6 @@
 <template>
     <BasePage>
+        <TopSlider />
         <AdvantagesComponent />
         <ComponentsList
             :component="ProductCategoryCard"
@@ -40,18 +41,19 @@
 
 <script setup lang="ts">
 import { useNewsCardsStore } from '@/entities/newsCard';
-import NewsCardComponent from '@/entities/newsCard/ui/NewsCard.vue';
 import { useProductCardsStore } from '@/entities/productCard';
-import ProductCard from '@/entities/productCard/ui/ProductCard.vue';
 import { usePromotionCardsStore } from '@/entities/promotionCard/model/promotionCardsStore';
-import PromotionCard from '@/entities/promotionCard/ui/PromotionCard.vue';
 import { categories } from '@/pages/Main/config/productCategoryCards/categories';
+import NewsCardComponent from '@/entities/newsCard/ui/NewsCard.vue';
+import ProductCard from '@/entities/productCard/ui/ProductCard.vue';
+import PromotionCard from '@/entities/promotionCard/ui/PromotionCard.vue';
 import AdvantagesComponent from '@/pages/Main/ui/AdvantagesComponent.vue';
 import ProductCategoryCard from '@/pages/Main/ui/ProductCategoryCard.vue';
 import { BasePage } from '@/widgets';
 import ComponentsList from '@/widgets/ComponentsList.vue';
 import { onBeforeMount } from 'vue';
 import { AboutMagazine, BrandsList } from './ui';
+import TopSlider from './ui/TopSlider/TopSlider.vue';
 
 const promotionsCardsStore = usePromotionCardsStore();
 const newsCardsStore = useNewsCardsStore();
