@@ -49,7 +49,7 @@ export const PromotionCardsModel = mongoose.model(
     PromotionCardsSchema,
 );
 
-const ReviewsSchema = new Schema({
+export const ReviewsSchema = new Schema({
     date: { type: Date, required: true },
     text: { type: String, required: true },
     images: { type: Array, required: true, default: [] },

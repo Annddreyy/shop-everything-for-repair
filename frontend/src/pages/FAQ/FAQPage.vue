@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@/shared/types';
+import type { Link } from '@/types';
 import { BasePage } from '@/widgets';
 import { FAQCard } from './entities/faq/ui';
 

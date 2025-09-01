@@ -1,3 +1,5 @@
+import { ReviewsModel } from '../db';
+
 type FindReviewsType = {
     page: number;
     size: number;
@@ -5,7 +7,16 @@ type FindReviewsType = {
 
 export const reviewsRepository = {
     async findReviews({ page, size }: FindReviewsType) {
-        console.log(page, size);
+        const reviewsCount = await ReviewsModel.countDocuments();
+        const reviewsDB = await ReviewsModel.find()
+            .skip(size * (page - 1))
+            .limit(size)
+            .lean();
+
+        return {
+            reviewsDB,
+            pagesCount: Math.ceil(reviewsCount / size),
+        };
     },
 
     async createReview() {},

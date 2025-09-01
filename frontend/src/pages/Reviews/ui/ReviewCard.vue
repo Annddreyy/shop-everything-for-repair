@@ -2,9 +2,12 @@
     <article class="review-card">
         <div class="review-card__top">
             <h3 class="review-card__author">{{ author }}</h3>
-            <time :datetime="date.toDateString()" class="review-card__date">{{
-                formatDate(date)
-            }}</time>
+            <time
+                :datetime="parsedDate.toISOString()"
+                class="review-card__date"
+            >
+                {{ formatDate(parsedDate) }}
+            </time>
         </div>
         <p class="review-card__text">{{ text }}</p>
         <div class="review-card__images">
@@ -14,10 +17,13 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import { formatDate } from '@/shared/lib';
 import type { Review } from '../types';
 
-defineProps<Review>();
+const props = defineProps<Review>();
+
+const parsedDate = computed(() => new Date(props.date));
 </script>
 
 <style lang="scss" scoped>
@@ -39,7 +45,7 @@ defineProps<Review>();
     }
 
     &__author {
-        font-size: large;
+        font-size: 17px;
     }
 
     &__images {

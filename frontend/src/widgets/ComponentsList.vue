@@ -6,6 +6,7 @@
                 :key="itemKey ? (item[itemKey] ?? index) : index"
                 :is="component"
                 v-bind="{ ...item }"
+                class="list__component"
             />
         </div>
     </div>
@@ -32,5 +33,9 @@ const { items } = defineProps<{
     gap: $base-gap-2;
     flex-wrap: wrap;
     margin: $base-margin-8 * 2 0;
+
+    &__component {
+        flex: 1;
+    }
 }
 </style>

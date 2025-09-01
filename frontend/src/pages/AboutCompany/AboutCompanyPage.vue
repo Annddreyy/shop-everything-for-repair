@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@/shared/types';
+import type { Link } from '@/types';
 import { BasePage } from '@/widgets';
 
 const links: Link[] = [

@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { useProductStore } from '@/entities/product/model/productCardsStore';
-import type { Link } from '@/shared/types/types';
+import type { Link } from '@/types';
 import { BasePage } from '@/widgets';
 import { transliterate } from 'transliteration';
 import Advantages from './ui/AdvantagesComponent.vue';

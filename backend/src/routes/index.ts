@@ -3,6 +3,7 @@ import { emailRouter } from './email';
 import { newsCardsRouter } from './newsCards';
 import { productCardsRouter } from './productCards';
 import { promotionCardsRouter } from './promotionCards';
+import { reviewRouter } from './reviews';
 
 export {
     authRouter,
@@ -10,4 +11,5 @@ export {
     newsCardsRouter,
     productCardsRouter,
     promotionCardsRouter,
+    reviewRouter,
 };
