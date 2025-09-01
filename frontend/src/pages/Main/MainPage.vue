@@ -40,13 +40,13 @@
 </template>
 
 <script setup lang="ts">
-import { useNewsCardsStore } from '@/entities/newsCard';
+import { useNewsCardsStore } from '@/entities/news';
 import { useProductCardsStore } from '@/entities/productCard';
-import { usePromotionCardsStore } from '@/entities/promotionCard/model/promotionCardsStore';
+import { usePromotionCardsStore } from '@/entities/promotion/model/promotionCardsStore';
 import { categories } from '@/pages/Main/config/productCategoryCards/categories';
-import NewsCardComponent from '@/entities/newsCard/ui/NewsCard.vue';
-import ProductCard from '@/entities/productCard/ui/ProductCard.vue';
-import PromotionCard from '@/entities/promotionCard/ui/PromotionCard.vue';
+import NewsCardComponent from '@/entities/news/ui/NewsCard.vue';
+import ProductCard from '@/entities/product/ui/ProductCard.vue';
+import PromotionCard from '@/entities/promotion/ui/PromotionCard.vue';
 import AdvantagesComponent from '@/pages/Main/ui/AdvantagesComponent.vue';
 import ProductCategoryCard from '@/pages/Main/ui/ProductCategoryCard.vue';
 import { BasePage } from '@/widgets';

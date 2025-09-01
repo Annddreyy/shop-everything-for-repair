@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { links } from '@/shared/config/header/links';
+import { links } from '@/widgets/Header/config/links';
 </script>
 
 <style lang="scss" scoped>

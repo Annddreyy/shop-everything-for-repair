@@ -25,7 +25,7 @@ import { useReviewsStore } from '@/entities/review/model/reviewsStore';
 import type { Link } from '@/types';
 import { BasePage } from '@/widgets';
 import { onMounted } from 'vue';
-import ReviewCard from './ui/ReviewCard.vue';
+import { ReviewCard } from '@/entities/review/ui';
 import { PaginationElement } from '@/shared/ui';
 import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
 import PagesAsideBlock from '@/widgets/PagesAsideBlock.vue';

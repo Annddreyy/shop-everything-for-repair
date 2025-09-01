@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { useProductStore } from '@/entities/product/model/productCardsStore';
+import { useProductStore } from '@/entities/product/model/productStore';
 import type { Link } from '@/types';
 import { BasePage } from '@/widgets';
 import { transliterate } from 'transliteration';

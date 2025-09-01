@@ -1,1 +1,29 @@
-export type { Characteristic, Product } from './types';
+export type Characteristic = {
+    title: string;
+    value: string;
+};
+
+export interface Product {
+    id: number;
+    title: string;
+    article: string;
+    images: string[];
+    price: number;
+    promotionPercent: number;
+    category: string;
+    count: number;
+    characteristics: Characteristic[];
+    about: string;
+}
+
+type Status = 'хит' | 'новинка' | 'распродажа';
+
+export interface ProductCard {
+    id: string;
+    title: string;
+    img: string;
+    price: number;
+    article: string;
+    statuses: Status[];
+    promotionPercent?: number;
+}

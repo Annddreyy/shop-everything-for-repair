@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
 import { Colors } from '@/shared/ui/ButtonComponent/types';
-import { img404 } from '@/assets/images';
+import { img404 } from '../assets';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();

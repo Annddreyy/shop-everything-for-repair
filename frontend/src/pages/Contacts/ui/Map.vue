@@ -61,7 +61,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { Loader } from '@googlemaps/js-api-loader';
-import { addressIcon, emailIcon, phoneIcon } from '@/assets/images';
+import { addressIcon, phoneIcon, emailIcon } from '../assets';
 
 const el = ref<HTMLDivElement | null>(null);
 

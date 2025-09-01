@@ -14,8 +14,8 @@
 import {
     PromotionCardComponent,
     usePromotionCardsStore,
-} from '@/entities/promotionCard';
-import { promotionsAPI } from '@/shared/api/promotionsAPI';
+} from '@/entities/promotion';
+import { promotionsAPI } from '@/entities/promotion/api/promotionCardsAPI';
 import { onMounted } from 'vue';
 import MailingListForm from './MailingListForm.vue';
 

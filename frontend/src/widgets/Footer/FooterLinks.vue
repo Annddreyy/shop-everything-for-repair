@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { links } from '@/shared/config/footer/links';
+import { links } from '@/widgets/Footer/config/links';
 </script>
 
 <style lang="scss" scoped>
