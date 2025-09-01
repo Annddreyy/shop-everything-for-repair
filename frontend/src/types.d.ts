@@ -1,4 +1,4 @@
-export type Link = {
+type Link = {
     link: `/${string}`;
     title: string;
 };

@@ -8,7 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@/types';
 import BasePage from '@/widgets/BasePage.vue';
 import { ContactPersons, FeedbackForm, RegionsComponent } from './ui';
 import Map from './ui/Map.vue';

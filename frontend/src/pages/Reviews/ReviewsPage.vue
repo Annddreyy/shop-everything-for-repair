@@ -22,7 +22,6 @@
 
 <script setup lang="ts">
 import { useReviewsStore } from '@/entities/review/model/reviewsStore';
-import type { Link } from '@/types';
 import { BasePage } from '@/widgets';
 import { onMounted } from 'vue';
 import { ReviewCard } from '@/entities/review/ui';

@@ -1,5 +1,3 @@
-import type { Link } from '@/types';
-
 type LinksCategory = {
     category: string;
     links: Link[];
