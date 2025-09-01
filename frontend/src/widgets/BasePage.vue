@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@/shared/types';
+import type { Link } from '@/types';
 import { BreadCrumbs, PageTitle } from '@/shared/ui';
 import { HeaderComponent, FooterComponent } from '.';
 

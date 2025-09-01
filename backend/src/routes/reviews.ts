@@ -1,5 +1,6 @@
 import express, { Response } from 'express';
 import { ReviewGetRequestModel, ReviewGetResponseModel } from '../app/model';
+import { reviewsService } from '../app/services/reviews/reviews';
 
 export interface ReviewsView {
     author: string;
@@ -18,6 +19,13 @@ reviewRouter.get(
     ) => {
         const page = +req.query.page;
         const size = +req.query.size;
-        console.log(page, size, res);
+
+        const { reviewsDB, pagesCount } = await reviewsService.getReviews({
+            page,
+            size,
+            sortBy: '',
+        });
+
+        res.json({ reviewsDB, pagesCount });
     },
 );

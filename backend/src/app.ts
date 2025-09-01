@@ -6,6 +6,7 @@ import {
     newsCardsRouter,
     promotionCardsRouter,
     emailRouter,
+    reviewRouter,
 } from './routes';
 
 export const app = express();
@@ -24,5 +25,6 @@ app.use('/product_cards', productCardsRouter);
 app.use('/news_cards', newsCardsRouter);
 app.use('/promotion_cards', promotionCardsRouter);
 app.use('/send', emailRouter);
+app.use('/reviews', reviewRouter);
 
 setupSwagger(app);

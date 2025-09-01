@@ -1,4 +1,4 @@
-import type { Link } from '@/shared/types';
+import type { Link } from '@/types';
 
 type LinksCategory = {
     category: string;

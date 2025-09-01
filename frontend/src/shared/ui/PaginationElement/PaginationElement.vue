@@ -18,7 +18,7 @@
                 </span>
             </div>
             <button @click="nextPage">
-                <img :src="nextIcon" alt="Далее" />Далее
+                Далее<img :src="nextIcon" alt="Далее" />
             </button>
         </div>
     </div>
@@ -28,9 +28,20 @@
 import { computed, ref } from 'vue';
 import { previosIcon, nextIcon } from '@/assets/images';
 
-const pagesCount = 20;
-const MAX_PAGES_COUNT = 10;
 const currentPage = ref(1);
+
+const { pagesCount } = defineProps({
+    pagesCount: {
+        type: Number,
+        default: 20,
+    },
+    maxPagesCount: {
+        type: Number,
+        default: 10,
+    },
+});
+
+const emits = defineEmits(['set-page']);
 
 const pages = computed(() => {
     const result: number[] = [];
@@ -61,16 +72,19 @@ const nextPage = () => {
     if (currentPage.value + 1 <= pagesCount) {
         currentPage.value++;
     }
+    emits('set-page', currentPage.value);
 };
 
 const previousPage = () => {
     if (currentPage.value - 1 >= 1) {
         currentPage.value--;
     }
+    emits('set-page', currentPage.value);
 };
 
 const setPage = (page: number) => {
     currentPage.value = page;
+    emits('set-page', page);
 };
 </script>
 
@@ -78,7 +92,7 @@ const setPage = (page: number) => {
 @use '@/assets/scss/display.scss' as *;
 
 .buttons {
-    @extend .row-a-c;
+    @extend .row-c;
     gap: 12px;
 
     button {
