@@ -60,13 +60,11 @@ import { Colors } from '@/shared/ui/ButtonComponent/types';
 import {
     accountIcon,
     burgerButtonIcon,
-    cartIcon,
-    companyLogo,
-    compareIcon,
-    likeIcon,
     promotionsIcon,
     searchIcon,
-} from '@/assets/images';
+} from './assets';
+import { likeIcon, cartIcon, compareIcon } from '@/entities/product/assets';
+import { companyLogo } from '@/shared/assets';
 import { useLSStore } from '@/shared/stores';
 
 const LSStore = useLSStore();

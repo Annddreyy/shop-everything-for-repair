@@ -56,7 +56,7 @@
 
 <script setup lang="ts">
 import { Colors } from '@/shared/ui/ButtonComponent/types';
-import { aboutCompanyImg } from '@/assets/images';
+import { aboutCompanyImg } from '../assets';
 </script>
 
 <style lang="scss" scoped>

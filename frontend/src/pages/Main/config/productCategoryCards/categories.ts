@@ -7,7 +7,7 @@ import {
     category5,
     category6,
     category7,
-} from '@/assets/images';
+} from '../../assets';
 
 // TODO: Добавить английские названия
 export const categories: ProductCategory[] = [

@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { readyCodeIcon } from '@/assets/images';
+import { readyCodeIcon } from './assets';
 </script>
 
 <style lang="scss" scoped>

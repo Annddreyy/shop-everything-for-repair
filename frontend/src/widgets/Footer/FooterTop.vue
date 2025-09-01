@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { companyLogo } from '@/assets/images';
+import { companyLogo } from '@/shared/assets';
 </script>
 
 <style lang="scss" scoped>

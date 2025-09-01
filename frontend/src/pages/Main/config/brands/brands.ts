@@ -7,7 +7,7 @@ import {
     brand5,
     brand6,
     brand7,
-} from '@/assets/images';
+} from '../../assets';
 
 export const brands: Brand[] = [
     { id: 1, img: brand1 },

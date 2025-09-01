@@ -35,7 +35,7 @@ import {
     visaIcon,
     xalvaIcon,
     sendEmailIcon,
-} from '@/assets/images';
+} from './assets';
 </script>
 
 <style scoped lang="scss">

@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { previosIcon, nextIcon } from '@/assets/images';
+import { previosIcon, nextIcon } from './assets';
 
 const currentPage = ref(1);
 

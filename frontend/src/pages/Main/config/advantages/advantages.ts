@@ -3,7 +3,7 @@ import {
     catalogIcon,
     deliveryIcon,
     promotionIcon,
-} from '@/assets/images';
+} from '@/shared/assets';
 import type { Advantage } from '../../types';
 
 export const advantages: Advantage[] = [
