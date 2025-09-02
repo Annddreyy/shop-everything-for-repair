@@ -1,5 +1,5 @@
 <template>
-    <BasePage :links="links" title="Контакты">
+    <BasePage :breadcrumbs="breadcrumbs" title="Контакты">
         <Map />
         <ContactPersons />
         <RegionsComponent />
@@ -8,11 +8,10 @@
 </template>
 
 <script setup lang="ts">
-import BasePage from '@/widgets/BasePage.vue';
-import { ContactPersons, FeedbackForm, RegionsComponent } from './ui';
-import Map from './ui/Map.vue';
+import { BasePage } from '@/widgets';
+import { ContactPersons, FeedbackForm, RegionsComponent, Map } from './ui';
 
-const links: Link[] = [
+const breadcrumbs: Link[] = [
     { title: 'Стройоптторг', link: '/' },
     { title: 'Контакты', link: '/contacts' },
 ];

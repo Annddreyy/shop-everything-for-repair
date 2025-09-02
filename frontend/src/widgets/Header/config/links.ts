@@ -1,4 +1,4 @@
-export const links: Link[] = [
+export const breadcrumbs: Link[] = [
     { title: 'О компании', link: '/about-company' },
     { title: 'Оплата', link: '/payment' },
     { title: 'Доставка', link: '/delivery' },

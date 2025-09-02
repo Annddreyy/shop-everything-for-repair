@@ -1,0 +1,1 @@
+export { productCardsAPI } from './productCardsAPI';

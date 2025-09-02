@@ -1,7 +1,11 @@
 <template>
     <div class="container">
-        <div class="links">
-            <RouterLink :to="link.link" v-for="link in links" :key="link.link">
+        <div class="breadcrumbs">
+            <RouterLink
+                :to="link.link"
+                v-for="link in breadcrumbs"
+                :key="link.link"
+            >
                 {{ link.title }}
             </RouterLink>
         </div>
@@ -10,14 +14,14 @@
 
 <script setup lang="ts">
 defineProps<{
-    links: Link[];
+    breadcrumbs: Link[];
 }>();
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/scss/display' as *;
 
-.links {
+.breadcrumbs {
     display: flex;
     gap: 30px;
     padding: 18px 0;

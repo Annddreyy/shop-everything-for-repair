@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <details v-for="faq in faqList" :key="faq.question" class="faq-card">
+        <details v-for="faq in FAQStore.faq" :key="faq.id" class="faq-card">
             <summary class="faq-card__question">{{ faq.question }}</summary>
             <p class="faq-card__answer">{{ faq.answer }}</p>
         </details>
@@ -8,7 +8,14 @@
 </template>
 
 <script setup lang="ts">
-import { faqList } from '@/pages/FAQ/config/faqList';
+import { onMounted } from 'vue';
+import { useFAQStore } from '../model';
+
+const FAQStore = useFAQStore();
+
+onMounted(async () => {
+    await FAQStore.getFAQ();
+});
 </script>
 
 <style lang="scss" scoped>

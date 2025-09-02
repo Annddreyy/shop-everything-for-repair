@@ -1,5 +1,5 @@
 <template>
-    <BasePage :links="links" :title="productStore.title">
+    <BasePage :breadcrumbs="breadcrumbs" :title="productStore.title">
         <div class="container">
             <div class="top-part">
                 <Slider :images="productStore.images" />
@@ -33,7 +33,7 @@ import Tabs from './ui/TabsComponent.vue';
 
 const productStore = useProductStore();
 
-const links: Link[] = [
+const breadcrumbs: Link[] = [
     { title: 'Стройоптторг', link: '/' },
     {
         title: productStore.category,

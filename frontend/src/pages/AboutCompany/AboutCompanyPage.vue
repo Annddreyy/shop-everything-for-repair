@@ -1,11 +1,11 @@
 <template>
-    <BasePage :links="links" title="О компании"> </BasePage>
+    <BasePage :breadcrumbs="breadcrumbs" title="О компании"> </BasePage>
 </template>
 
 <script setup lang="ts">
 import { BasePage } from '@/widgets';
 
-const links: Link[] = [
+const breadcrumbs: Link[] = [
     { title: 'Стройоптторг', link: '/' },
     { title: 'О компании', link: '/about-company' },
 ];

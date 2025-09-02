@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { productsAPI } from '@/shared/api/models/productsAPI';
+import { productCardsAPI } from '../api';
 import type { ProductCard } from '../types';
 import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
 
@@ -27,7 +27,7 @@ export const useProductCardsStore = defineStore<
 
     actions: {
         async setProducts(page: number, size: number) {
-            const response = await productsAPI.getProducts(page, size);
+            const response = await productCardsAPI.getProductCards(page, size);
             const { products, pagesCount } = response;
 
             this.products = products;

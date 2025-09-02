@@ -1,12 +1,12 @@
 type LinksCategory = {
     category: string;
-    links: Link[];
+    breadcrumbs: Link[];
 };
 
-export const links: LinksCategory[] = [
+export const breadcrumbs: LinksCategory[] = [
     {
         category: 'Информация',
-        links: [
+        breadcrumbs: [
             { title: 'О компании', link: '/about-company' },
             { title: 'Оплата', link: '/payment' },
             { title: 'Доставка', link: '/delivery' },
@@ -21,7 +21,7 @@ export const links: LinksCategory[] = [
     },
     {
         category: 'Каталог',
-        links: [
+        breadcrumbs: [
             {
                 title: 'Общестроительные материалы',
                 link: '/construction-materials',

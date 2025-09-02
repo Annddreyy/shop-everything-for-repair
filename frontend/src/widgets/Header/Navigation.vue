@@ -2,7 +2,7 @@
     <nav class="navigation">
         <button class="navigation__burger-button">☰</button>
         <ul class="navigation__links">
-            <li v-for="link in links" :key="link.link">
+            <li v-for="link in breadcrumbs" :key="link.link">
                 <RouterLink :to="link.link" class="navigation__link">
                     {{ link.title }}
                 </RouterLink>
@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { links } from '@/widgets/Header/config/links';
+import { breadcrumbs } from './config/links';
 </script>
 
 <style lang="scss" scoped>

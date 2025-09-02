@@ -2,7 +2,7 @@ import type { NewsCard } from '../types';
 import { instance } from '@/shared/api/api';
 
 export type GetNewsCardsResponse = {
-    news: NewsCard[];
+    newsCards: NewsCard[];
     pagesCount: number;
 };
 

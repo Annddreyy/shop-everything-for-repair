@@ -1,7 +1,7 @@
 <template>
     <div class="page-top">
         <HeaderComponent />
-        <BreadCrumbs v-if="links" :links="links" />
+        <BreadCrumbs v-if="breadcrumbs" :breadcrumbs="breadcrumbs" />
         <PageTitle v-if="title" :title="title" />
     </div>
     <main>
@@ -14,10 +14,12 @@
 import { BreadCrumbs, PageTitle } from '@/shared/ui';
 import { HeaderComponent, FooterComponent } from '.';
 
-defineProps<{
-    links?: Link[];
+type Props = {
+    breadcrumbs?: Link[];
     title?: string;
-}>();
+};
+
+defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>

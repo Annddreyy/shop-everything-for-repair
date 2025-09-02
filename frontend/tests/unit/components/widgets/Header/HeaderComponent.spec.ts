@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import HeaderComponent from './../../../../../src/widgets/Header/HeaderComponent.vue';
-import { links } from '../../../../../src/shared/config/header/links.config';
+import { breadcrumbs } from '../../../../../src/shared/config/header/breadcrumbs.config';
 
 describe('HeaderComponent.vue', () => {
     it('Отображаются все переданные ссылки', () => {
@@ -9,13 +9,15 @@ describe('HeaderComponent.vue', () => {
 
         const linksComponents = wrapper.get('nav').findAll('li');
 
-        expect(linksComponents.length).toBe(links.length);
+        expect(linksComponents.length).toBe(breadcrumbs.length);
 
         linksComponents.forEach((link, index) => {
             expect(link.get('routerlink').attributes('to')).toBe(
-                links[index].link,
+                breadcrumbs[index].link,
             );
-            expect(link.get('routerlink').text()).toBe(links[index].title);
+            expect(link.get('routerlink').text()).toBe(
+                breadcrumbs[index].title,
+            );
         });
     });
 });

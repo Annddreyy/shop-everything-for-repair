@@ -1,5 +1,5 @@
 <template>
-    <BasePage :links="links" title="Отзывы">
+    <BasePage :breadcrumbs="breadcrumbs" title="Отзывы">
         <div class="container top">
             <div class="reviews-cards">
                 <ReviewCard
@@ -31,7 +31,7 @@ import PagesAsideBlock from '@/widgets/PagesAsideBlock.vue';
 
 const reviewsStore = useReviewsStore();
 
-const links: Link[] = [
+const breadcrumbs: Link[] = [
     { title: 'Стройоптторг', link: '/' },
     { title: 'Отзывы', link: '/reviews' },
 ];

@@ -6,9 +6,9 @@ import BreadCrumbs from './../../../../../src/shared/ui/BreadCrumbs/BreadCrumbs.
 describe('BreadCrumbs.vue', () => {
     it('Проверка наличия передаваемых props', () => {
         const props: {
-            links: Link[];
+            breadcrumbs: Link[];
         } = {
-            links: [
+            breadcrumbs: [
                 {
                     title: 'Стройоптторг',
                     link: '/',
@@ -22,16 +22,18 @@ describe('BreadCrumbs.vue', () => {
 
         const wrapper = mount(BreadCrumbs, { props });
 
-        props.links.forEach((link) => {
+        props.breadcrumbs.forEach((link) => {
             expect(wrapper.text()).toContain(link.title);
         });
 
         const routerLinks = wrapper.findAll('routerlink');
 
-        expect(routerLinks.length).toBe(props.links.length);
+        expect(routerLinks.length).toBe(props.breadcrumbs.length);
 
         routerLinks.forEach((linkWrapper, index) => {
-            expect(linkWrapper.attributes('to')).toBe(props.links[index].link);
+            expect(linkWrapper.attributes('to')).toBe(
+                props.breadcrumbs[index].link,
+            );
         });
     });
 });

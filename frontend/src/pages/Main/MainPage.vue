@@ -31,7 +31,7 @@
             </section>
         </div>
         <ComponentsList
-            :component="NewsCardComponent"
+            :component="NewsCard"
             :items="newsCardsStore.newsCards"
             prop-name="card"
             item-key="id"
@@ -40,20 +40,19 @@
 </template>
 
 <script setup lang="ts">
-import { useNewsCardsStore } from '@/entities/news';
-import { useProductCardsStore } from '@/entities/productCard';
-import { usePromotionCardsStore } from '@/entities/promotion/model/promotionCardsStore';
-import { categories } from '@/pages/Main/config/productCategoryCards/categories';
-import NewsCardComponent from '@/entities/news/ui/NewsCard.vue';
-import ProductCard from '@/entities/product/ui/ProductCard.vue';
-import PromotionCard from '@/entities/promotion/ui/PromotionCard.vue';
-import AdvantagesComponent from '@/pages/Main/ui/AdvantagesComponent.vue';
-import ProductCategoryCard from '@/pages/Main/ui/ProductCategoryCard.vue';
-import { BasePage } from '@/widgets';
-import ComponentsList from '@/widgets/ComponentsList.vue';
+import { useNewsCardsStore } from '@/entities/news/model';
+import { useProductCardsStore } from '@/entities/product/model';
+import { usePromotionCardsStore } from '@/entities/promotion/model';
+import { categories } from './config';
+import { NewsCard } from '@/entities/news/ui';
+import { ProductCard } from '@/entities/product/ui';
+import { PromotionCard } from '@/entities/promotion/ui';
+import { AdvantagesComponent } from '@/pages/Main/ui';
+import { ProductCategoryCard } from '@/pages/Main/ui';
+import { BasePage, ComponentsList } from '@/widgets';
 import { onBeforeMount } from 'vue';
 import { AboutMagazine, BrandsList } from './ui';
-import TopSlider from './ui/TopSlider/TopSlider.vue';
+import { TopSlider } from './ui';
 
 const promotionsCardsStore = usePromotionCardsStore();
 const newsCardsStore = useNewsCardsStore();

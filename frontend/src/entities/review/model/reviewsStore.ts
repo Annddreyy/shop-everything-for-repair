@@ -1,6 +1,6 @@
 import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
-import type { Review } from '@/pages/Reviews/types';
-import { reviewsAPI } from '@/shared/api/models/reviewsAPI';
+import type { Review } from '../types';
+import { reviewsAPI } from '../api';
 import { defineStore } from 'pinia';
 
 export const useReviewsStore = defineStore('reviews', {
@@ -17,7 +17,6 @@ export const useReviewsStore = defineStore('reviews', {
                 page,
                 size,
             );
-            console.log(reviewsDB);
             this.reviews = reviewsDB;
             this.pagesCount = pagesCount;
         },

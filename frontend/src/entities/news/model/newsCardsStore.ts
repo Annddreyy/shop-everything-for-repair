@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia';
 
-import { newsAPI } from '@/shared/api/models/newsAPI';
+import { newsCardsAPI } from '../api';
 import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
 
-import type { NewsCard } from '../types/types';
+import type { NewsCard } from '../types';
 
 type NewsCardsStoreType = {
     newsCards: NewsCard[];
@@ -24,7 +24,10 @@ export const useNewsCardsStore = defineStore<'newsCards', NewsCardsStoreType>(
 
         actions: {
             async setNews(page = 1, pageSize = 4) {
-                const response = await newsAPI.getNews(page, pageSize);
+                const response = await newsCardsAPI.getNewsCards(
+                    page,
+                    pageSize,
+                );
                 const { newsCards, pagesCount } = response;
 
                 console.log(newsCards);

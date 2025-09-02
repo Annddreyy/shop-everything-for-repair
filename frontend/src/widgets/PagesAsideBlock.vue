@@ -11,18 +11,15 @@
 </template>
 
 <script setup lang="ts">
-import {
-    PromotionCardComponent,
-    usePromotionCardsStore,
-} from '@/entities/promotion';
-import { promotionsAPI } from '@/entities/promotion/api/promotionCardsAPI';
+import { usePromotionCardsStore } from '@/entities/promotion/model';
+import { promotionCardsAPI } from '@/entities/promotion/api';
 import { onMounted } from 'vue';
 import MailingListForm from './MailingListForm.vue';
 
 const promotionsStore = usePromotionCardsStore();
 
 onMounted(async () => {
-    await promotionsAPI.getPromotions(1, 2);
+    await promotionCardsAPI.getPromotionCards(1, 2);
 });
 </script>
 

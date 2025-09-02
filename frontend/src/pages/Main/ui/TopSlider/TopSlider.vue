@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import SliderComponent from '@/shared/ui/Slider/SliderComponent.vue';
+import { SliderComponent } from '@/shared/ui';
 import TopSliderComponent from './TopSliderComponent.vue';
 
 const componentsList = [
