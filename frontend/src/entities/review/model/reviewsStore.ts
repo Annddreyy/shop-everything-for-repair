@@ -1,7 +1,7 @@
-import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
-import type { Review } from '../types';
-import { reviewsAPI } from '../api';
 import { defineStore } from 'pinia';
+import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
+import { reviewsAPI } from '../api';
+import type { Review } from '../types';
 
 export const useReviewsStore = defineStore('reviews', {
     state: () => ({

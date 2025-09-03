@@ -22,12 +22,11 @@
 
 <script setup lang="ts">
 import { useReviewsStore } from '@/entities/review/model/reviewsStore';
-import { BasePage } from '@/widgets';
+import { BasePage, PagesAsideBlock } from '@/widgets';
 import { onMounted } from 'vue';
 import { ReviewCard } from '@/entities/review/ui';
 import { PaginationElement } from '@/shared/ui';
 import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
-import PagesAsideBlock from '@/widgets/PagesAsideBlock.vue';
 
 const reviewsStore = useReviewsStore();
 

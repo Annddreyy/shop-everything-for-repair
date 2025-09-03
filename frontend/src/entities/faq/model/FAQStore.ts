@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import type { FAQ } from '../types';
 import { faqAPI } from '../api';
+import type { FAQ } from '../types';
 
 export const useFAQStore = defineStore('faq', {
     state: () => ({
@@ -9,8 +9,7 @@ export const useFAQStore = defineStore('faq', {
 
     actions: {
         async getFAQ() {
-            const faq = await faqAPI.getFAQ();
-            this.faq = faq;
+            this.faq = await faqAPI.getFAQ();
         },
     },
 });

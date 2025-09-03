@@ -29,7 +29,8 @@
         "sharp": "^0.34.3",
         "uuid": "^11.1.0",
         "vue": "^3.5.13",
-        "vue-router": "^4.5.0"
+        "vue-router": "^4.5.0",
+        "vue3-toastify": "^0.2.8"
     },
     "devDependencies": {
         "@pinia/testing": "^1.0.2",

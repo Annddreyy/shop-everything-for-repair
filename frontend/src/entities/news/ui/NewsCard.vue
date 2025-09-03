@@ -19,12 +19,12 @@
 </template>
 
 <script setup lang="ts">
+import { nextTick, onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
+import { Skeleton } from '@/shared/ui';
 import { formatDate, onLoadError } from '@/shared/lib';
 
-import Skeleton from '@/shared/ui/Skeleton/Skeleton.vue';
-import { nextTick, onMounted, ref } from 'vue';
 import type { NewsCard } from '../types';
 
 defineProps<NewsCard>();

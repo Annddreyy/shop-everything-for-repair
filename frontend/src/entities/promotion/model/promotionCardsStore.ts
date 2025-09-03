@@ -1,19 +1,9 @@
 import { defineStore } from 'pinia';
-import { promotionCardsAPI } from '../api';
 import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
+import { promotionCardsAPI } from '../api';
 import type { PromotionCard } from '../types';
 
-type PromotionCardsStoreType = {
-    promotionCards: PromotionCard[];
-    currentPage: number;
-    pageSize: number;
-    pagesCount: number;
-};
-
-export const usePromotionCardsStore = defineStore<
-    'promotionCards',
-    PromotionCardsStoreType
->('promotionCards', {
+export const usePromotionCardsStore = defineStore('promotionCards', {
     state: () => ({
         promotionCards: [] as PromotionCard[],
         pageSize: DEFAULT_API_RESPONSE_PAGE_VALUE,

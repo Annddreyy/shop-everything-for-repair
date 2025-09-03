@@ -1,5 +1,5 @@
-import type { Review } from '../types';
 import { instance } from '@/shared/api/api';
+import type { Review } from '../types';
 
 export type GetReviewsResponse = {
     reviews: Review[];

@@ -1,21 +1,9 @@
 import { defineStore } from 'pinia';
+import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
 import { productCardsAPI } from '../api';
 import type { ProductCard } from '../types';
-import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
 
-type ProductCardsStoreType = {
-    products: ProductCard[];
-    favoriteProducts: ProductCard[];
-    compareProducts: ProductCard[];
-    currentPage: number;
-    pageSize: number;
-    pagesCount: number;
-};
-
-export const useProductCardsStore = defineStore<
-    'productCards',
-    ProductCardsStoreType
->('productCards', {
+export const useProductCardsStore = defineStore('productCards', {
     state: () => ({
         products: [] as ProductCard[],
         favoriteProducts: [] as ProductCard[],
@@ -33,9 +21,6 @@ export const useProductCardsStore = defineStore<
             this.products = products;
             this.pagesCount = pagesCount;
         },
-
-        // TODO: Добавить метод получения списка избранных товаров
-        // TODO: Добавить метод получения списка сравниваемых товаров
 
         setCurrentPage(page: number) {
             this.currentPage = page;
