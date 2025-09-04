@@ -21,7 +21,7 @@ import { computed } from 'vue';
 import { formatDate } from '@/shared/lib';
 import type { Review } from '../types';
 
-const props = defineProps<Review>();
+const props = defineProps<Omit<Review, 'id'>>();
 
 const parsedDate = computed(() => new Date(props.date));
 </script>

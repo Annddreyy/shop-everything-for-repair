@@ -1,21 +1,14 @@
 <template>
-    <div class="container">
-        <details v-for="faq in FAQStore.faq" :key="faq.id" class="faq-card">
-            <summary class="faq-card__question">{{ faq.question }}</summary>
-            <p class="faq-card__answer">{{ faq.answer }}</p>
-        </details>
-    </div>
+    <details class="faq-card">
+        <summary class="faq-card__question">{{ question }}</summary>
+        <p class="faq-card__answer">{{ answer }}</p>
+    </details>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { useFAQStore } from '../model';
+import type { FAQ } from '../types';
 
-const FAQStore = useFAQStore();
-
-onMounted(async () => {
-    await FAQStore.getFAQ();
-});
+defineProps<Omit<FAQ, 'id'>>();
 </script>
 
 <style lang="scss" scoped>
