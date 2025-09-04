@@ -1,11 +1,19 @@
-import { instance } from '@/shared/api/api';
+import {
+    instance,
+    type AxiosBaseResponse,
+    type BaseResponse,
+} from '@/shared/api/api';
 import type { PromotionCard } from '../types';
-import { toast } from 'vue3-toastify';
 
-export type GetPromotionsResponse = {
+type AxiosGetPromotionsResponse = AxiosBaseResponse<{
     promotions: PromotionCard[];
     pagesCount: number;
-};
+}>;
+
+type GetPromotionsResponse = BaseResponse<{
+    promotions: PromotionCard[];
+    pagesCount: number;
+}>;
 
 export const promotionCardsAPI = {
     async getPromotionCards(
@@ -13,16 +21,23 @@ export const promotionCardsAPI = {
         pageSize: number,
     ): Promise<GetPromotionsResponse> {
         try {
-            const response = await instance.get<GetPromotionsResponse>(
+            const response = await instance.get<AxiosGetPromotionsResponse>(
                 `/promotion_cards?page=${page}&size=${pageSize}`,
             );
-            return response.data;
-        } catch {
-            debugger;
-            toast('Ошибка при получении списка акций', { type: 'error' });
             return {
-                promotions: [],
-                pagesCount: 0,
+                status: 'success',
+                data: response.data.data,
+            };
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                return {
+                    status: 'error',
+                    error: error.message,
+                };
+            }
+            return {
+                status: 'error',
+                error: String(error),
             };
         }
     },

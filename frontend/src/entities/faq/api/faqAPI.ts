@@ -1,20 +1,40 @@
 import { instance } from '@/shared/api/api';
 import type { FAQ } from '../types';
-import { toast } from 'vue3-toastify';
 
-type GetFAQResponse = {
+type AxiosGetFAQResponse = {
     faq: FAQ[];
 };
 
+type GetFAQResponse =
+    | {
+          status: 'success';
+          faq: FAQ[];
+      }
+    | {
+          status: 'error';
+          error: string;
+      };
+
 export const faqAPI = {
-    async getFAQ() {
+    async getFAQ(): Promise<GetFAQResponse> {
         try {
-            const response = await instance.get<GetFAQResponse>('/faq');
+            const response = await instance.get<AxiosGetFAQResponse>('/faq');
             const { faq } = response.data;
-            return faq;
-        } catch {
-            toast('При получении FAQ произошла ошибка', { type: 'error' });
-            return [];
+            return {
+                status: 'success',
+                faq,
+            };
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                return {
+                    status: 'error',
+                    error: error.message,
+                };
+            }
+            return {
+                status: 'error',
+                error: String(error),
+            };
         }
     },
 };

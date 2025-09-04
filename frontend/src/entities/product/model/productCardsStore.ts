@@ -11,15 +11,27 @@ export const useProductCardsStore = defineStore('productCards', {
         pageSize: DEFAULT_API_RESPONSE_PAGE_VALUE,
         pagesCount: 0,
         currentPage: 1,
+
+        loading: false,
+        error: null as string | null,
     }),
 
     actions: {
         async setProducts(page: number, size: number) {
-            const response = await productCardsAPI.getProductCards(page, size);
-            const { products, pagesCount } = response;
+            this.loading = true;
 
-            this.products = products;
-            this.pagesCount = pagesCount;
+            const response = await productCardsAPI.getProductCards(page, size);
+
+            if (response.status === 'success') {
+                const { products, pagesCount } = response.data;
+
+                this.products = products;
+                this.pagesCount = pagesCount;
+            } else {
+                this.error = response.error;
+            }
+
+            this.loading = false;
         },
 
         setCurrentPage(page: number) {

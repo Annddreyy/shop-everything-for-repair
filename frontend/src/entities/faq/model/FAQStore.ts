@@ -15,7 +15,12 @@ export const useFAQStore = defineStore('faq', {
             this.error = null;
 
             try {
-                this.faq = await faqAPI.getFAQ();
+                const response = await faqAPI.getFAQ();
+                if (response.status === 'success') {
+                    this.faq = response.faq;
+                } else {
+                    throw new Error(response.error);
+                }
             } catch (error: unknown) {
                 if (error instanceof Error) {
                     this.error = error.message;

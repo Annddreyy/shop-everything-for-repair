@@ -27,7 +27,7 @@ import { formatDate, onLoadError } from '@/shared/lib';
 
 import type { NewsCard } from '../types';
 
-defineProps<NewsCard>();
+defineProps<WithId<NewsCard>>();
 
 const imgIsLoading = ref(true);
 

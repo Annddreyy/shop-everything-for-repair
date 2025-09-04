@@ -9,16 +9,26 @@ export const useReviewsStore = defineStore('reviews', {
         pageSize: DEFAULT_API_RESPONSE_PAGE_VALUE,
         pagesCount: 0,
         currentPage: 1,
+
+        loading: false,
+        error: null as string | null,
     }),
 
     actions: {
         async getReviews(page = 1, size = 10) {
-            const { reviewsDB, pagesCount } = await reviewsAPI.getReviews(
-                page,
-                size,
-            );
-            this.reviews = reviewsDB;
-            this.pagesCount = pagesCount;
+            this.loading = true;
+
+            const response = await reviewsAPI.getReviews(page, size);
+
+            if (response.status === 'success') {
+                const { reviews, pagesCount } = response.data;
+                this.reviews = reviews;
+                this.pagesCount = pagesCount;
+            } else {
+                this.error = response.error;
+            }
+
+            this.loading = false;
         },
     },
 });

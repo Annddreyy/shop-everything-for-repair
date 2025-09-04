@@ -9,19 +9,28 @@ export const useNewsCardsStore = defineStore('newsCards', {
         pageSize: DEFAULT_API_RESPONSE_PAGE_VALUE,
         pagesCount: 0,
         currentPage: 1,
+        loading: false,
+        error: null as string | null,
     }),
 
     actions: {
         async setNews(page = 1, pageSize = 4) {
+            this.loading = true;
+
             const response = await newsCardsAPI.getNewsCards(page, pageSize);
-            const { newsCards, pagesCount } = response;
 
-            this.newsCards = newsCards.map((n) => ({
-                ...n,
-                date: new Date(n.date),
-            }));
+            if (response.status === 'success') {
+                const { newsCards, pagesCount } = response.data;
+                this.newsCards = newsCards.map((n) => ({
+                    ...n,
+                    date: new Date(n.date),
+                }));
+                this.pagesCount = pagesCount;
+            } else {
+                this.error = response.error;
+            }
 
-            this.pagesCount = pagesCount;
+            this.loading = false;
         },
 
         setCurrentPage(page: number) {

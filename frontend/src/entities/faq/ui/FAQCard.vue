@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import type { FAQ } from '../types';
 
-defineProps<Omit<FAQ, 'id'>>();
+defineProps<FAQ>();
 </script>
 
 <style lang="scss" scoped>
@@ -16,8 +16,11 @@ defineProps<Omit<FAQ, 'id'>>();
 
 .faq-card {
     &__question {
+        @extend .row;
+        justify-content: space-between;
+
         position: relative;
-        padding: 18.5px 10px;
+        padding: 10px;
 
         font-size: 18px;
         color: #2c333d;

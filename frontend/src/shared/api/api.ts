@@ -11,8 +11,18 @@ export enum ResponseStatuses {
     SERVER_ERROR = 500,
 }
 
-export type BaseResponse<T> = {
+export type AxiosBaseResponse<T> = {
     status: ResponseStatuses;
     messages: string[];
     data: T;
 };
+
+export type BaseResponse<T> =
+    | {
+          status: 'success';
+          data: T;
+      }
+    | {
+          status: 'error';
+          error: string;
+      };

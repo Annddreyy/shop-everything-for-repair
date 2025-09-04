@@ -9,18 +9,30 @@ export const usePromotionCardsStore = defineStore('promotionCards', {
         pageSize: DEFAULT_API_RESPONSE_PAGE_VALUE,
         pagesCount: 0,
         currentPage: 1,
+
+        loading: false,
+        error: null as string | null,
     }),
 
     actions: {
         async setPromotions(page = 1, pageSize = 4) {
+            this.loading = true;
+
             const response = await promotionCardsAPI.getPromotionCards(
                 page,
                 pageSize,
             );
-            const { promotions, pagesCount } = response;
 
-            this.promotionCards = promotions;
-            this.pagesCount = pagesCount;
+            if (response.status === 'success') {
+                const { promotions, pagesCount } = response.data;
+
+                this.promotionCards = promotions;
+                this.pagesCount = pagesCount;
+            } else {
+                this.error = response.error;
+            }
+
+            this.loading = false;
         },
 
         setCurrentPage(page: number) {
