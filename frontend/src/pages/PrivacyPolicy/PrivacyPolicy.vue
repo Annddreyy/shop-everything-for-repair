@@ -1,5 +1,5 @@
 <template>
-    <BasePage :links="links" title="Политика конфиденциальности">
+    <BasePage :breadcrumbs="breadcrumbs" title="Политика конфиденциальности">
         <div class="container">
             <section class="privacy-policy-description">
                 <p>
@@ -561,10 +561,9 @@
 </template>
 
 <script setup lang="ts">
-import type { Link } from '@/shared/types/types';
 import { BasePage } from '@/widgets';
 
-const links: Link[] = [
+const breadcrumbs: Link[] = [
     { title: 'Стройоптторг', link: '/' },
     { title: 'Политика конфиденциальности', link: '/privacy-policy' },
 ];

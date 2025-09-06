@@ -7,9 +7,7 @@
             </div>
         </div>
         <div class="header__bottom">
-            <div class="container bottom-block">
-                <Bottom />
-            </div>
+            <Bottom />
         </div>
     </header>
 </template>
@@ -20,7 +18,6 @@ import { Navigation, Information, Bottom } from './Header';
 
 <style scoped lang="scss">
 @use '@/assets/scss/display' as *;
-@use '@/assets/scss/variables' as *;
 
 .header {
     &__top {
@@ -36,11 +33,6 @@ import { Navigation, Information, Bottom } from './Header';
 
     &__bottom {
         padding: 27px 0;
-
-        .bottom-block {
-            @extend .row-a-c;
-            justify-content: space-between;
-        }
     }
 }
 

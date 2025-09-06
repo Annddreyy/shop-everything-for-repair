@@ -1,5 +1,5 @@
 <template>
-    <BasePage :links="links" :title="productStore.title">
+    <BasePage :breadcrumbs="breadcrumbs" :title="productStore.title">
         <div class="container">
             <div class="top-part">
                 <Slider :images="productStore.images" />
@@ -22,8 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { useProductStore } from '@/entities/product/model/productCardsStore';
-import type { Link } from '@/shared/types/types';
+import { useProductStore } from '@/entities/product/model/productStore';
 import { BasePage } from '@/widgets';
 import { transliterate } from 'transliteration';
 import Advantages from './ui/AdvantagesComponent.vue';
@@ -34,7 +33,7 @@ import Tabs from './ui/TabsComponent.vue';
 
 const productStore = useProductStore();
 
-const links: Link[] = [
+const breadcrumbs: Link[] = [
     { title: 'Стройоптторг', link: '/' },
     {
         title: productStore.category,

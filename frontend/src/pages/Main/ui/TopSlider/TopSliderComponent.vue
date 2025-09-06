@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import type { TopSliderComponent } from '../../types';
 import { defineProps } from 'vue';
-import { imgNotFoundImg } from '@/assets/images';
+import { imgNotFoundImg } from '@/shared/assets';
 
 type Props = TopSliderComponent & {
     countOfComponents: number;

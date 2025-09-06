@@ -21,18 +21,17 @@
 </template>
 
 <script setup lang="ts">
-import { companyLogo } from '@/assets/images';
+import { companyLogo } from '@/shared/assets';
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
 .footer-top {
     @extend .row-a-c;
     justify-content: space-between;
 
-    padding: $base-padding-9 0;
+    padding: 41px 0;
     border-bottom: 1px solid #dce1e7;
 
     &__company {
@@ -70,7 +69,7 @@ import { companyLogo } from '@/assets/images';
 
     &__order-call {
         border: 1px solid var(--error);
-        border-radius: $base-border-radius;
+        border-radius: 4px;
         padding: 16px 28px;
         color: #474b4e;
     }

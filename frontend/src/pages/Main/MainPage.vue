@@ -22,16 +22,9 @@
         />
         <BrandsList />
         <AboutMagazine />
-        <div class="container">
-            <section class="news-section">
-                <div class="top">
-                    <h2 class="title">Последние новости</h2>
-                    <button class="button">Больше новостей</button>
-                </div>
-            </section>
-        </div>
+        <NewsSection />
         <ComponentsList
-            :component="NewsCardComponent"
+            :component="NewsCard"
             :items="newsCardsStore.newsCards"
             prop-name="card"
             item-key="id"
@@ -40,20 +33,21 @@
 </template>
 
 <script setup lang="ts">
-import { useNewsCardsStore } from '@/entities/newsCard';
-import { useProductCardsStore } from '@/entities/productCard';
-import { usePromotionCardsStore } from '@/entities/promotionCard/model/promotionCardsStore';
-import { categories } from '@/pages/Main/config/productCategoryCards/categories';
-import NewsCardComponent from '@/entities/newsCard/ui/NewsCard.vue';
-import ProductCard from '@/entities/productCard/ui/ProductCard.vue';
-import PromotionCard from '@/entities/promotionCard/ui/PromotionCard.vue';
-import AdvantagesComponent from '@/pages/Main/ui/AdvantagesComponent.vue';
-import ProductCategoryCard from '@/pages/Main/ui/ProductCategoryCard.vue';
-import { BasePage } from '@/widgets';
-import ComponentsList from '@/widgets/ComponentsList.vue';
 import { onBeforeMount } from 'vue';
-import { AboutMagazine, BrandsList } from './ui';
-import TopSlider from './ui/TopSlider/TopSlider.vue';
+import { useNewsCardsStore } from '@/entities/news/model';
+import { useProductCardsStore } from '@/entities/product/model';
+import { usePromotionCardsStore } from '@/entities/promotion/model';
+import { NewsCard } from '@/entities/news/ui';
+import { ProductCard } from '@/entities/product/ui';
+import { PromotionCard } from '@/entities/promotion/ui';
+import {
+    AdvantagesComponent,
+    NewsSection,
+    ProductCategoryCard,
+} from '@/pages/Main/ui';
+import { BasePage, ComponentsList } from '@/widgets';
+import { categories } from './config';
+import { AboutMagazine, BrandsList, TopSlider } from './ui';
 
 const promotionsCardsStore = usePromotionCardsStore();
 const newsCardsStore = useNewsCardsStore();
@@ -65,29 +59,3 @@ onBeforeMount(async () => {
     await productsCardsStore.setProducts(1, 5);
 });
 </script>
-
-<style lang="scss" scoped>
-@use '@/assets/scss/variables' as *;
-@use '@/assets/scss/display' as *;
-
-.news-section {
-    @extend .column;
-    padding: 0;
-
-    .top {
-        @extend .row;
-        justify-content: space-between;
-
-        .title {
-            font-size: var(--fz-xxl);
-        }
-
-        .button {
-            color: #117fe3;
-            background-color: #f6f8fb;
-            padding: 17px 20px;
-            border-radius: $base-border-radius;
-        }
-    }
-}
-</style>

@@ -1,16 +1,15 @@
 {
     "name": "shop-everything-for-repair",
-    "version": "1.11.0",
+    "version": "1.12.0",
     "private": true,
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "run-p type-check \"build-only {@}\" --",
+        "build": "vite build",
         "preview": "vite preview",
         "test:unit": "vitest",
         "test:e2e": "playwright test",
         "check-coverage": "npx vitest --coverage",
-        "build-only": "vite build",
         "typecheck": "vue-tsc --build",
         "lint": "npm run lint:eslint && npm run lint:prettier",
         "lint:eslint": "eslint .",
@@ -29,7 +28,8 @@
         "sharp": "^0.34.3",
         "uuid": "^11.1.0",
         "vue": "^3.5.13",
-        "vue-router": "^4.5.0"
+        "vue-router": "^4.5.0",
+        "vue3-toastify": "^0.2.8"
     },
     "devDependencies": {
         "@pinia/testing": "^1.0.2",
