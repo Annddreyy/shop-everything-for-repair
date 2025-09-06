@@ -157,14 +157,13 @@ const toggleLSItem = (event: Event, itemType: LSItemTypes) => {
 </script>
 
 <style scoped lang="scss">
-@use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 @use 'sass:map';
 
 .product-card {
     @extend .column;
     justify-content: space-between;
-    gap: $base-gap-2;
+    gap: 10px;
 
     position: relative;
     width: 308px;
@@ -176,7 +175,7 @@ const toggleLSItem = (event: Event, itemType: LSItemTypes) => {
         left: -24px;
         top: -22px;
 
-        padding: $base-padding-6;
+        padding: 24px;
     }
 
     &__status {
@@ -187,7 +186,7 @@ const toggleLSItem = (event: Event, itemType: LSItemTypes) => {
         line-height: 19px;
 
         border: 1px solid var(--black);
-        border-radius: $base-border-radius;
+        border-radius: 5px;
 
         background-color: var(--white);
 
@@ -228,7 +227,7 @@ const toggleLSItem = (event: Event, itemType: LSItemTypes) => {
 
     &__prices {
         @extend .row-a-c;
-        gap: $base-gap-2;
+        gap: 10px;
     }
 
     &__old-price {

@@ -9,10 +9,8 @@
                 >
                     <p class="contact-person__title">{{ contact.jobTitle }}</p>
                     <p class="contact-person__phone">
-                        {{ contact.phone
-                        }}{{
-                            contact.description && `(${contact.description})`
-                        }}
+                        {{ contact.phone }}
+                        {{ contact.description && `(${contact.description})` }}
                     </p>
                 </article>
             </div>

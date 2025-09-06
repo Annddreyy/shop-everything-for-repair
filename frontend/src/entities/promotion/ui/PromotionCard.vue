@@ -19,18 +19,17 @@ defineProps<PromotionCard>();
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
 .promotion-card {
     @extend .column;
-    gap: $base-gap-4;
+    gap: 7px;
 
     width: 390px;
     height: 180px;
 
     padding: 36px 24px;
-    border-radius: $base-border-radius-2;
+    border-radius: 8px;
     background-size: cover;
 
     &__title {
@@ -40,7 +39,7 @@ defineProps<PromotionCard>();
     &__percent {
         width: max-content;
         padding: 6px 8px;
-        border-radius: $base-border-radius;
+        border-radius: 6px;
 
         background-color: #011120;
 

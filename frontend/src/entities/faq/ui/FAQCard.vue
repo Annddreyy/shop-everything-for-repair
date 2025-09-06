@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import type { FAQ } from '../types';
 
-defineProps<FAQ>();
+defineProps<Omit<FAQ, 'id'>>();
 </script>
 
 <style lang="scss" scoped>

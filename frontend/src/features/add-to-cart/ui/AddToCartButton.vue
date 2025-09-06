@@ -14,8 +14,6 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
-@use '@/assets/scss/variables' as *;
-
 .cart-button {
     width: 120px;
     height: 40px;

@@ -5,7 +5,7 @@
                 <ReviewCard
                     v-for="review in reviewsStore.reviews"
                     :key="review.text"
-                    :author="review.userId"
+                    :author="review.author"
                     :date="review.date"
                     :text="review.text"
                     :images="review.images"

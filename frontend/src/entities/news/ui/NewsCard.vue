@@ -47,7 +47,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
 .news-card {
@@ -58,7 +57,7 @@ onMounted(() => {
         width: 100%;
         height: 210px;
         object-fit: cover;
-        border-radius: $base-border-radius-2;
+        border-radius: 8px;
     }
 
     &__title {

@@ -27,27 +27,26 @@ import { breadcrumbs } from './config/links';
 
 <style lang="scss" scoped>
 @use '@/assets/scss/display' as *;
-@use '@/assets/scss/variables' as *;
 
 .breadcrumbs-block {
     @extend .row-a-c;
     align-items: stretch;
     justify-content: space-between;
 
-    padding: $base-padding-9 0;
+    padding: 41px 0;
     border-bottom: 1px solid #dce1e7;
 
     .breadcrumbs-group {
         &__category {
             font-weight: bolder;
-            margin-bottom: $base-margin-4;
+            margin-bottom: 30px;
         }
 
         &__links-list {
             @extend .grid-2;
             list-style-type: none;
-            gap: $base-gap-4;
-            row-gap: $base-gap;
+            column-gap: 30px;
+            row-gap: 100px;
         }
     }
 }

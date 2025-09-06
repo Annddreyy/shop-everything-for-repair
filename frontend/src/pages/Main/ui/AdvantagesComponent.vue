@@ -11,9 +11,9 @@
                     :alt="advantage.description"
                     class="advantages-section__img"
                 />
-                <span class="advantages-section__description">{{
-                    advantage.description
-                }}</span>
+                <span class="advantages-section__description">
+                    {{ advantage.description }}
+                </span>
             </article>
         </section>
     </div>
@@ -24,7 +24,6 @@ import { advantages } from '@/shared/config/advantages';
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
 .advantages-section {
@@ -32,11 +31,11 @@ import { advantages } from '@/shared/config/advantages';
     justify-content: space-between;
     flex-wrap: wrap;
 
-    margin: $base-margin-9 0;
+    margin: 50px 0;
 
     &__advantage {
         @extend .row;
-        gap: $base-gap-2;
+        gap: 11px;
     }
 }
 </style>

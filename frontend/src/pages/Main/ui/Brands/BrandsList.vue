@@ -19,15 +19,14 @@ import BrandCard from './BrandCard.vue';
 </script>
 
 <style lang="scss" module>
-@use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
 .brands {
     @extend .column;
-    gap: $base-gap-2;
+    gap: 40px;
 
     background-color: #f9fafb;
-    padding: $base-padding-9 0;
+    padding: 50px 0;
 
     &__title {
         @extend .row;

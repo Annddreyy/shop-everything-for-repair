@@ -5,6 +5,7 @@ import BrandCard from './Brands/BrandCard.vue';
 import ProductCategoryCard from './ProductCategoryCard.vue';
 import TopSlider from './TopSlider/TopSlider.vue';
 import TopSliderComponent from './TopSlider/TopSliderComponent.vue';
+import NewsSection from './NewsSection.vue';
 
 export {
     AboutMagazine,
@@ -14,4 +15,5 @@ export {
     ProductCategoryCard,
     TopSlider,
     TopSliderComponent,
+    NewsSection,
 };

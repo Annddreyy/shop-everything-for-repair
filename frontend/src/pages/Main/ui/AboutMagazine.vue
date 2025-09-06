@@ -4,7 +4,7 @@
             <div class="about__information">
                 <h2 class="about__title">О нашем магазине</h2>
                 <p class="about__purpose">
-                    Цель и главная задача компании- создать сервис, который не
+                    Цель и главная задача компании - создать сервис, который не
                     ограничится продажей строительных и отделочных материалов, а
                     будет решать задачи и трудности, с которыми сталкиваются
                     люди во время ремонта.
@@ -60,12 +60,11 @@ import { aboutCompanyImg } from '../assets';
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
 .about {
     position: relative;
-    margin-top: $base-margin-8 0;
+    margin: 32px 0;
     background-color: #f9fafb;
 
     &__container {
@@ -76,7 +75,7 @@ import { aboutCompanyImg } from '../assets';
 
     &__information {
         @extend .column-j-s;
-        gap: $base-gap-2;
+        gap: 8px;
         position: relative;
         margin: 30px 0;
         z-index: 1;
@@ -100,7 +99,7 @@ import { aboutCompanyImg } from '../assets';
     &__statistics {
         @extend .column-a-s;
         @extend .column-j-s;
-        gap: $base-gap-2;
+        gap: 8px;
     }
 
     &__count {
@@ -119,7 +118,7 @@ import { aboutCompanyImg } from '../assets';
         align-self: flex-start;
 
         padding: 24px 27px;
-        border-radius: $base-border-radius-2;
+        border-radius: 8px;
 
         text-transform: uppercase;
         font-size: var(--fz-small);

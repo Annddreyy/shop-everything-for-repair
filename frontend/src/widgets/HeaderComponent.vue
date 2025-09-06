@@ -18,7 +18,6 @@ import { Navigation, Information, Bottom } from './Header';
 
 <style scoped lang="scss">
 @use '@/assets/scss/display' as *;
-@use '@/assets/scss/variables' as *;
 
 .header {
     &__top {

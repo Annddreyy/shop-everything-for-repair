@@ -5,6 +5,7 @@ import type { Review } from '@/entities/review/types';
 import { formatDate } from '@/shared/lib';
 
 const props: Review = {
+    id: '1',
     author: 'Тестовый автор',
     date: new Date(2025, 7, 12),
     text: 'Тестовый текст',

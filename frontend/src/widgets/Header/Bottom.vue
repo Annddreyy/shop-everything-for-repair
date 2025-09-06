@@ -74,7 +74,6 @@ const LSStore = useLSStore();
 
 <style lang="scss" scoped>
 @use '@/assets/scss/display' as *;
-@use '@/assets/scss/variables' as *;
 
 .bottom-block {
     @extend .row-a-c;
@@ -113,12 +112,12 @@ const LSStore = useLSStore();
         padding: 3px;
 
         background-color: #186fd4;
-        border-radius: $base-border-radius-2;
+        border-radius: 6px;
 
         input {
             width: 100%;
-            border-radius: $base-border-radius-2;
-            padding: 15px $base-padding-4;
+            border-radius: 6px;
+            padding: 15px 16px;
             font-size: var(--fz-medium);
         }
 

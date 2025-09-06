@@ -39,23 +39,22 @@ import {
 </script>
 
 <style scoped lang="scss">
-@use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
 .cards {
     @extend .row-a-c;
     justify-content: space-between;
-    padding: $base-padding-9 0;
+    padding: 28px 0;
 
     border-bottom: 1px solid #dce1e7;
 
     .payment-cards {
         @extend .row-a-c;
-        gap: $base-gap-6;
+        gap: 101px;
 
         &__images {
             @extend .row-a-c;
-            gap: $base-gap-3;
+            gap: 45px;
             img {
                 filter: opacity(50%);
             }
