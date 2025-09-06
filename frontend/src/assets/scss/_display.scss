@@ -1,8 +1,6 @@
-@use './variables' as *;
-
 .row {
     display: flex;
-    gap: $base-gap;
+    gap: 4px;
 }
 
 .column {
