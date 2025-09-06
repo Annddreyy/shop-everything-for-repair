@@ -1,55 +1,57 @@
 <template>
-    <img :src="companyLogo" alt="" class="logo" />
-    <ButtonComponent
-        text="Каталог"
-        :icon="burgerButtonIcon"
-        :bg-color="Colors['BLUE']"
-        :text-color="Colors['WHITE']"
-        class="catalog-button"
-    />
-    <div class="search">
-        <input
-            type="search"
-            placeholder="Найти среди 50000 товаров. Например: Дрель Bosh"
+    <div class="container bottom-block">
+        <img :src="companyLogo" alt="Стройотпорг" class="logo" />
+        <ButtonComponent
+            text="Каталог"
+            :text-color="Colors['WHITE']"
+            :bg-color="Colors['BLUE']"
+            :icon="burgerButtonIcon"
+            class="catalog-button"
         />
-        <img :src="searchIcon" alt="" />
-    </div>
-    <div class="buttons">
-        <RouterLink to="/promotions" class="buttons__button">
-            <img :src="promotionsIcon" alt="" role="none" />
-            <span>Все акции</span>
-        </RouterLink>
-        <RouterLink to="/auth" class="buttons__button">
-            <img :src="accountIcon" alt="" role="none" />
-            <span>Войти</span>
-        </RouterLink>
-        <RouterLink
-            to="/compare"
-            class="buttons__button buttons__button--compare"
-        >
-            <img :src="compareIcon" alt="" role="none" />
-            <span>Сравнение</span>
-            <span v-if="LSStore.compare.length" class="counter">
-                {{ LSStore.compare.length }}
-            </span>
-        </RouterLink>
-        <RouterLink
-            to="/favorite"
-            class="buttons__button buttons__button--like"
-        >
-            <img :src="likeIcon" alt="" role="none" />
-            <span>Избранное</span>
-            <span v-if="LSStore.favorite.length" class="counter">
-                {{ LSStore.favorite.length }}
-            </span>
-        </RouterLink>
-        <RouterLink to="/cart" class="buttons__button buttons__button--bin">
-            <img :src="cartIcon" alt="" role="none" />
-            <span>Корзина</span>
-            <span v-if="LSStore.bin.length" class="counter">
-                {{ LSStore.bin.length }}
-            </span>
-        </RouterLink>
+        <div class="search">
+            <input
+                type="search"
+                placeholder="Найти среди 50000 товаров. Например: Дрель Bosh"
+            />
+            <img :src="searchIcon" alt="Найти" />
+        </div>
+        <div class="buttons">
+            <RouterLink to="/promotions" class="buttons__button">
+                <img :src="promotionsIcon" role="none" />
+                <span>Все акции</span>
+            </RouterLink>
+            <RouterLink to="/auth" class="buttons__button">
+                <img :src="accountIcon" role="none" />
+                <span>Войти</span>
+            </RouterLink>
+            <RouterLink
+                to="/compare"
+                class="buttons__button buttons__button--compare"
+            >
+                <img :src="compareIcon" alt="" role="none" />
+                <span>Сравнение</span>
+                <span v-if="LSStore.compare.length" class="counter">
+                    {{ LSStore.compare.length }}
+                </span>
+            </RouterLink>
+            <RouterLink
+                to="/favorite"
+                class="buttons__button buttons__button--like"
+            >
+                <img :src="likeIcon" alt="" role="none" />
+                <span>Избранное</span>
+                <span v-if="LSStore.favorite.length" class="counter">
+                    {{ LSStore.favorite.length }}
+                </span>
+            </RouterLink>
+            <RouterLink to="/cart" class="buttons__button buttons__button--bin">
+                <img :src="cartIcon" alt="" role="none" />
+                <span>Корзина</span>
+                <span v-if="LSStore.bin.length" class="counter">
+                    {{ LSStore.bin.length }}
+                </span>
+            </RouterLink>
+        </div>
     </div>
 </template>
 
@@ -60,13 +62,11 @@ import { Colors } from '@/shared/ui/ButtonComponent/types';
 import {
     accountIcon,
     burgerButtonIcon,
-    cartIcon,
-    companyLogo,
-    compareIcon,
-    likeIcon,
     promotionsIcon,
     searchIcon,
-} from '@/assets/images';
+} from './assets';
+import { likeIcon, cartIcon, compareIcon } from '@/entities/product/assets';
+import { companyLogo } from '@/shared/assets';
 import { useLSStore } from '@/shared/stores';
 
 const LSStore = useLSStore();
@@ -74,97 +74,101 @@ const LSStore = useLSStore();
 
 <style lang="scss" scoped>
 @use '@/assets/scss/display' as *;
-@use '@/assets/scss/variables' as *;
 
-.logo {
-    width: 215px;
-    height: 54px;
-}
+.bottom-block {
+    @extend .row-a-c;
+    justify-content: space-between;
 
-.catalog-button {
-    @extend .row-c;
-    height: 52px;
-    padding: 16px 29px;
-    border-radius: 8px;
-
-    span {
-        font-size: 13px;
-
-        &:first-of-type {
-            height: 100px;
-        }
+    .logo {
+        width: 215px;
+        height: 54px;
     }
 
-    img {
-        height: 1ch;
-    }
-}
-
-.search {
-    @extend .row;
-    flex: 1;
-    gap: 0;
-
-    height: 52px;
-    padding: 3px;
-
-    background-color: #186fd4;
-    border-radius: $base-border-radius-2;
-
-    input {
-        width: 100%;
-        border-radius: $base-border-radius-2;
-        padding: 15px $base-padding-4;
-        font-size: var(--fz-medium);
-    }
-
-    img {
-        align-self: center;
-        margin: 0 21px;
-        width: 14px;
-        height: 14px;
-    }
-}
-
-.buttons {
-    @extend .row;
-
-    &__button {
-        @extend .column-c;
-
-        img {
-            width: 33px;
-            height: 25px;
-        }
+    .catalog-button {
+        @extend .row-c;
+        height: 52px;
+        padding: 16px 29px;
+        border-radius: 8px;
 
         span {
-            color: #6b7076;
+            font-size: 13px;
+
+            &:first-of-type {
+                height: 100px;
+            }
+        }
+
+        img {
+            height: 1ch;
+        }
+    }
+
+    .search {
+        @extend .row;
+        flex: 1;
+        gap: 0;
+
+        height: 52px;
+        padding: 3px;
+
+        background-color: #186fd4;
+        border-radius: 6px;
+
+        input {
+            width: 100%;
+            border-radius: 6px;
+            padding: 15px 16px;
             font-size: var(--fz-medium);
         }
 
-        &:not(:first-child) {
-            margin-left: 27px;
+        img {
+            align-self: center;
+            margin: 0 21px;
+            width: 14px;
+            height: 14px;
         }
+    }
 
-        &--like,
-        &--compare,
-        &--bin {
-            position: relative;
-            .counter {
-                @extend .row-c;
-                position: absolute;
-                top: -5px;
-                right: 13px;
+    .buttons {
+        @extend .row;
 
-                background-color: #e52b0e;
-                color: white;
+        &__button {
+            @extend .column-c;
 
-                width: 17px;
-                height: 17px;
+            img {
+                width: 33px;
+                height: 25px;
+            }
 
-                border-radius: 50%;
+            span {
+                color: #6b7076;
+                font-size: var(--fz-medium);
+            }
 
-                font-size: 10px;
+            &:not(:first-child) {
+                margin-left: 27px;
+            }
+
+            &--like,
+            &--compare,
+            &--bin {
+                position: relative;
+                .counter {
+                    @extend .row-c;
+                    position: absolute;
+                    top: -5px;
+                    right: 13px;
+
+                    background-color: #e52b0e;
+                    color: white;
+
+                    width: 17px;
+                    height: 17px;
+
+                    border-radius: 50%;
+
+                    font-size: 10px;
+                }
             }
         }
     }

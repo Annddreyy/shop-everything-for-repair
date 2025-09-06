@@ -9,10 +9,8 @@
                 >
                     <p class="contact-person__title">{{ contact.jobTitle }}</p>
                     <p class="contact-person__phone">
-                        {{ contact.phone
-                        }}{{
-                            contact.description && `(${contact.description})`
-                        }}
+                        {{ contact.phone }}
+                        {{ contact.description && `(${contact.description})` }}
                     </p>
                 </article>
             </div>
@@ -31,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { contactPersons } from '../config/contactPersons';
+import { contactPersons } from '../config';
 </script>
 
 <style lang="scss" scoped>

@@ -1,0 +1,1 @@
+export { promotionCardsAPI } from './promotionCardsAPI';

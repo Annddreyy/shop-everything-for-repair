@@ -11,17 +11,16 @@
 </template>
 
 <script setup lang="ts">
-import { readyCodeIcon } from '@/assets/images';
+import { readyCodeIcon } from './assets';
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
 .bottom-block {
     @extend .grid-3;
 
-    padding: $base-padding-9 0;
+    padding: 20px 0;
 
     * {
         font-size: 14px;

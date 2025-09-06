@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './toast' as *;
 @use 'sass:map';
 
 $error: map.get($colors, 'error');
@@ -108,4 +109,8 @@ button {
 
 input {
     border: none;
+}
+
+.Toastify__toast {
+    color: white !important;
 }

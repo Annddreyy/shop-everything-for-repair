@@ -1,11 +1,11 @@
 <template>
-    <BasePage :links="links" title="Отзывы">
+    <BasePage :breadcrumbs="breadcrumbs" title="Отзывы">
         <div class="container top">
             <div class="reviews-cards">
                 <ReviewCard
                     v-for="review in reviewsStore.reviews"
                     :key="review.text"
-                    :author="review.userId"
+                    :author="review.author"
                     :date="review.date"
                     :text="review.text"
                     :images="review.images"
@@ -22,17 +22,15 @@
 
 <script setup lang="ts">
 import { useReviewsStore } from '@/entities/review/model/reviewsStore';
-import type { Link } from '@/types';
-import { BasePage } from '@/widgets';
+import { BasePage, PagesAsideBlock } from '@/widgets';
 import { onMounted } from 'vue';
-import ReviewCard from './ui/ReviewCard.vue';
+import { ReviewCard } from '@/entities/review/ui';
 import { PaginationElement } from '@/shared/ui';
 import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
-import PagesAsideBlock from '@/widgets/PagesAsideBlock.vue';
 
 const reviewsStore = useReviewsStore();
 
-const links: Link[] = [
+const breadcrumbs: Link[] = [
     { title: 'Стройоптторг', link: '/' },
     { title: 'Отзывы', link: '/reviews' },
 ];

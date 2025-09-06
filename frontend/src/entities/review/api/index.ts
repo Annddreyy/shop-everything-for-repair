@@ -1,0 +1,1 @@
+export { reviewsAPI } from './reviewsAPI';

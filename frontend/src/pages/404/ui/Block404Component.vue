@@ -28,10 +28,10 @@
 </template>
 
 <script setup lang="ts">
-import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
-import { Colors } from '@/shared/ui/ButtonComponent/types';
-import { img404 } from '@/assets/images';
 import { useRouter } from 'vue-router';
+import { ButtonComponent } from '@/shared/ui';
+import { Colors } from '@/shared/ui/ButtonComponent/types';
+import { img404 } from '../assets';
 
 const router = useRouter();
 </script>

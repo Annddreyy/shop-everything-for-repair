@@ -37,7 +37,7 @@
                 :bg-color="Colors.BLUE"
                 :text-color="Colors.WHITE"
             />
-            <Checkbox
+            <CheckboxField
                 id="checkbox"
                 name="checkbox"
                 label="Согласен с обработкой персональных данных в соответствии сполитой конфиденциальности"
@@ -47,9 +47,11 @@
 </template>
 
 <script setup lang="ts">
-import ButtonComponent from '@/shared/ui/ButtonComponent/ButtonComponent.vue';
-import Checkbox from '@/shared/ui/Forms/CheckboxField.vue';
-import FormGroupComponent from '@/shared/ui/Forms/FormGroupComponent.vue';
+import {
+    ButtonComponent,
+    CheckboxField,
+    FormGroupComponent,
+} from '@/shared/ui';
 import { Colors } from '@/shared/ui/ButtonComponent/types';
 </script>
 

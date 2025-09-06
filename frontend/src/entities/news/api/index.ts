@@ -1,0 +1,1 @@
+export { newsCardsAPI } from './newsCardsAPI';

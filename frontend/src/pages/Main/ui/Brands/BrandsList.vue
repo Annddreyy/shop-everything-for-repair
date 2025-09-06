@@ -13,21 +13,20 @@
 </template>
 
 <script setup lang="ts">
-import ComponentsList from '@/widgets/ComponentsList.vue';
-import { brands } from '../../config/brands/brands';
+import { ComponentsList } from '@/widgets';
+import { brands } from '../../config';
 import BrandCard from './BrandCard.vue';
 </script>
 
 <style lang="scss" module>
-@use '@/assets/scss/variables' as *;
 @use '@/assets/scss/display' as *;
 
 .brands {
     @extend .column;
-    gap: $base-gap-2;
+    gap: 40px;
 
     background-color: #f9fafb;
-    padding: $base-padding-9 0;
+    padding: 50px 0;
 
     &__title {
         @extend .row;

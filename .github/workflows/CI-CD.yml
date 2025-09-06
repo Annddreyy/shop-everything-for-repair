@@ -114,7 +114,7 @@ jobs:
   typecheck-backend:
     needs: 
       - changes
-    if: needs.changes.outputs.frontend == 'true'
+    if: needs.changes.outputs.backend == 'true'
     runs-on: ubuntu-latest
 
     defaults:

@@ -1,0 +1,1 @@
+export { faqAPI } from './faqAPI';

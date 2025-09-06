@@ -1,56 +1,45 @@
 import { defineStore } from 'pinia';
-import type { Characteristic } from '../types';
+import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
+import { productCardsAPI } from '../api';
+import type { ProductCard } from '../types';
 
-type ProductStoreType = {
-    id: number;
-    title: string;
-    article: string;
-    images: string[];
-    price: number;
-    promotionPercent: number;
-    category: string;
-    count: number;
-    characteristics: Characteristic[];
-    about: string;
-};
+export const useProductCardsStore = defineStore('productCards', {
+    state: () => ({
+        products: [] as ProductCard[],
+        favoriteProducts: [] as ProductCard[],
+        compareProducts: [] as ProductCard[],
+        pageSize: DEFAULT_API_RESPONSE_PAGE_VALUE,
+        pagesCount: 0,
+        currentPage: 1,
 
-export const useProductStore = defineStore<'product', ProductStoreType>(
-    'product',
-    {
-        state: () => ({
-            id: 1,
-            title: 'Дрель-шуруповерт аккумуляторная MAKITA DF 347DWE14 В 1,5 А/ч',
-            article: 'X3234SF23',
-            images: [
-                'https://avatars.mds.yandex.net/i?id=5d4cf766a55d4908d12ec43219e1b833257fcbf2-16514006-images-thumbs&n=13',
-                'https://i.pinimg.com/736x/45/cb/40/45cb408bf05ad2afbe94521465673411.jpg',
-                'https://i.pinimg.com/736x/45/cb/40/45cb408bf05ad2afbe94521465673411.jpg',
-                'https://avatars.mds.yandex.net/i?id=5d4cf766a55d4908d12ec43219e1b833257fcbf2-16514006-images-thumbs&n=13',
-                'https://i.pinimg.com/736x/45/cb/40/45cb408bf05ad2afbe94521465673411.jpg',
-                'https://avatars.mds.yandex.net/i?id=5d4cf766a55d4908d12ec43219e1b833257fcbf2-16514006-images-thumbs&n=13',
-                'https://i.pinimg.com/736x/45/cb/40/45cb408bf05ad2afbe94521465673411.jpg',
-                'https://i.pinimg.com/736x/45/cb/40/45cb408bf05ad2afbe94521465673411.jpg',
-                'https://i.pinimg.com/736x/45/cb/40/45cb408bf05ad2afbe94521465673411.jpg',
-                'https://i.pinimg.com/736x/45/cb/40/45cb408bf05ad2afbe94521465673411.jpg',
-            ],
-            price: 12000,
-            promotionPercent: 15,
-            category: 'Электроинструмент',
-            count: 25,
-            characteristics: [
-                { title: '2312e', value: 'dewedwed' },
-                { title: '2312e', value: 'dewedwed' },
-                { title: '2312e', value: 'dewedwed' },
-                { title: '2312e', value: 'dewedwed' },
-                { title: '2312e', value: 'dewedwed' },
-                { title: '2312e', value: 'dewedwed' },
-                { title: '2312e', value: 'dewedwed' },
-                { title: '2312e', value: 'dewedwed' },
-                { title: '2312e', value: 'dewedwed' },
-                { title: '2312e', value: 'dewedwed' },
-                { title: '2312e', value: 'dewedwed' },
-            ],
-            about: 'Аккумуляторная дрель-шуруповерт **Makita DF347DWE** используется при сборке мебели,выполнении ремонтных и отделочных работ в зданиях и на улице. Двухскоростной редукторупрощает ведение различных работ: первая скорость предназначена для заворачиванияшурупов, вторая - для сверления. Литий-ионная технология увеличивает срок службыаппарата и позволяет заряжать аккумулятор вне зависимости от степени его разрядки.Модель работает с батареями серии G. Дрель-шуруповерт аккумуляторная MAKITA DF 347DWE14 В 1,5 А/ч — в нашем интернет-магазине можно приобрести с дополнительной выгодой: \n - оплата бонусами до 30% от стоимости товара для владельцев бонусных карт; - следите за регулярными акциями и распродажами при покупке онлайн! Аккумуляторный шуруповерт Makita DF 347 DWE Отличный надежный инструмент для профессионального и бытового использования. Аккумуляторы Li-ion, от которых питается инструмент, обеспечивают полную автономную и длительную работу на одной зарядке.',
-        }),
+        loading: false,
+        error: null as string | null,
+    }),
+
+    actions: {
+        async setProducts(page: number, size: number) {
+            this.loading = true;
+
+            const response = await productCardsAPI.getProductCards(page, size);
+
+            if (response.status === 'success') {
+                const { products, pagesCount } = response.data;
+
+                this.products = products;
+                this.pagesCount = pagesCount;
+            } else {
+                this.error = response.error;
+            }
+
+            this.loading = false;
+        },
+
+        setCurrentPage(page: number) {
+            this.currentPage = page;
+        },
+
+        setPageSize(pageSize: number) {
+            this.pageSize = pageSize;
+        },
     },
-);
+});

@@ -1,4 +1,4 @@
-import { imgNotFoundImg } from '@/assets/images';
+import { imgNotFoundImg } from '../assets';
 
 export const onLoadError = (event: Event) => {
     const target = event.target as HTMLImageElement;

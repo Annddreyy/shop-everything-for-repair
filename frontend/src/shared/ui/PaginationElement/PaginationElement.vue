@@ -26,9 +26,11 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { previosIcon, nextIcon } from '@/assets/images';
+import { previosIcon, nextIcon } from './assets';
 
 const currentPage = ref(1);
+
+const MAX_PAGES_COUNT = 10;
 
 const { pagesCount } = defineProps({
     pagesCount: {

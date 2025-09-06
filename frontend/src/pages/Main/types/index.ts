@@ -1,8 +1,3 @@
-export type Advantage = {
-    img: string;
-    description: string;
-};
-
 export type Brand = {
     id: number;
     img: string;
