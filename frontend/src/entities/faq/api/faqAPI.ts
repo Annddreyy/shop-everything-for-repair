@@ -1,9 +1,7 @@
-import { instance } from '@/shared/api/api';
+import { instance, type AxiosBaseResponse } from '@/shared/api/api';
 import type { FAQ } from '../types';
 
-type AxiosGetFAQResponse = {
-    faq: FAQ[];
-};
+type AxiosGetFAQResponse = AxiosBaseResponse<FAQ[]>;
 
 type GetFAQResponse =
     | {
@@ -19,7 +17,7 @@ export const faqAPI = {
     async getFAQ(): Promise<GetFAQResponse> {
         try {
             const response = await instance.get<AxiosGetFAQResponse>('/faq');
-            const { faq } = response.data;
+            const faq = response.data.data;
             return {
                 status: 'success',
                 faq,

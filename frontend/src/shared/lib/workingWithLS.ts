@@ -2,7 +2,7 @@ import { useLSStore } from '../stores';
 
 type Item = Record<string, unknown>;
 
-type TooggleItemInLSType =
+type ToggleItemInLSType =
     | {
           method: 'add';
           key: LSItemTypes;
@@ -27,12 +27,12 @@ enum LSItemTypes {
     BIN = 'bin',
 }
 
-const toggleItemInLS = (params: TooggleItemInLSType) => {
+const toggleItemInLS = (params: ToggleItemInLSType) => {
     const LSStore = useLSStore();
     if (params.method === 'add') {
         LSStore.addItem(params.key, params.item as Record<string, string>);
     } else {
-        LSStore.removeItem(params.key, params.value, params.id);
+        LSStore.removeItem(params.key, params.id, params.value);
     }
 };
 
@@ -46,4 +46,10 @@ const getLSItemsByKey = (key: LSItemTypes) => {
     return items;
 };
 
-export { toggleItemInLS, checkItemExistsInLS, getLSItemsByKey, LSItemTypes };
+export {
+    toggleItemInLS,
+    checkItemExistsInLS,
+    getLSItemsByKey,
+    LSItemTypes,
+    type ToggleItemInLSType,
+};

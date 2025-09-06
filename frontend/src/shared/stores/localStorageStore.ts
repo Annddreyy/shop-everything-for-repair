@@ -27,8 +27,8 @@ export const useLSStore = defineStore('localStorage', {
             this[key].push(item);
             localStorage.setItem(key, JSON.stringify(this[key]));
         },
-        removeItem(key: LSItemTypes, id: string, idField = 'id') {
-            this[key] = this[key].filter((el) => el[idField] !== id);
+        removeItem(key: LSItemTypes, idField: string, value: string) {
+            this[key] = this[key].filter((el) => el[idField] !== value);
             localStorage.setItem(key, JSON.stringify(this[key]));
         },
         toggleItem(key: LSItemTypes, item: Item, idField = 'id') {
@@ -36,7 +36,7 @@ export const useLSStore = defineStore('localStorage', {
                 (el) => el[idField] === item[idField],
             );
             if (exists) {
-                this.removeItem(key, item[idField], idField);
+                this.removeItem(key, idField, item[idField]);
             } else {
                 this.addItem(key, item);
             }

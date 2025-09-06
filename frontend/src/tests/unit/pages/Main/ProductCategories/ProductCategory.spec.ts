@@ -12,7 +12,7 @@ describe('ProductCategoryCard.vue', () => {
         };
         const wrapper = mount(ProductCategoryCard, { props });
 
-        expect(wrapper.attributes('to')).toBe(props.link);
+        expect(wrapper.attributes('href')).toBe(props.link);
         expect(wrapper.get('img').attributes('src')).toBe(props.img);
         expect(wrapper.get('img').attributes('alt')).toBe(props.title);
         expect(wrapper.get('h3').text()).toBe(props.title);

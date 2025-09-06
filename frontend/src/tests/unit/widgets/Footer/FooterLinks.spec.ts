@@ -24,7 +24,7 @@ describe('FooterLinks.vue', () => {
                 expect(link.text()).toBe(
                     breadcrumbs[indexGroup].breadcrumbs[indexLink].title,
                 );
-                expect(link.get('routerlink').attributes('to')).toBe(
+                expect(link.get('a').attributes('href')).toEqual(
                     breadcrumbs[indexGroup].breadcrumbs[indexLink].link,
                 );
             });

@@ -17,7 +17,7 @@ export const useProductCardsStore = defineStore('productCards', {
     }),
 
     actions: {
-        async setProducts(page: number, size: number) {
+        async setProducts(page = 1, size = 4) {
             this.loading = true;
 
             const response = await productCardsAPI.getProductCards(page, size);
