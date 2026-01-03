@@ -1,17 +1,13 @@
-import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
-import type { AxiosResponse, AxiosResponseHeaders } from 'axios';
+import type { AxiosResponseHeaders } from 'axios';
 import { createPinia, setActivePinia } from 'pinia';
-import {
-    instance,
-    ResponseStatuses,
-    type AxiosBaseResponse,
-} from '@/shared/api/api';
-import { usePromotionCardsStore } from '@/entities/promotion/model';
-import type { Review } from '@/entities/review/types';
-import { useReviewsStore } from '@/entities/review/model';
+import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
+import { usePromotionsStore } from '@/entities/promotion';
+import { useReviewsStore } from '@/entities/review';
+import type { Review } from '@/entities/review';
+import { instance } from '@/shared/api';
 
 vi.mock('@/shared/api/api', async (importOriginal) => {
-    const actual = await importOriginal<typeof import('@/shared/api/api')>();
+    const actual = await importOriginal<typeof import('@/shared/api')>();
     return {
         ...actual,
         instance: {
@@ -20,9 +16,7 @@ vi.mock('@/shared/api/api', async (importOriginal) => {
     };
 });
 
-const mockResponse: AxiosResponse<
-    AxiosBaseResponse<{ reviews: Review[]; pagesCount: number }>
-> = {
+const mockResponse: MockResponse<{ reviews: Review[]; pagesCount: number }> = {
     data: {
         data: {
             reviews: [
@@ -61,7 +55,7 @@ const mockResponse: AxiosResponse<
     },
 };
 
-describe('Promotion Cards Store', () => {
+describe('Promotion  Store', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
     });
@@ -79,16 +73,14 @@ describe('Promotion Cards Store', () => {
     });
 
     it('Номер текущей страницы списка отзывов успешно устанавливается', () => {
-        const store = usePromotionCardsStore();
-        store.setCurrentPage(10);
-
+        const store = usePromotionsStore();
+        store.currentPage = 10;
         expect(store.currentPage).toBe(10);
     });
 
     it('Размер страницы для запроса получения списка отзывов успешно устанавливается', () => {
-        const store = usePromotionCardsStore();
-        store.setPageSize(5);
-
+        const store = usePromotionsStore();
+        store.pageSize = 5;
         expect(store.pageSize).toBe(5);
     });
 });

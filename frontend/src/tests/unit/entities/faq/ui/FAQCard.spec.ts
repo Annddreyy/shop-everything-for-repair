@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { FAQCard } from '@/entities/faq/ui';
-import type { FAQ } from '@/entities/faq/types';
+import { FAQCard } from '@/entities/faq';
+import type { FAQ } from '@/entities/faq';
 
 describe('FAQCard.vue', () => {
     it('Отображаются все переданные FAQ', () => {

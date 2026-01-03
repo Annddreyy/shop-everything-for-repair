@@ -1,25 +1,26 @@
-import BreadCrumbs from './BreadCrumbs/BreadCrumbs.vue';
-import ButtonComponent from './ButtonComponent/ButtonComponent.vue';
-import FormGroupComponent from './Forms/FormGroupComponent.vue';
-import CheckboxField from './Forms/CheckboxField.vue';
+import BaseButton from './BaseButton.vue';
+import FormGroup from './Forms/FormGroup.vue';
+import CheckboxField from './Forms/CheckboxField/CheckboxField.vue';
 import InputField from './Forms/InputField.vue';
 import TextareaField from './Forms/TextareaField.vue';
-import PageTitle from './PageTitle/PageTitle.vue';
-import ModalComponent from './Modal/ModalComponent.vue';
-import PaginationElement from './PaginationElement/PaginationElement.vue';
-import SliderComponent from './Slider/SliderComponent.vue';
-import Skeleton from './Skeleton/Skeleton.vue';
+import PageTitle from './PageTitle.vue';
+import Modal from '../../entities/modal/ui/Modal.vue';
+import Pagination from './Pagination/Pagination.vue';
+import BreadCrumbs from './BreadCrumbs.vue';
+import ComponentsList from './ComponentsList.vue';
+import SkeletonCards from './SkeletonCards.vue';
 
+export { Colors, type Button } from './types';
 export {
     BreadCrumbs,
-    ButtonComponent,
-    FormGroupComponent,
+    BaseButton,
+    FormGroup,
     CheckboxField,
     InputField,
     TextareaField,
     PageTitle,
-    PaginationElement,
-    SliderComponent,
-    ModalComponent,
-    Skeleton,
+    Pagination,
+    Modal,
+    ComponentsList,
+    SkeletonCards,
 };

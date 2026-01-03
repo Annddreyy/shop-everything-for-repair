@@ -1,12 +1,13 @@
-import '@/assets/scss/index.scss';
-import 'vue3-toastify/dist/index.css';
-
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
+import Vue3Toastify from 'vue3-toastify';
+
+import './styles/index.scss';
+import 'vue3-toastify/dist/index.css';
+import 'vue-skeletor/dist/vue-skeletor.css';
 
 import App from './App.vue';
-import { router } from './providers/router/routes';
-import Vue3Toastify from 'vue3-toastify';
+import { router } from './routes';
 
 const app = createApp(App);
 
@@ -22,7 +23,6 @@ app.use(Vue3Toastify, {
         },
     },
 });
-
 app.use(router);
 app.use(createPinia());
 

@@ -1,0 +1,1 @@
+export const BASE_RESPONSE_PAGE_SIZE = 12;

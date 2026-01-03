@@ -4,19 +4,24 @@ services:
   backend:
     build: './backend'
     container_name: backend
-    restart: 'always'
+    # restart: 'always'
     ports:
       - '8080:8080'
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
     depends_on:
-      - mongo
-      - mongoexport
-  
+      mongo:
+        condition: service_healthy
+      mongoexport:
+        condition: service_completed_successfully
+
   frontend:
     build: 
       context: './frontend'
       dockerfile: Dockerfile.dev
     container_name: frontend
-    restart: 'always'
+    # restart: 'always'
     ports:
       - '5173:5173'
     volumes:
@@ -24,7 +29,7 @@ services:
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
-  
+
   mongo:
     image: mongo:latest
     container_name: my_mongo
@@ -33,12 +38,20 @@ services:
       - "27017:27017"
     volumes:
       - ./dump:/dump
+      - mongo_data:/data/db
     command: mongod --bind_ip_all
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   mongoimport:
     image: mongo:latest
     depends_on:
-      - mongo
+      mongo:
+        condition: service_healthy
     volumes:
       - ./dump:/dump
     entrypoint:
@@ -53,9 +66,12 @@ services:
   mongoexport:
     image: mongo:latest
     depends_on:
-      - mongoimport
+      mongoimport:
+        condition: service_completed_successfully
     volumes:
+      - ./.env.local:/app/.env.local
       - ./dump:/dump
+    working_dir: /app
     entrypoint:
       - /bin/bash
       - -c
@@ -64,3 +80,6 @@ services:
           echo "mongoexport.sh not found or not executable" >&2; exit 1;
         fi
         /bin/bash /dump/scripts/mongoexport.sh
+
+volumes:
+  mongo_data:

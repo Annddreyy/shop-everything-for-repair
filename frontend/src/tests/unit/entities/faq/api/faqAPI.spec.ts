@@ -1,14 +1,36 @@
-import { describe, it, expect, vi, beforeEach, type Mock } from 'vitest';
-import { faqAPI } from '@/entities/faq/api';
-import { instance } from '@/shared/api/api';
+import { faqAPI } from '@/entities/faq';
+import type { FAQ } from '@/entities/faq';
+import { instance } from '@/shared/api';
+import type { AxiosResponseHeaders } from 'axios';
+import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
 
-vi.mock('@/shared/api/api', () => {
+vi.mock('@/shared/api/api', async (importOriginal) => {
+    const actual = await importOriginal<typeof import('@/shared/api')>();
     return {
+        ...actual,
         instance: {
             get: vi.fn(),
         },
     };
 });
+
+const mockResponse: MockResponse<FAQ[]> = {
+    data: {
+        data: [
+            { id: '1', answer: 'answer1', question: 'question1' },
+            { id: '2', answer: 'answer2', question: 'question2' },
+            { id: '3', answer: 'answer3', question: 'question3' },
+        ],
+        status: ResponseStatuses.OK,
+        messages: [],
+    },
+    status: 200,
+    headers: {},
+    statusText: 'OK',
+    config: {
+        headers: {} as AxiosResponseHeaders,
+    },
+};
 
 describe('FAQ API', () => {
     beforeEach(() => {
@@ -16,18 +38,12 @@ describe('FAQ API', () => {
     });
 
     it('Возвращается success при корректном ответе', async () => {
-        const mockData = {
-            data: {
-                data: [{ id: 1, title: 'test' }],
-                pagesCount: 5,
-            },
-        };
-        (instance.get as Mock).mockResolvedValue(mockData);
+        (instance.get as Mock).mockResolvedValue(mockResponse);
 
         const result = await faqAPI.getFAQ();
         expect(result.status).toBe('success');
         if (result.status === 'success') {
-            expect(result.faq).toHaveLength(1);
+            expect(result.data).toHaveLength(3);
         }
 
         expect(instance.get).toHaveBeenCalledWith('/faq');

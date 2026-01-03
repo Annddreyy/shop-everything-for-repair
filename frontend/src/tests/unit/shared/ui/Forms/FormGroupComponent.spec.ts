@@ -1,9 +1,9 @@
 import type { InputTypeHTMLAttribute } from 'vue';
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { FormGroupComponent } from '@/shared/ui';
+import { FormGroup, TextareaField } from '@/shared/ui';
 
-type FormGroupComponentType = {
+type FormGroupType = {
     id: string;
     label: string;
     name: string;
@@ -22,7 +22,7 @@ type FormGroupComponentType = {
     placeholder?: string;
 };
 
-const props: FormGroupComponentType = {
+const props: FormGroupType = {
     id: 'sj292w',
     label: 'Тестовый label',
     name: 'Тестовое имя',
@@ -31,7 +31,7 @@ const props: FormGroupComponentType = {
 
 describe('FormGroup.vue', () => {
     it('Отображаеются все переданные props', () => {
-        const wrapper = mount(FormGroupComponent, { props });
+        const wrapper = mount(FormGroup, { props });
 
         expect(wrapper.text()).toBe(`${props.label}:`);
 
@@ -41,11 +41,11 @@ describe('FormGroup.vue', () => {
     });
 
     it('Отображается placeholder', () => {
-        const propsWithPlaceholder: FormGroupComponentType = {
+        const propsWithPlaceholder: FormGroupType = {
             ...props,
             placeholder: 'Тестовый placeholder',
         };
-        const wrapper = mount(FormGroupComponent, {
+        const wrapper = mount(FormGroup, {
             props: propsWithPlaceholder,
         });
 
@@ -55,11 +55,11 @@ describe('FormGroup.vue', () => {
     });
 
     it('Отображается inputmode', () => {
-        const propsWithInputMode: FormGroupComponentType = {
+        const propsWithInputMode: FormGroupType = {
             ...props,
             inputmode: 'numeric',
         };
-        const wrapper = mount(FormGroupComponent, {
+        const wrapper = mount(FormGroup, {
             props: propsWithInputMode,
         });
 
@@ -69,12 +69,24 @@ describe('FormGroup.vue', () => {
     });
 
     it('Отображается звездочка, если поле является обязательным', () => {
-        const propsWithRequired: FormGroupComponentType = {
+        const propsWithRequired: FormGroupType = {
             ...props,
             required: true,
         };
-        const wrapper = mount(FormGroupComponent, { props: propsWithRequired });
+        const wrapper = mount(FormGroup, { props: propsWithRequired });
 
         expect(wrapper.text()).toBe(`${props.label} *:`);
+    });
+
+    it('Отображается компонент textarea, если prop type = "textarea"', () => {
+        const wrapper = mount(FormGroup, {
+            props: {
+                id: 'test',
+                name: 'test',
+                type: 'textarea',
+                label: 'test',
+            },
+        });
+        expect(wrapper.findComponent(TextareaField).exists()).toBeTruthy();
     });
 });

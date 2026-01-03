@@ -18,24 +18,26 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { formatDate } from '@/shared/lib';
-import type { Review } from '../types';
+import { formatDate } from '@/shared/libs/date';
+import type { Review } from '../model/reviewsStore';
 
-const props = defineProps<Omit<Review, 'id'>>();
+const { date } = defineProps<Review>();
 
-const parsedDate = computed(() => new Date(props.date));
+const parsedDate = computed(() => new Date(date));
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/display' as *;
+@use '@/app/styles/display' as *;
 
 .review-card {
     @extend .column;
-    width: 100%;
     gap: 10px;
+
+    width: 100%;
+    padding: 25px;
+
     border: 1px solid #edf0f2;
     border-radius: 8px;
-    padding: 25px;
 
     &__top {
         time {

@@ -6,5 +6,5 @@ config.global.stubs = {
         template: `<a :href="to"><slot /></a>`,
     },
     RouterView: true,
-    ButtonComponent: true,
+    BaseButton: true,
 };

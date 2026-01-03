@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { ProductCategoryCard } from '@/pages/Main/ui';
-import type { ProductCategory } from '@/pages/Main/types';
+import { ProductCategoryCard } from '@/entities/product';
+import type { ProductCategory } from '@/entities/product/model/useProductCategories';
 
 describe('ProductCategoryCard.vue', () => {
     it('Отображаются все переданные props', () => {

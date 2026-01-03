@@ -1,16 +1,12 @@
-import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
-import type { AxiosResponse, AxiosResponseHeaders } from 'axios';
+import { usePromotionsStore } from '@/entities/promotion';
+import type { Promotion } from '@/entities/promotion';
+import { instance } from '@/shared/api';
+import type { AxiosResponseHeaders } from 'axios';
 import { createPinia, setActivePinia } from 'pinia';
-import {
-    instance,
-    ResponseStatuses,
-    type AxiosBaseResponse,
-} from '@/shared/api/api';
-import { usePromotionCardsStore } from '@/entities/promotion/model';
-import type { PromotionCard } from '@/entities/promotion/types';
+import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
 
 vi.mock('@/shared/api/api', async (importOriginal) => {
-    const actual = await importOriginal<typeof import('@/shared/api/api')>();
+    const actual = await importOriginal<typeof import('@/shared/api')>();
     return {
         ...actual,
         instance: {
@@ -19,12 +15,13 @@ vi.mock('@/shared/api/api', async (importOriginal) => {
     };
 });
 
-const mockResponse: AxiosResponse<
-    AxiosBaseResponse<{ promotionCards: PromotionCard[]; pagesCount: number }>
-> = {
+const mockResponse: MockResponse<{
+    promotion: Promotion[];
+    pagesCount: number;
+}> = {
     data: {
         data: {
-            promotionCards: [
+            promotion: [
                 {
                     id: '1',
                     backgroundImg: 'test1.img',
@@ -57,7 +54,7 @@ const mockResponse: AxiosResponse<
     },
 };
 
-describe('Promotion Cards Store', () => {
+describe('Promotion  Store', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
     });
@@ -65,28 +62,26 @@ describe('Promotion Cards Store', () => {
     it('Успешное получение списка карточек акций', async () => {
         (instance.get as Mock).mockResolvedValueOnce(mockResponse);
 
-        const store = usePromotionCardsStore();
+        const store = usePromotionsStore();
 
-        await store.setPromotions();
+        await store.getPromotions();
 
-        expect(store.promotionCards.length).toBe(3);
-        expect(store.promotionCards).toStrictEqual(
-            mockResponse.data.data.promotionCards,
+        expect(store.promotions.length).toBe(3);
+        expect(store.promotions).toStrictEqual(
+            mockResponse.data.data.promotion,
         );
         expect(store.pagesCount).toBe(mockResponse.data.data.pagesCount);
     });
 
     it('Номер текущей страницы списка карточек акций успешно устанавливается', () => {
-        const store = usePromotionCardsStore();
-        store.setCurrentPage(10);
-
+        const store = usePromotionsStore();
+        store.currentPage = 10;
         expect(store.currentPage).toBe(10);
     });
 
     it('Размер страницы для запроса получения карточек акций успешно устанавливается', () => {
-        const store = usePromotionCardsStore();
-        store.setPageSize(5);
-
+        const store = usePromotionsStore();
+        store.pageSize = 5;
         expect(store.pageSize).toBe(5);
     });
 });

@@ -1,22 +1,31 @@
 import { defineStore } from 'pinia';
 import { DEFAULT_API_RESPONSE_PAGE_VALUE } from '@/constants';
-import { reviewsAPI } from '../api';
-import type { Review } from '../types';
+import { reviewsAPI } from '../api/reviews';
+
+export interface Review {
+    id: string;
+    author: string;
+    date: Date;
+    text: string;
+    images?: string[];
+}
 
 export const useReviewsStore = defineStore('reviews', {
     state: () => ({
         reviews: [] as Review[],
+
         pageSize: DEFAULT_API_RESPONSE_PAGE_VALUE,
         pagesCount: 0,
         currentPage: 1,
 
-        loading: false,
-        error: null as string | null,
+        errorMessage: '',
+        isLoading: false,
     }),
 
     actions: {
-        async getReviews(page = 1, size = 10) {
-            this.loading = true;
+        async getReviews(page = 1, size = DEFAULT_API_RESPONSE_PAGE_VALUE) {
+            this.isLoading = true;
+            this.errorMessage = '';
 
             const response = await reviewsAPI.getReviews(page, size);
 
@@ -25,10 +34,10 @@ export const useReviewsStore = defineStore('reviews', {
                 this.reviews = reviews;
                 this.pagesCount = pagesCount;
             } else {
-                this.error = response.error;
+                this.errorMessage = response.error;
             }
 
-            this.loading = false;
+            this.isLoading = false;
         },
     },
 });

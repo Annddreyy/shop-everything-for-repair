@@ -1,16 +1,12 @@
-import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
-import type { AxiosResponse, AxiosResponseHeaders } from 'axios';
+import type { AxiosResponseHeaders } from 'axios';
 import { createPinia, setActivePinia } from 'pinia';
-import {
-    instance,
-    ResponseStatuses,
-    type AxiosBaseResponse,
-} from '@/shared/api/api';
-import { useFAQStore } from '@/entities/faq/model';
-import type { FAQ } from '@/entities/faq/types';
+import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
+import { useFAQStore } from '@/entities/faq';
+import type { FAQ } from '@/entities/faq';
+import { instance } from '@/shared/api';
 
 vi.mock('@/shared/api/api', async (importOriginal) => {
-    const actual = await importOriginal<typeof import('@/shared/api/api')>();
+    const actual = await importOriginal<typeof import('@/shared/api')>();
     return {
         ...actual,
         instance: {
@@ -19,7 +15,7 @@ vi.mock('@/shared/api/api', async (importOriginal) => {
     };
 });
 
-const mockResponse: AxiosResponse<AxiosBaseResponse<FAQ[]>> = {
+const mockResponse: MockResponse<FAQ[]> = {
     data: {
         data: [
             { id: '1', answer: 'answer1', question: 'question1' },
@@ -37,6 +33,20 @@ const mockResponse: AxiosResponse<AxiosBaseResponse<FAQ[]>> = {
     },
 };
 
+const mockResponseWithError: MockResponse<FAQ[]> = {
+    data: {
+        data: [],
+        status: ResponseStatuses.NOT_FOUND,
+        messages: [],
+    },
+    status: 200,
+    headers: {},
+    statusText: 'OK',
+    config: {
+        headers: {} as AxiosResponseHeaders,
+    },
+};
+
 describe('FAQ Store', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
@@ -44,12 +54,18 @@ describe('FAQ Store', () => {
 
     it('Успешное получение списка FAQ', async () => {
         (instance.get as Mock).mockResolvedValueOnce(mockResponse);
-
         const store = useFAQStore();
-
         await store.getFAQ();
 
         expect(store.faq.length).toBe(3);
         expect(store.faq).toStrictEqual(mockResponse.data.data);
+    });
+
+    it('Ошибка получения списка FAQ', async () => {
+        (instance.get as Mock).mockResolvedValueOnce(mockResponseWithError);
+        const store = useFAQStore();
+        await store.getFAQ();
+
+        expect(store.faq.length).toBe(0);
     });
 });

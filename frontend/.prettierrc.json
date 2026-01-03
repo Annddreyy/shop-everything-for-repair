@@ -7,5 +7,14 @@
     "printWidth": 80,
     "bracketSpacing": true,
     "arrowParens": "always",
-    "endOfLine": "auto"
+    "endOfLine": "auto",
+    "overrides": [
+        {
+            "files": "src/styles/**/*.scss",
+            "options": {
+                "printWidth": 120,
+                "tabWidth": 2
+            }
+        }
+    ]
 }

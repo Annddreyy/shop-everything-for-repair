@@ -1,12 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { NewsCard } from '@/entities/news/ui';
-import type { NewsCard as INewsCard } from '@/entities/news/types';
-import { formatDate } from '@/shared/lib';
+import { NewsCard } from '@/entities/news';
+import type { News } from '@/entities/news';
+import { formatDate } from '@/shared/libs/date';
 
 describe('NewsCard.vue', () => {
     it('Отображаются переданные props', () => {
-        const props: INewsCard = {
+        const props: News = {
             id: 'djskeu48234829',
             img: '/images/test.jpg',
             title: 'Тестовая новость',

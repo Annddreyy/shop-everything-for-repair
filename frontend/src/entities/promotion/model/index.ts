@@ -1,1 +1,0 @@
-export { usePromotionCardsStore } from './promotionCardsStore';

@@ -56,3 +56,6 @@ docker-compose up --build
 ```bash
 sudo nginx -t
 ```
+
+Создание новой миграции
+npx migrate-mongo create version_версия

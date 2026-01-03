@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { onLoadError } from '@/shared/lib/onLoadError';
-import { imgNotFoundImg } from '@/shared/assets';
+import { onLoadError } from '@/shared/libs/ui/onLoadError';
+import { imgNotFoundImg } from '@/shared/ui/assets';
 
 describe('onLoadError', () => {
     it('меняет src изображения на imgNotFoundImg при ошибке загрузки', () => {

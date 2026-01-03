@@ -1,1 +1,0 @@
-export { useNewsCardsStore } from './newsCardsStore';

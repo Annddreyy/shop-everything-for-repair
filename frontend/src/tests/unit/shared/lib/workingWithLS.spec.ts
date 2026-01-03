@@ -1,10 +1,10 @@
-import { toggleItemInLS } from '@/shared/lib';
+import { toggleItemInLS } from '@/shared/libs/localStorage';
 import {
     checkItemExistsInLS,
     getLSItemsByKey,
     LSItemTypes,
     type ToggleItemInLSType,
-} from '@/shared/lib/workingWithLS';
+} from '@/shared/libs/localStorage/workingWithLS';
 import { createPinia, setActivePinia } from 'pinia';
 import { describe, it, expect, beforeEach } from 'vitest';
 

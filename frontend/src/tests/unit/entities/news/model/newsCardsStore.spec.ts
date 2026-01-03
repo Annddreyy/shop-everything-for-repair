@@ -1,16 +1,12 @@
-import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
-import type { AxiosResponse, AxiosResponseHeaders } from 'axios';
+import type { AxiosResponseHeaders } from 'axios';
 import { createPinia, setActivePinia } from 'pinia';
-import {
-    instance,
-    ResponseStatuses,
-    type AxiosBaseResponse,
-} from '@/shared/api/api';
-import { useNewsCardsStore } from '@/entities/news/model';
-import type { NewsCard } from '@/entities/news/types';
+import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
+import { useNewsStore } from '@/entities/news';
+import type { News } from '@/entities/news';
+import { instance } from '@/shared/api';
 
 vi.mock('@/shared/api/api', async (importOriginal) => {
-    const actual = await importOriginal<typeof import('@/shared/api/api')>();
+    const actual = await importOriginal<typeof import('@/shared/api')>();
     return {
         ...actual,
         instance: {
@@ -19,12 +15,13 @@ vi.mock('@/shared/api/api', async (importOriginal) => {
     };
 });
 
-const mockResponse: AxiosResponse<
-    AxiosBaseResponse<{ newsCards: NewsCard[]; pagesCount: number }>
-> = {
+const mockResponse: MockResponse<{
+    news: News[];
+    pagesCount: number;
+}> = {
     data: {
         data: {
-            newsCards: [
+            news: [
                 {
                     id: '1',
                     img: 'test1.img',
@@ -61,7 +58,7 @@ const mockResponse: AxiosResponse<
     },
 };
 
-describe('News Cards Store', () => {
+describe('News  Store', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
     });
@@ -69,26 +66,24 @@ describe('News Cards Store', () => {
     it('Успешное получение списка новостей', async () => {
         (instance.get as Mock).mockResolvedValueOnce(mockResponse);
 
-        const store = useNewsCardsStore();
+        const store = useNewsStore();
 
-        await store.setNews();
+        await store.getNews();
 
-        expect(store.newsCards.length).toBe(3);
-        expect(store.newsCards).toStrictEqual(mockResponse.data.data.newsCards);
+        expect(store.news.length).toBe(3);
+        expect(store.news).toStrictEqual(mockResponse.data.data.news);
         expect(store.pagesCount).toBe(mockResponse.data.data.pagesCount);
     });
 
     it('Номер текущей страницы новостей успешно устанавливается', () => {
-        const store = useNewsCardsStore();
-        store.setCurrentPage(10);
-
+        const store = useNewsStore();
+        store.currentPage = 10;
         expect(store.currentPage).toBe(10);
     });
 
     it('Размер страницы для запроса получения списка новостей успешно устанавливается', () => {
-        const store = useNewsCardsStore();
-        store.setPageSize(5);
-
+        const store = useNewsStore();
+        store.pageSize = 5;
         expect(store.pageSize).toBe(5);
     });
 });

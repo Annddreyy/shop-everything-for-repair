@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { FooterLinks } from '@/widgets/Footer';
-import { breadcrumbs } from '@/widgets/Footer/config/links';
+import { breadcrumbs } from '@/widgets/Footer/Links/config/links';
 
 describe('FooterLinks.vue', () => {
     it('Отображаются все переданные ссылки', () => {
