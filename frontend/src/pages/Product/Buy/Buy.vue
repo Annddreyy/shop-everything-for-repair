@@ -71,9 +71,12 @@ const { price, promotionPercent } = defineProps<{
 
 const countToBuy = ref(1);
 
-const priceWithoutPromotion = computed(
-    () => price * (1 - (promotionPercent || 0) / 100),
-);
+const priceWithoutPromotion = computed(() => {
+    if (!promotionPercent || promotionPercent >= 100) {
+        return price;
+    }
+    return Math.round(price / (1 - promotionPercent / 100));
+});
 </script>
 
 <style lang="scss" scoped>

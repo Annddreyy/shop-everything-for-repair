@@ -111,7 +111,9 @@ const onLoad = () => {
     imgIsLoading.value = false;
 };
 
-const toggleLSItem = (_event: Event, itemType: LSItemTypes) => {
+const toggleLSItem = (event: Event, itemType: LSItemTypes) => {
+    event.preventDefault();
+
     if (
         checkItemExistsInLS({
             item: props,

@@ -11,11 +11,11 @@ export const FAQRepository = {
     },
 
     async getFAQ(id: string) {
-        const faq = await FAQModel.find({ _id: id }).lean<WithMongoId<FAQ>[]>();
-        return faq.map(({ _id, ...rest }) => ({
-            id: _id.toString(),
-            ...rest,
-        }));
+        const faq = await FAQModel.findOne({ _id: new ObjectId(id) }).lean<WithMongoId<FAQ>>();
+        return {
+            id: faq?._id.toString(),
+            ...faq,
+        };
     },
 
     async createFAQ({ answer, question }: WithoutId<FAQ>) {
@@ -32,7 +32,7 @@ export const FAQRepository = {
     },
 
     async deleteFAQ(id: string) {
-        const result = await FAQModel.deleteOne({ _id: id });
+        const result = await FAQModel.deleteOne({ _id: new ObjectId(id) });
         return result.deletedCount ? id : null;
     },
 };

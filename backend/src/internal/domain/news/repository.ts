@@ -35,13 +35,13 @@ export const newsRepository = {
     },
 
     async findOneNews(id: string) {
-        const news = await NewsModel.find({ _id: id }).lean<
-            WithMongoId<News>[]
+        const news = await NewsModel.findOne({ _id: new ObjectId(id) }).lean<
+            WithMongoId<News>
         >();
-        return news.map(({ _id, ...rest }) => ({
-            id: _id.toString(),
-            ...rest,
-        }));
+        return {
+            id: news?._id.toString(),
+            ...news,
+        };
     },
 
     async findNews({

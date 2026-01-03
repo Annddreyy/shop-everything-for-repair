@@ -88,7 +88,7 @@ function setPrevios() {
     if (currentComponentIndex.value - 1 >= 0) {
         currentComponentIndex.value -= 1;
     } else {
-        currentComponentIndex.value = promotions.length;
+        currentComponentIndex.value = promotions.length - 1;
     }
     createTimer();
 }

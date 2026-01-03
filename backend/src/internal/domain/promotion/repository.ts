@@ -17,7 +17,7 @@ export const promotionsRepository = {
         return result.upsertedCount ? id : null;
     },
 
-    async deletePromotionCard(id: string) {
+    async deletePromotion(id: string) {
         const result = await PromotionsModel.deleteOne({
             _id: new ObjectId(id),
         });
@@ -42,12 +42,12 @@ export const promotionsRepository = {
     },
 
     async findPromotion(id: string) {
-        const promotions = await PromotionsModel.find({
+        const promotion = await PromotionsModel.findOne({
             _id: new ObjectId(id),
-        }).lean<WithMongoId<Promotion>[]>();
-        return promotions.map(({ _id, ...rest }) => ({
-            id: _id.toString(),
-            ...rest,
-        }));
+        }).lean<WithMongoId<Promotion>>();
+        return {
+            id: promotion?._id.toString(),
+            ...promotion,
+        };
     },
 };

@@ -58,13 +58,13 @@ export const productsRepository = {
     },
 
     async findProduct(id: string) {
-        const products = await ProductsModel.find({
+        const product = await ProductsModel.findOne({
             _id: new ObjectId(id),
-        }).lean<WithMongoId<Product>[]>();
-        return products.map(({ _id, ...rest }) => ({
-            id: _id.toString(),
-            ...rest,
-        }));
+        }).lean<WithMongoId<Product>>();
+        return {
+            id: product?._id.toString(),
+            ...product,
+        };
     },
 
     async createProduct(product: WithoutId<Product>) {
@@ -77,7 +77,7 @@ export const productsRepository = {
             { _id: new ObjectId(id) },
             { $set: update },
         );
-        return result.upsertedId?.toString();
+        return result.modifiedCount > 0 ? id : null;
     },
 
     async deleteProduct(id: string) {

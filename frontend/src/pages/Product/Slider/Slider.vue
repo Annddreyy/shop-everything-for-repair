@@ -55,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, useTemplateRef } from 'vue';
+import { computed, ref, useTemplateRef, onMounted } from 'vue';
 import { useModalStore } from '@/entities/modal';
 import { Modal } from '@/shared/ui';
 
@@ -80,6 +80,10 @@ const mainImg = useTemplateRef('mainImg');
 const productModalIsOpen = computed(
     () => modalStore.isOpen && modalStore.type === 'product',
 );
+
+onMounted(() => {
+    checkScrollButtons();
+});
 
 const setMainImg = (index: number) => {
     mainImage.value = index;

@@ -42,7 +42,13 @@
 </template>
 
 <script setup lang="ts">
-import { useModalStore } from '@/entities/modal/model/useModal';
+import { useTemplateRef } from 'vue';
+import { storeToRefs } from 'pinia';
+import { vMaska } from 'maska/vue';
+
+import { settings } from '@/settings';
+
+import { useModalStore } from '@/entities/modal';
 import {
     Modal,
     FormGroup,
@@ -50,10 +56,9 @@ import {
     Colors,
     CheckboxField,
 } from '@/shared/ui';
-import { storeToRefs } from 'pinia';
-import { vMaska } from 'maska/vue';
-import { useTemplateRef } from 'vue';
 import { instance } from '@/shared/api';
+import { toast } from 'vue3-toastify';
+import { useEmailStore } from '@/entities/email';
 
 type FormData = {
     name: string;
@@ -63,6 +68,8 @@ type FormData = {
 
 const modalStore = useModalStore();
 const { isOpen, type } = storeToRefs(modalStore);
+
+const emailStore = useEmailStore();
 
 const formRef = useTemplateRef('form');
 
@@ -88,15 +95,26 @@ const sendEmail = () => {
         data.phone.replace(/\D/g, '').length === 11 &&
         data['personal-data'] === 'on'
     ) {
-        instance.post('/email', {
-            to: 'andreymail22112006@gmail.com',
-            subject: 'Обратный звонок',
-            html: `
-            Имя: ${data.name},
-            Телефон: ${data.phone}
-            `,
-        });
+        try {
+            emailStore.sendEmail({
+                to: settings.EMAIL_SENDER_EMAIL!,
+                subject: 'Обратный звонок',
+                html: `
+                Имя: ${data.name},
+                Телефон: ${data.phone}
+                `,
+            });
+        } catch (err: unknown) {
+            toast.error('Сообщение не было доставлено, попробуйте позже!');
+        }
+
+        if (emailStore.successSending) {
+            toast.info('Сообщение было успешно отправлено! Ожидайте ответа');
+        } else {
+            toast.error('Сообщение не было доставлено, попробуйте позже!');
+        }
     } else {
+        // TODO: Добавить отображение невалидных полей
         console.warn('Форма невалидна', data);
     }
 };

@@ -22,7 +22,7 @@ const buttonStyle = computed(() => ({
     color: props.textColor || 'initial',
     borderColor: props.borderColor || 'initial',
     backgroundColor: props.bgColor || 'initial',
-    borderRadius: `${props.isRound && '50%'}`,
+    borderRadius: props.isRound ? '50%' : undefined,
 }));
 </script>
 

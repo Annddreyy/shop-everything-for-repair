@@ -1,8 +1,8 @@
 <template>
     <div class="characteristics">
         <div
-            v-for="(characteristic, index) in characteristics"
-            :key="index"
+            v-for="characteristic in characteristics"
+            :key="characteristic[0]"
             class="characteristic"
         >
             <span class="characteristic__title">{{ characteristic[0] }}</span>

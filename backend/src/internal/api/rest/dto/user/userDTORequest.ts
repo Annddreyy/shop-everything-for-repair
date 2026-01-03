@@ -18,9 +18,11 @@ export class UserDTORequest {
     @IsString()
     password: string = '';
 
+    @Expose()
     @IsString()
     patronymic: string | null = null;
 
+    @Expose()
     @IsString()
     phone: string | null = null;
 }

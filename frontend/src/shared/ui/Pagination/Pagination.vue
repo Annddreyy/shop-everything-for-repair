@@ -25,10 +25,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-const DAFAULT_PAGES_COUNT = 1;
+const DEFAULT_PAGES_COUNT = 1;
 const MAX_PAGES_COUNT = 10;
 
-const { pagesCount = DAFAULT_PAGES_COUNT, maxPagesCount = MAX_PAGES_COUNT } =
+const { pagesCount = DEFAULT_PAGES_COUNT, maxPagesCount = MAX_PAGES_COUNT } =
     defineProps<{
         pagesCount?: number;
         maxPagesCount?: number;

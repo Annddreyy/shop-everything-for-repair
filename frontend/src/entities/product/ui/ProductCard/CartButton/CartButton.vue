@@ -59,7 +59,7 @@ defineProps<{
     }
 
     &__image {
-        fill: white;
+        filter: brightness(0) invert(1);
     }
 }
 </style>

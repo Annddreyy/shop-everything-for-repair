@@ -14,6 +14,6 @@ export const promotionsService = {
     },
 
     async deletePromotion(id: string) {
-        return await promotionsRepository.deletePromotionCard(id);
+        return await promotionsRepository.deletePromotion(id);
     },
 };
