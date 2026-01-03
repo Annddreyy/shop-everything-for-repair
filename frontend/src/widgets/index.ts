@@ -1,15 +1,13 @@
-import ComponentsList from './ComponentsList.vue';
-import FooterComponent from './FooterComponent.vue';
-import HeaderComponent from './HeaderComponent.vue';
+import FooterComponent from './Footer/Footer.vue';
+import HeaderComponent from './Header/Header.vue';
 import MailingListForm from './MailingListForm.vue';
-import BasePage from './BasePage.vue';
 import PagesAsideBlock from './PagesAsideBlock.vue';
+import OrderCall from './OrderCall.vue';
 
 export {
-    ComponentsList,
     FooterComponent,
     HeaderComponent,
     MailingListForm,
-    BasePage,
     PagesAsideBlock,
+    OrderCall,
 };

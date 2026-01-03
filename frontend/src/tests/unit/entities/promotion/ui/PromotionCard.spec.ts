@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { PromotionCard } from '@/entities/promotion/ui';
-import type { PromotionCard as IPromotionCard } from '@/entities/promotion/types';
+import { PromotionCard } from '@/entities/promotion';
+import type { Promotion } from '@/entities/promotion';
 
 describe('PromotionCard.vue', () => {
     it('Проверка наличия переданных props', () => {
-        const props: IPromotionCard = {
+        const props: Promotion = {
             id: 'fhsji29290',
             title: 'Тестовое название',
             promotionPercent: 12,

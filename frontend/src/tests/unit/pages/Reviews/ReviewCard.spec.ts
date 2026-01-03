@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { ReviewCard } from '@/entities/review/ui';
-import type { Review } from '@/entities/review/types';
-import { formatDate } from '@/shared/lib';
+import { ReviewCard } from '@/entities/review';
+import type { Review } from '@/entities/review';
+import { formatDate } from '@/shared/libs/date';
 
 const props: Review = {
     id: '1',

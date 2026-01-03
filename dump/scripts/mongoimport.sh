@@ -6,7 +6,7 @@ until mongosh --host mongo --eval "db.adminCommand('ping')" >/dev/null 2>&1; do
   sleep 2
 done
 
-IMPORT_DIR=/dump
+IMPORT_DIR=/dump/exported
 
 echo '📥 Импорт файлов в MongoDB...'
 shopt -s nullglob

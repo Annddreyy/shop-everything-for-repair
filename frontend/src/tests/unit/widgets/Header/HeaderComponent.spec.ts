@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 import { HeaderComponent } from '@/widgets';
 import { breadcrumbs } from '@/widgets/Header/config/links';
 import { createPinia, setActivePinia } from 'pinia';
-import { ButtonComponent } from '@/shared/ui';
+import { BaseButton } from '@/shared/ui';
 
 describe('HeaderComponent.vue', () => {
     beforeEach(() => {
@@ -18,7 +18,7 @@ describe('HeaderComponent.vue', () => {
                         template: '<a><slot /></a>',
                     },
                 },
-                components: { ButtonComponent },
+                components: { BaseButton },
             },
         });
 

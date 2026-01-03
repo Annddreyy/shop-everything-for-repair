@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { ButtonComponent } from '@/shared/ui';
-import { Colors, type Button } from '@/shared/ui/ButtonComponent/types';
-import { hexToRGB } from '@/shared/lib';
+import { BaseButton, Colors } from '@/shared/ui';
+import type { Button } from '@/shared/ui';
+import { hexToRGB } from '@/shared/libs/ui';
 
 const props: Button = {
     text: 'Тестовый текст',
@@ -10,9 +10,9 @@ const props: Button = {
     bgColor: Colors.BLACK,
 };
 
-describe('ButtonComponent.vue', () => {
+describe('BaseButton.vue', () => {
     it('Отображаются все переданные props (без необязательных полей)', () => {
-        const wrapper = mount(ButtonComponent, { props });
+        const wrapper = mount(BaseButton, { props });
 
         expect(wrapper.text()).toBe(props.text);
 
@@ -29,7 +29,7 @@ describe('ButtonComponent.vue', () => {
             ...props,
             icon: '/images/test.jpg',
         };
-        const wrapper = mount(ButtonComponent, { props: propsWithIcon });
+        const wrapper = mount(BaseButton, { props: propsWithIcon });
 
         expect(wrapper.get('img').attributes('src')).toBe(propsWithIcon.icon);
     });
@@ -39,7 +39,7 @@ describe('ButtonComponent.vue', () => {
             ...props,
             borderColor: Colors.LIGHT_BLUE,
         };
-        const wrapper = mount(ButtonComponent, { props: propsWithBorderColor });
+        const wrapper = mount(BaseButton, { props: propsWithBorderColor });
 
         expect(wrapper.attributes('style')).toContain(
             `border-color: ${hexToRGB(Colors.LIGHT_BLUE)}`,
@@ -51,7 +51,7 @@ describe('ButtonComponent.vue', () => {
             ...props,
             isRound: true,
         };
-        const wrapper = mount(ButtonComponent, { props: propsWithIsRound });
+        const wrapper = mount(BaseButton, { props: propsWithIsRound });
 
         expect(wrapper.attributes('style')).toContain(`border-radius: 50%`);
     });

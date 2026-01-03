@@ -1,26 +1,17 @@
 <template>
     <aside class="pages-aside">
-        <PromotionCardComponent
-            v-bind="{ ...promotionsStore.promotionCards[0] }"
-        />
-        <PromotionCardComponent
-            v-bind="{ ...promotionsStore.promotionCards[1] }"
-        />
+        <PromotionCard v-bind="promotionsStore.promotions[0]" />
+        <PromotionCard v-bind="promotionsStore.promotions[1]" />
         <MailingListForm />
     </aside>
 </template>
 
 <script setup lang="ts">
-import { usePromotionCardsStore } from '@/entities/promotion/model';
-import { promotionCardsAPI } from '@/entities/promotion/api';
-import { onMounted } from 'vue';
+import { usePromotionsStore, PromotionCard } from '@/entities/promotion';
 import MailingListForm from './MailingListForm.vue';
 
-const promotionsStore = usePromotionCardsStore();
-
-onMounted(async () => {
-    await promotionCardsAPI.getPromotionCards(1, 2);
-});
+const promotionsStore = usePromotionsStore();
+await promotionsStore.getPromotions(1, 2);
 </script>
 
 <style lang="scss" scoped>

@@ -25,12 +25,12 @@ describe('BreadCrumbs.vue', () => {
             expect(wrapper.text()).toContain(link.title);
         });
 
-        const routerLinks = wrapper.findAll('routerlink');
+        const routerLinks = wrapper.findAll('a');
 
         expect(routerLinks.length).toBe(props.breadcrumbs.length);
 
         routerLinks.forEach((linkWrapper, index) => {
-            expect(linkWrapper.attributes('to')).toBe(
+            expect(linkWrapper.attributes('href')).toBe(
                 props.breadcrumbs[index].link,
             );
         });

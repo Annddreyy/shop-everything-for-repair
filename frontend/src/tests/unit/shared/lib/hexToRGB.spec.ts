@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { hexToRGB } from '@/shared/lib';
+import { hexToRGB } from '@/shared/libs/ui';
 
 describe('Проверка перевода hex формата цвета в RGB', () => {
     it('Проверка перевода формата #xxx в RGB', () => {

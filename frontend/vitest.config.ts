@@ -9,6 +9,10 @@ export default mergeConfig(
             environment: 'jsdom',
             exclude: [...configDefaults.exclude, 'e2e/**'],
             root: fileURLToPath(new URL('./', import.meta.url)),
+            coverage: {
+                exclude: ['src/**/index.ts', 'src/types.d.ts', 'src/tests/**'],
+            },
+            setupFiles: 'src/tests/setup.ts',
         },
     }),
 );

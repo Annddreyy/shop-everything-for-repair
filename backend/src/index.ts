@@ -1,12 +1,11 @@
 import { app } from './app';
-import { runDb } from './app/repositories/db';
-import { config } from 'dotenv';
-
-config();
+import { runMongoDb } from '@/internal/infrastructure/db';
+import { logger } from '@/internal/pkg/logger';
 
 const port = 8080;
 
 app.listen(port, async () => {
-    await runDb();
-    console.log(`Server listening on port ${port}`);
+    logger.info('Ожидание подключения к БД....');
+    await runMongoDb();
+    logger.info(`Сервер запущен на порту: ${port}`);
 });

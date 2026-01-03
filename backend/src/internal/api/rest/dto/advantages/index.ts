@@ -1,0 +1,1 @@
+export { AdvantagesDTOResponse } from './advantagesDTOResponse';

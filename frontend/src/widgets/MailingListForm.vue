@@ -1,36 +1,40 @@
-<script setup lang="ts">
-import { ButtonComponent } from '@/shared/ui';
-import { Colors } from '@/shared/ui/ButtonComponent/types';
-</script>
-
 <template>
     <section class="mailing-list-form">
         <h4 class="mailing-list-form__title">Подпишитесь на рассылку</h4>
         <p class="mailing-list-form__description">
             Регулярные скидки и спецпредложенения, а так же новости компании.
         </p>
-        <input
-            type="text"
+        <InputField
+            id="email"
+            name="email"
+            type="email"
+            required
             placeholder="Email"
-            class="mailing-list-form__email"
         />
-        <ButtonComponent
+        <BaseButton
+            class="mailing-list-form__subscribe-button"
             text="Подписаться"
             :bg-color="Colors.BLUE"
             :text-color="Colors.WHITE"
         />
         <div class="mainling-list-form__bottom">
-            <Checkbox></Checkbox>
-            <label>
-                Согласен с обработкой персональных данных в соответствии с
-                политикой конфиденциальности
-            </label>
+            <CheckboxField
+                id="personal-data"
+                name="personal-data"
+                required
+                label="Согласен с обработкой персональных данных в соответствии с
+                политикой конфиденциальности"
+            />
         </div>
     </section>
 </template>
 
+<script setup lang="ts">
+import { BaseButton, CheckboxField, Colors, InputField } from '@/shared/ui';
+</script>
+
 <style lang="scss" scoped>
-@use '@/assets/scss/display.scss' as *;
+@use '@/app/styles/display' as *;
 
 .mailing-list-form {
     @extend .column;
@@ -54,15 +58,14 @@ import { Colors } from '@/shared/ui/ButtonComponent/types';
         color: #6a6f75;
     }
 
-    &__email {
-        padding: 25px 20px;
-        border: 1px solid #ebeef0;
-        box-shadow: 0 1px 2px #00000012 inset;
-        font-size: 15px;
+    &__subscribe-button {
+        padding: 21px 27px;
+        border-radius: 8px;
+    }
 
-        &::placeholder {
-            color: #adb1b7;
-        }
+    :deep(.checkbox__label-text) {
+        font-size: 13px;
+        color: #696d70;
     }
 }
 </style>

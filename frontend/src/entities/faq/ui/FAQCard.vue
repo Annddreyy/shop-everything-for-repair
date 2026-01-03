@@ -6,13 +6,13 @@
 </template>
 
 <script setup lang="ts">
-import type { FAQ } from '../types';
+import type { FAQ } from '../model/useFAQ';
 
-defineProps<Omit<FAQ, 'id'>>();
+defineProps<FAQ>();
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/display' as *;
+@use '@/app/styles/display' as *;
 
 .faq-card {
     &__question {
@@ -20,7 +20,8 @@ defineProps<Omit<FAQ, 'id'>>();
         justify-content: space-between;
 
         position: relative;
-        padding: 10px;
+
+        padding: 19px 10px;
 
         font-size: 18px;
         color: #2c333d;
@@ -40,9 +41,12 @@ defineProps<Omit<FAQ, 'id'>>();
             width: 44px;
             height: 44px;
 
-            background-color: #ebf7ff;
             border-radius: 50%;
+
+            font-weight: bold;
             color: #186fd4;
+
+            background-color: #ebf7ff;
         }
 
         &::-webkit-details-marker {
@@ -51,9 +55,16 @@ defineProps<Omit<FAQ, 'id'>>();
     }
 
     &__answer {
+        padding: 20px;
+
         font-size: 16px;
         color: #64676a;
-        padding: 20px;
+    }
+
+    &:open {
+        .faq-card__question::after {
+            content: '-';
+        }
     }
 }
 </style>
