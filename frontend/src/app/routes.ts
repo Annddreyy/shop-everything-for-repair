@@ -11,6 +11,7 @@ import {
     Product,
     Promotions,
     Reviews,
+    Bin,
 } from '@/pages';
 
 export const router = createRouter({
@@ -24,6 +25,7 @@ export const router = createRouter({
         { path: '/news', component: News, name: 'news' },
         { path: '/news/:id', component: OneNews, name: 'oneNews' },
         { path: '/promotions', component: Promotions, name: 'promotions' },
+        { path: '/bin', component: Bin, name: 'bin' },
         {
             path: '/privacy-policy',
             component: PrivacyPolicy,

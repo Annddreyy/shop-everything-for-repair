@@ -13,6 +13,7 @@ import {
     brandsRouter,
     regionsRouter,
     contactPersonsRouter,
+    promocodesRouter,
 } from '@/internal/api/rest/routes';
 import { graphqlHTTP } from 'express-graphql';
 import { root, schema } from './internal/api/graphql';
@@ -41,6 +42,7 @@ apiV1Router.use('/advantages', advantagesRouter);
 apiV1Router.use('/brands', brandsRouter);
 apiV1Router.use('/regions', regionsRouter);
 apiV1Router.use('/contact-persons', contactPersonsRouter)
+apiV1Router.use('/promocode', promocodesRouter);
 
 app.use('/api/v1', apiV1Router);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));

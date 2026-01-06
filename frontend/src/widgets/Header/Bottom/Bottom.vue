@@ -46,7 +46,7 @@
                     {{ LSStore.favorite.length }}
                 </span>
             </RouterLink>
-            <RouterLink to="/cart" class="buttons__button buttons__button--bin">
+            <RouterLink to="/bin" class="buttons__button buttons__button--bin">
                 <img src="./assets/cart-icon.svg" alt="" />
                 <span>Корзина</span>
                 <span v-if="LSStore.bin.length" class="counter">
