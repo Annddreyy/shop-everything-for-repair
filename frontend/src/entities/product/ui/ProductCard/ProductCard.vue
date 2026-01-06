@@ -12,7 +12,7 @@
                 </span>
             </div>
             <div class="product-card__top">
-                <Skeleton
+                <Skeletor
                     v-if="imgIsLoading"
                     width="278px"
                     height="202px"
@@ -86,6 +86,7 @@ import {
 import CartButton from './CartButton/CartButton.vue';
 import CompareButton from './CompareButton/CompareButton.vue';
 import FavoriteButton from './FavoriteButton/FavoriteButton.vue';
+import { Skeletor } from 'vue-skeletor';
 
 const props = defineProps<Product>();
 

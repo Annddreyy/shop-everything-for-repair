@@ -37,11 +37,13 @@ const breadcrumbs: Link[] = [
 
     &__burger-button {
         display: none;
+        align-items: flex-start;
         background-color: transparent;
     }
 
     &__burger-button-label {
         margin-left: 13px;
+        font-size: 15px;
     }
 
     &__links {

@@ -2,11 +2,10 @@
     <RouterLink :to="link" class="product-category-card">
         <Skeletor
             v-if="imgIsLoading"
-            width="100%"
-            height="210px"
+            width="123px"
+            height="123px"
             :style="{
                 borderRadius: '8px',
-                position: 'absolute',
             }"
         />
         <img
@@ -21,13 +20,14 @@
 </template>
 
 <script setup lang="ts">
+import { Skeletor } from 'vue-skeletor';
 import { ref } from 'vue';
 import { onLoadError } from '@/shared/libs/ui';
 import type { ProductCategory } from '../model/useProductCategories';
 
 defineProps<ProductCategory>();
 
-const imgIsLoading = ref(false);
+const imgIsLoading = ref(true);
 
 const onLoad = () => {
     imgIsLoading.value = false;

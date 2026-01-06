@@ -1,0 +1,1 @@
+export { ContactPersonsDTOResponse } from './contactPersonsDTOResponse';

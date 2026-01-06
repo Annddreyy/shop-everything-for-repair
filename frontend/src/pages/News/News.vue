@@ -12,10 +12,7 @@
                     </div>
                 </div>
                 <div class="news__aside">
-                    <NewsTypes
-                        v-bind="{ ...countOfTypes }"
-                        @set-type="setType"
-                    />
+                    <NewsTypes v-bind="countOfTypes" @set-type="setType" />
                     <MailingListForm class="news__mailing-form" />
                 </div>
             </div>
@@ -41,13 +38,12 @@ const breadcrumbs: Link[] = [
 ];
 
 const newsStore = useNewsStore();
-const { news, pagesCount, countOfTypes } = storeToRefs(newsStore);
+const { news, pagesCount, countOfTypes, currentNewsType } = storeToRefs(newsStore);
 news.value = [];
+await newsStore.getCountOfTypes();
 
 const currentPage = ref(1);
-const currentNewsType = ref<NewsType | undefined>();
 
-await newsStore.getCountOfTypes();
 
 watch(
     [currentPage, currentNewsType],
@@ -66,8 +62,7 @@ watch(
 );
 
 const setType = (type?: NewsType) => {
-    currentPage.value = 1;
-    currentNewsType.value = type;
+    newsStore.currentNewsType = type!;
 };
 </script>
 

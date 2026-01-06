@@ -3,7 +3,9 @@ import { apolloClient } from '@/shared/api';
 import { createApiError } from '@/shared/libs/api';
 import type { FAQ } from '../model/useFAQ';
 
-type FaqDTO = BaseResponse<{ faqs: FAQ[] }>;
+type FaqDTO = {
+    faqs: FAQ[];
+};
 
 export const GET_FAQS = gql`
     query GetFAQs {
@@ -26,6 +28,9 @@ export const faqAPI = {
             return createApiError(error);
         }
 
-        return response;
+        return {
+            status: 'success' as const,
+            data: response
+        };
     },
 };

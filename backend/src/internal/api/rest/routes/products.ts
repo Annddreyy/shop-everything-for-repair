@@ -4,6 +4,11 @@ import { baseMiddlewareGroup } from '../middlewares';
 
 export const productRouter = express.Router();
 
+productRouter.get(
+    '/product-categories',
+    productController.getProductCategories,
+);
+
 productRouter.get('/', productController.getProducts);
 productRouter.get('/:id', productController.getOneProduct);
 
@@ -15,7 +20,3 @@ productRouter.delete(
     productController.deleteProduct,
 );
 
-productRouter.get(
-    '/product-categories',
-    productController.getProductCategories,
-);

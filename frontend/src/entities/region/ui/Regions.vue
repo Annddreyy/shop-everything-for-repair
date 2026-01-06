@@ -33,6 +33,7 @@ const { regions } = defineProps<{
     &__list {
         @extend .row;
         gap: 71px;
+        flex-wrap: wrap;
 
         margin-bottom: 80px;
 

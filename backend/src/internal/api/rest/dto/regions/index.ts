@@ -1,0 +1,1 @@
+export { RegionsDTOResponse } from './regionsDTOResponse';

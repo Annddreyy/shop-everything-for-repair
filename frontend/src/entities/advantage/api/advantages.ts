@@ -2,7 +2,9 @@ import { instance } from '@/shared/api';
 import { createApiError } from '@/shared/libs/api';
 import type { Advantage } from '../model/useAdvantage';
 
-type AdvantageDTO = BaseResponse<Advantage[]>;
+type AdvantageDTO = BaseResponse<{
+    advantages: Advantage[];
+}>;
 
 export const advantagesAPI = {
     async getAdvantages() {

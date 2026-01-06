@@ -22,7 +22,7 @@ export const useAdvantagesStore = defineStore('advantages', {
 
             const response = await advantagesAPI.getAdvantages();
             if (response.status === 'success') {
-                this.advantages = response.data;
+                this.advantages = response.data.advantages;
             } else {
                 this.errorMessage = response.error;
             }

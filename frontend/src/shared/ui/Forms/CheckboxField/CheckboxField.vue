@@ -28,7 +28,7 @@ const checked = defineModel<boolean>({ default: false });
 .checkbox {
     @extend .row;
     gap: 10px;
-    align-items: center;
+    align-items: start;
 
     user-select: none;
     cursor: pointer;

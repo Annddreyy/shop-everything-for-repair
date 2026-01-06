@@ -7,6 +7,10 @@ type NewsDTO = BaseResponse<{
     pagesCount: number;
 }>;
 
+type OneNewsDTO = BaseResponse<{
+    news: News;
+}>;
+
 type NewsDTOCountOfTypes = BaseResponse<{
     news: number;
     tips: number;
@@ -24,6 +28,17 @@ export const newsAPI = {
                         (type ? `&type=${type}` : ''),
                 )
             ).data;
+        } catch (err: unknown) {
+            return createApiError(err);
+        }
+
+        return response;
+    },
+
+    async getOneNews(id: string) {
+        let response: OneNewsDTO;
+        try {
+            response = (await instance.get<OneNewsDTO>(`/news/${id}`)).data;
         } catch (err: unknown) {
             return createApiError(err);
         }

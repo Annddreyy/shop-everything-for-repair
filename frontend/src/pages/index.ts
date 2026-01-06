@@ -8,6 +8,7 @@ import Reviews from './Reviews.vue';
 import BasePage from './BasePage.vue';
 import Product from './Product/Product.vue';
 import News from './News/News.vue';
+import OneNews from './News/OneNews.vue';
 import Promotions from './Promotions.vue';
 
 export {
@@ -22,4 +23,5 @@ export {
     Product,
     News,
     Promotions,
+    OneNews,
 };

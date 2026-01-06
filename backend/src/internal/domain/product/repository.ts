@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { ProductsModel } from '@/internal/infrastructure/db/models';
 import { ProductsDTORequest } from '@/internal/api/rest/dto/product/productDTORequest';
 import { Product, ProductCategory } from './product';
-import { ProductCategorieModel } from '@/internal/infrastructure/db/models/productCategories';
+import { ProductCategorieModel } from '@/internal/infrastructure/db/models';
 
 export const productsRepository = {
     async getProductCategories() {
@@ -58,13 +58,17 @@ export const productsRepository = {
     },
 
     async findProduct(id: string) {
+        console.log(id);
         const product = await ProductsModel.findOne({
             _id: new ObjectId(id),
         }).lean<WithMongoId<Product>>();
-        return {
-            id: product?._id.toString(),
-            ...product,
-        };
+
+        if (product) {
+            return {
+                id: product?._id.toString(),
+                ...product,
+            };
+        }
     },
 
     async createProduct(product: WithoutId<Product>) {

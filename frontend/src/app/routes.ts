@@ -5,6 +5,7 @@ import {
     FAQPage,
     Main,
     News,
+    OneNews,
     Page404,
     PrivacyPolicy,
     Product,
@@ -21,6 +22,7 @@ export const router = createRouter({
         { path: '/contacts', component: Contacts, name: 'contacts' },
         { path: '/faq', component: FAQPage, name: 'faq' },
         { path: '/news', component: News, name: 'news' },
+        { path: '/news/:id', component: OneNews, name: 'oneNews' },
         { path: '/promotions', component: Promotions, name: 'promotions' },
         {
             path: '/privacy-policy',

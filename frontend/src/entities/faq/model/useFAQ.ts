@@ -20,8 +20,10 @@ export const useFAQStore = defineStore('faq', {
             this.errorMessage = '';
 
             const response = await faqAPI.getFAQ();
+            console.log(response);
 
             if (response.status === 'success') {
+                console.log(response.data);
                 this.faq = response.data.faqs;
             } else {
                 this.errorMessage = response.error;

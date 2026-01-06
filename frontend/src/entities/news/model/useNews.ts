@@ -30,9 +30,22 @@ export const useNewsStore = defineStore('news', {
             review: 0,
         },
 
+        currentNewsType: '' as NewsType,
+
         isLoading: false,
         errorMessage: '',
     }),
+
+    getters: {
+        lastNews(state) {
+            return state.news
+                .sort(
+                    (news1, news2) =>
+                        +news1.dateOfCreation - +news2.dateOfCreation,
+                )
+                .slice(0, 4);
+        },
+    },
 
     actions: {
         async getNews(page = 1, pageSize = 4, type?: NewsType) {
