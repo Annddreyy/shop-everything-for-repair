@@ -7,3 +7,4 @@ export { FAQModel } from './faq';
 export { ProductCategorieModel } from './productCategories';
 export { RegionsModel } from './regions';
 export { ContactPersonsModel } from './contactPersons';
+export { PromocodesModel } from './promocode';

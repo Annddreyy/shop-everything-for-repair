@@ -8,3 +8,4 @@ export { advantagesRouter } from './advantages';
 export { brandsRouter } from './brands';
 export { regionsRouter } from './regions';
 export { contactPersonsRouter } from './contactPersons';
+export { promocodesRouter } from './promocodes';

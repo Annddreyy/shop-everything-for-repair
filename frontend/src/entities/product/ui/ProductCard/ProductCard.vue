@@ -77,11 +77,7 @@
 import { ref, computed } from 'vue';
 import { onLoadError } from '@/shared/libs/ui';
 import type { Product } from '@/entities/product';
-import {
-    checkItemExistsInLS,
-    LSItemTypes,
-    toggleItemInLS,
-} from '@/shared/libs/localStorage';
+import { checkItemExistsInLS, toggleItemInLS, LSItemTypes } from '@/shared/model/useLS';
 
 import CartButton from './CartButton/CartButton.vue';
 import CompareButton from './CompareButton/CompareButton.vue';

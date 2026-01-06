@@ -10,6 +10,7 @@ import Product from './Product/Product.vue';
 import News from './News/News.vue';
 import OneNews from './News/OneNews.vue';
 import Promotions from './Promotions.vue';
+import Bin from './Bin/Bin.vue';
 
 export {
     Page404,
@@ -24,4 +25,5 @@ export {
     News,
     Promotions,
     OneNews,
+    Bin,
 };
