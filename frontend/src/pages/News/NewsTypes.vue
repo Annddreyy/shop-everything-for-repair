@@ -7,7 +7,7 @@
                     'headings__type',
                     { 'headings__type--active': !currentNewsType },
                 ]"
-                @click="currentNewsType = undefined"
+                @click="currentNewsType = '' as NewsType"
             >
                 Все публикации
                 <span class="headings__count">{{ allNewsCount }}</span>
@@ -57,8 +57,9 @@
 </template>
 
 <script setup lang="ts">
-import type { NewsType } from '@/entities/news';
-import { computed, ref, watch } from 'vue';
+import { computed, watch } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useNewsStore, type NewsType } from '@/entities/news';
 
 const { news, review, tips, article } = defineProps<{
     news: number;
@@ -71,7 +72,8 @@ const emit = defineEmits<{
     setType: [type?: NewsType];
 }>();
 
-const currentNewsType = ref<NewsType | undefined>();
+const newsStore = useNewsStore();
+const { currentNewsType } = storeToRefs(newsStore);
 
 const allNewsCount = computed(() => news + review + tips + article);
 
@@ -111,6 +113,10 @@ watch(currentNewsType, () => {
 
         border-bottom: 1px solid #f4f4f4;
         cursor: pointer;
+
+        &:last-of-type {
+            border-bottom: none;
+        }
 
         &--active {
             font-weight: bold;

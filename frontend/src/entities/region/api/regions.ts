@@ -2,7 +2,9 @@ import { instance } from '@/shared/api';
 import { createApiError } from '@/shared/libs/api';
 import type { Region } from '../model/useRegions';
 
-type RegionsDTO = BaseResponse<Region[]>;
+type RegionsDTO = BaseResponse<{
+    regions: Region[];
+}>;
 
 export const regionsAPI = {
     async getRegions() {

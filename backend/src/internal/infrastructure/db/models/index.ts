@@ -4,3 +4,6 @@ export { PromotionsModel } from './promotion';
 export { ReviewsModel } from './reviews';
 export { UsersModel } from './user';
 export { FAQModel } from './faq';
+export { ProductCategorieModel } from './productCategories';
+export { RegionsModel } from './regions';
+export { ContactPersonsModel } from './contactPersons';

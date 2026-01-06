@@ -27,7 +27,7 @@
         </div>
         <BrandsList :brands="brands" />
         <AboutMagazine />
-        <NewsSection class="news" :news="news" />
+        <LastNews class="news" :news="news" />
     </BasePage>
 </template>
 
@@ -47,10 +47,10 @@ import { BrandsList, useBrandsStore } from '@/entities/brand';
 import { useNewsStore } from '@/entities/news';
 
 import { ComponentsList } from '@/shared/ui';
+import { LastNews } from '@/widgets';
 
 import BasePage from '../BasePage.vue';
 import TopSlider from './TopSlider.vue';
-import NewsSection from './NewsSection.vue';
 import AboutMagazine from './AboutMagazine/AboutMagazine.vue';
 
 const promotionsStore = usePromotionsStore();

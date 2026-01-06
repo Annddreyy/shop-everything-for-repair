@@ -23,7 +23,7 @@ export const useRegionsStore = defineStore('regions', {
             const response = await regionsAPI.getRegions();
 
             if (response.status === 'success') {
-                this.regions = response.data;
+                this.regions = response.data.regions;
             } else {
                 this.errorMessage = response.error;
             }

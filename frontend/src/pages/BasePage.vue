@@ -1,10 +1,18 @@
 <template>
     <HeaderComponent />
     <main>
-        <div class="container">
-            <BreadCrumbs v-if="breadcrumbs" :breadcrumbs="breadcrumbs" />
+        <div
+            :style="{
+                backgroundImage: `url(${backgroundImage})`,
+                backgroundSize: 'cover',
+            }"
+        >
+            <div class="container">
+                <BreadCrumbs v-if="breadcrumbs" :breadcrumbs="breadcrumbs" />
+                <PageTitle v-if="title" :title="title" />
+                <div v-html="html" />
+            </div>
         </div>
-        <PageTitle v-if="title" :title="title" />
         <slot />
     </main>
     <FooterComponent />
@@ -18,6 +26,8 @@ import { HeaderComponent, FooterComponent, OrderCall } from '@/widgets';
 defineProps<{
     breadcrumbs?: Link[];
     title?: string;
+    html?: string;
+    backgroundImage?: string;
 }>();
 </script>
 

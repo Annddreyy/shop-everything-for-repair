@@ -48,7 +48,7 @@ export const productController = {
     ) {
         const productCard = await productsRepository.findProduct(req.params.id);
 
-        if (!productCard[0]) {
+        if (!productCard) {
             res.json({
                 status: 'error',
                 messages: ['Товар не найден'],
@@ -58,7 +58,7 @@ export const productController = {
 
         res.json({
             status: 'success',
-            data: { product: productCard[0] },
+            data: { product: productCard },
         });
     },
 

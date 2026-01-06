@@ -1,7 +1,5 @@
 <template>
-    <div class="container">
-        <h1 class="page-title">{{ title }}</h1>
-    </div>
+    <h1 class="page-title">{{ title }}</h1>
 </template>
 
 <script setup lang="ts">
@@ -12,9 +10,13 @@ defineProps<{
 
 <style lang="scss" scoped>
 .page-title {
-    margin-top: 0px;
-    margin-bottom: 30px;
+    margin-top: 4px;
+    margin-bottom: 20px;
 
     font-size: 48px;
+
+    @media (max-width: 1250px) {
+        font-size: 30px;
+    }
 }
 </style>

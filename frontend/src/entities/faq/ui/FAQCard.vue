@@ -21,9 +21,10 @@ defineProps<FAQ>();
 
         position: relative;
 
-        padding: 19px 10px;
+        padding: 18px 10px;
 
         font-size: 18px;
+        line-height: 27px;
         color: #2c333d;
 
         border-bottom: 1px solid #edf0f2;
@@ -43,10 +44,13 @@ defineProps<FAQ>();
 
             border-radius: 50%;
 
-            font-weight: bold;
+            font-size: 32px;
             color: #186fd4;
 
             background-color: #ebf7ff;
+            cursor: pointer;
+
+            line-height: 1;   
         }
 
         &::-webkit-details-marker {

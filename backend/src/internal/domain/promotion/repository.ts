@@ -45,9 +45,12 @@ export const promotionsRepository = {
         const promotion = await PromotionsModel.findOne({
             _id: new ObjectId(id),
         }).lean<WithMongoId<Promotion>>();
-        return {
-            id: promotion?._id.toString(),
-            ...promotion,
-        };
+
+        if (promotion) {
+            return {
+                id: promotion?._id.toString(),
+                ...promotion,
+            };
+        }
     },
 };

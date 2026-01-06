@@ -3,7 +3,7 @@
         <Advantage
             v-for="advantage in advantages"
             :key="advantage.id"
-            v-bind="advantage"
+            v-bind="{ ...advantage, withFullDescription }"
         />
     </section>
 </template>
@@ -14,6 +14,7 @@ import Advantage from './Advantage.vue';
 
 defineProps<{
     advantages: AdvantageType[];
+    withFullDescription?: boolean;
 }>();
 </script>
 

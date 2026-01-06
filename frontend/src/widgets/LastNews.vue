@@ -11,7 +11,7 @@
                 />
             </div>
             <Suspense :timeout="200">
-                <NewsList :news="news" />
+                <NewsList :news="newsStore.lastNews" />
                 <template #fallback>
                     <SkeletonCards />
                 </template>
@@ -21,12 +21,11 @@
 </template>
 
 <script setup lang="ts">
-import { NewsList, type News } from '@/entities/news';
+import { NewsList, useNewsStore } from '@/entities/news';
 import { Colors, BaseButton, SkeletonCards } from '@/shared/ui';
 
-defineProps<{
-    news: News[];
-}>();
+const newsStore = useNewsStore();
+await newsStore.getNews();
 </script>
 
 <style lang="scss" scoped>
@@ -44,7 +43,7 @@ defineProps<{
     }
 
     &__title {
-        font-size: 31px;
+        font-size: 33px;
         margin: 0;
     }
 

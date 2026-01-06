@@ -35,11 +35,11 @@ export const promotionsController = {
         req: RequestWithParams<WithId>,
         res: BaseResponse<PromotionDTOResponse>,
     ) {
-        const promotions = await promotionsRepository.findPromotion(
+        const promotion = await promotionsRepository.findPromotion(
             req.params.id,
         );
 
-        if (!promotions[0]) {
+        if (!promotion) {
             res.json({
                 status: 'error',
                 messages: [`Акция c id: ${req.params.id}`],
@@ -49,7 +49,7 @@ export const promotionsController = {
 
         res.json({
             status: 'success',
-            data: { promotion: promotions[0] },
+            data: { promotion },
         });
     },
 

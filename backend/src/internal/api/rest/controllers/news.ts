@@ -43,7 +43,7 @@ export const newsController = {
     ) {
         const news = await newsRepository.findOneNews(req.params.id);
 
-        if (!news[0]) {
+        if (!news) {
             res.json({
                 status: 'error',
                 messages: ['Новость не найдена'],
@@ -53,9 +53,7 @@ export const newsController = {
 
         res.json({
             status: 'success',
-            data: {
-                news: news[0],
-            },
+            data: { news },
         });
     },
 
@@ -96,10 +94,17 @@ export const newsController = {
 
         const updatedNewsCard = await newsRepository.findOneNews(id);
 
+        if (updatedNewsCard) {
+            res.json({
+                status: 'success',
+                data: { news: updatedNewsCard },
+            });
+            return;
+        }
         res.json({
-            status: 'success',
-            data: { news: updatedNewsCard[0] },
-        });
+            status: 'error',
+            messages: ['Не удалось получить обновленную новость'],
+        })
     },
 
     async getCountOfNewsTypes(

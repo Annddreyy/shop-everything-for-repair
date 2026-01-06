@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import { NewsModel } from '@/internal/infrastructure/db/models';
 import type { News, NewsType } from './news';
 
@@ -35,13 +36,17 @@ export const newsRepository = {
     },
 
     async findOneNews(id: string) {
+        console.log(id);
         const news = await NewsModel.findOne({ _id: new ObjectId(id) }).lean<
             WithMongoId<News>
         >();
-        return {
-            id: news?._id.toString(),
-            ...news,
-        };
+
+        if (news) {
+            return {
+                id: news?._id.toString(),
+                ...news,
+            };
+        }
     },
 
     async findNews({
@@ -69,15 +74,28 @@ export const newsRepository = {
     },
 
     async getCountOfNewsTypes() {
-        const news = await NewsModel.find({ type: 'news' }).countDocuments();
-        const tips = await NewsModel.find({ type: 'tips' }).countDocuments();
-        const article = await NewsModel.find({
-            type: 'article',
-        }).countDocuments();
-        const review = await NewsModel.find({
-            type: 'review',
-        }).countDocuments();
+        const counts = await NewsModel.aggregate([
+            {
+                $group: {
+                    _id: '$type',
+                    count: { $sum: 1 },
+                },
+            },
+        ]);
 
-        return { news, tips, article, review };
+        const result = {
+            news: 0,
+            tips: 0,
+            article: 0,
+            review: 0,
+        };
+
+        counts.forEach((item) => {
+            if (item._id in result) {
+                result[item._id] = item.count;
+            }
+        });
+
+        return result;
     },
 };

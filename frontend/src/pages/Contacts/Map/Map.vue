@@ -64,29 +64,39 @@
 <script setup lang="ts">
 import { onMounted, useTemplateRef } from 'vue';
 import { Loader } from '@googlemaps/js-api-loader';
+import { settings } from '@/settings';
 
 const mapElem = useTemplateRef('map');
 
 onMounted(async () => {
-    const loader = new Loader({
-        apiKey: import.meta.env.GOOGLE_MAPS_KEY,
-        version: 'weekly',
-        libraries: ['places'],
-        language: 'ru',
-        region: 'RU',
-    });
+    try {
+        const loader = new Loader({
+            apiKey: settings.GOOGLE_MAPS_KEY,
+            version: 'weekly',
+            libraries: ['places'],
+            language: 'ru',
+            region: 'RU',
+        });
 
-    const google = await loader.importLibrary('core');
-    const map = new google.maps.Map(mapElem.value, {
-        center: { lat: 55.7558, lng: 37.6173 },
-        zoom: 20,
-        mapId: 'DEMO_MAP_ID',
-    });
+        const { Map } = await loader.importLibrary('maps');
+        const { Marker } = await loader.importLibrary('marker');
 
-    new google.maps.Marker({
-        position: { lat: 55.7558, lng: 37.6173 },
-        map,
-    });
+        const position = { lat: 44.2231, lng: 42.0581 };
+
+        const map = new Map(mapElem.value, {
+            center: position,
+            zoom: 17,
+            mapId: 'DEMO_MAP_ID',
+        });
+
+        new Marker({
+            position: position,
+            map: map,
+            title: 'Магазин "Всё для ремонта"',
+        });
+    } catch (error) {
+        console.error('Ошибка загрузки Google Maps:', error);
+    }
 });
 </script>
 

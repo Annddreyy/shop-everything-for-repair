@@ -2,7 +2,9 @@ import { instance } from '@/shared/api';
 import { createApiError } from '@/shared/libs/api';
 import type { ContactPerson } from '../model/useContactPersons';
 
-type ContactPersonsDTO = BaseResponse<ContactPerson[]>;
+type ContactPersonsDTO = BaseResponse<{
+    contactPersons: ContactPerson[];
+}>;
 
 export const contactPersonsAPI = {
     async getContactPersons() {

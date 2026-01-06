@@ -2,7 +2,9 @@ import { instance } from '@/shared/api';
 import { createApiError } from '@/shared/libs/api';
 import type { ProductCategory } from '../model/useProductCategories';
 
-type ProductCategoryDTO = BaseResponse<ProductCategory[]>;
+type ProductCategoryDTO = BaseResponse<{
+    productCategories: ProductCategory[];
+}>;
 
 export const productCategoriesAPI = {
     async getProductCategories() {

@@ -2,7 +2,9 @@ import { instance } from '@/shared/api';
 import { createApiError } from '@/shared/libs/api';
 import type { Brand } from '../model/brands';
 
-type BrandsDTO = BaseResponse<Brand[]>;
+type BrandsDTO = BaseResponse<{
+    brands: Brand[];
+}>;
 
 export const brandsAPI = {
     async getBrands() {

@@ -22,7 +22,7 @@ export const useBrandsStore = defineStore('bran', {
             const response = await brandsAPI.getBrands();
 
             if (response.status === 'success') {
-                this.brands = response.data;
+                this.brands = response.data.brands;
             } else {
                 this.errorMessage = response.error;
             }

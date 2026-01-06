@@ -22,7 +22,7 @@ export const useProductCategoriesStore = defineStore('productCategories', {
             const response = await productCategoriesAPI.getProductCategories();
 
             if (response.status === 'success') {
-                this.productCategories = response.data;
+                this.productCategories = response.data.productCategories;
             } else {
                 this.errorMessage = response.error;
             }

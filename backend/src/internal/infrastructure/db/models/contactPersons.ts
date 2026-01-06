@@ -9,6 +9,6 @@ const contactPersonsSchema = new Schema({
 });
 
 export const ContactPersonsModel = mongoose.model(
-    'contactPersons',
+    'contact_persons',
     contactPersonsSchema,
 );

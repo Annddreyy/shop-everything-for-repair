@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { contactPersonsAPI } from '../api/contactPersons';
 
-export type ContactPerson = {
+export interface ContactPerson {
     id: string;
     jobTitle: string;
     phone: string;
@@ -22,7 +22,7 @@ export const useContactPersonsStore = defineStore('contactPersons', {
 
             const response = await contactPersonsAPI.getContactPersons();
             if (response.status === 'success') {
-                this.contactPersons = response.data;
+                this.contactPersons = response.data.contactPersons;
             } else {
                 this.errorMesaage = response.error;
             }
